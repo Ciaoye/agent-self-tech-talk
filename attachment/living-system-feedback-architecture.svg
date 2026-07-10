@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
+  <title id="title">建议的新架构：生命反馈引擎</title>
+  <desc id="desc">生活源头经过证据与伦理层，形成时间、意义和当下三种视图，再进入观察、假设、反证、实验、结果和修订的生命反馈引擎，输出到数字内观、创作、社会实践和公开人格，并由现实结果反哺生活。</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .section-title { font-size: 18px; font-weight: 760; }
+      .card-title { font-size: 16px; font-weight: 760; }
+      .body { font-size: 13px; fill: #3f4e4c; }
+      .small { font-size: 12px; fill: #596362; }
+      .tiny { font-size: 11px; fill: #596362; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .green-text { fill: #006b61; }
+      .yellow-text { fill: #7a3f00; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .line-soft { stroke: #74736c; stroke-width: 1.5; fill: none; stroke-dasharray: 5 6; stroke-linecap: round; }
+      .line-green { stroke: #10a98c; stroke-width: 2.3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .divider { stroke: #d5d1c7; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#10a98c"/>
+    </marker>
+  </defs>
+
+  <text x="512" y="38" text-anchor="middle" class="title">建议的新架构：生命反馈引擎</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">真正的内核不是“检索更多”，而是让理解进入现实，再被现实修订</text>
+
+  <!-- 生活源头 -->
+  <rect x="70" y="84" width="884" height="72" rx="10" class="neutral"/>
+  <text x="94" y="111" class="section-title">生活源头</text>
+  <text x="94" y="135" class="body">真实发生的生活，不是为了系统而制造的数据</text>
+
+  <rect x="310" y="101" width="88" height="36" rx="18" class="white"/>
+  <text x="354" y="124" text-anchor="middle" class="body">身体</text>
+  <rect x="410" y="101" width="88" height="36" rx="18" class="white"/>
+  <text x="454" y="124" text-anchor="middle" class="body">事件</text>
+  <rect x="510" y="101" width="88" height="36" rx="18" class="white"/>
+  <text x="554" y="124" text-anchor="middle" class="body">关系</text>
+  <rect x="610" y="101" width="88" height="36" rx="18" class="white"/>
+  <text x="654" y="124" text-anchor="middle" class="body">聊天</text>
+  <rect x="710" y="101" width="88" height="36" rx="18" class="white"/>
+  <text x="754" y="124" text-anchor="middle" class="body">作品</text>
+  <rect x="810" y="101" width="88" height="36" rx="18" class="white"/>
+  <text x="854" y="124" text-anchor="middle" class="body">环境</text>
+
+  <line x1="512" y1="156" x2="512" y2="178" class="line" marker-end="url(#arrow)"/>
+
+  <!-- 证据与伦理 -->
+  <rect x="188" y="184" width="648" height="66" rx="9" class="yellow"/>
+  <text x="512" y="210" text-anchor="middle" class="section-title yellow-text">证据与伦理层</text>
+  <text x="512" y="234" text-anchor="middle" class="body yellow-text">record · source · privacy · consent　｜　先知道从哪里来、谁可以看、能否被使用</text>
+
+  <!-- 分叉到三种视图 -->
+  <path d="M 512 250 L 512 270 L 210 270 L 210 288" class="line" marker-end="url(#arrow)"/>
+  <path d="M 512 250 L 512 288" class="line" marker-end="url(#arrow)"/>
+  <path d="M 512 270 L 814 270 L 814 288" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="84" y="294" width="252" height="82" rx="9" class="blue"/>
+  <text x="210" y="322" text-anchor="middle" class="card-title blue-text">时间视图</text>
+  <text x="210" y="346" text-anchor="middle" class="body blue-text">不同年龄的我</text>
+  <text x="210" y="364" text-anchor="middle" class="small">什么在时间中变化？</text>
+
+  <rect x="386" y="294" width="252" height="82" rx="9" class="purple"/>
+  <text x="512" y="322" text-anchor="middle" class="card-title purple-text">意义视图</text>
+  <text x="512" y="346" text-anchor="middle" class="body purple-text">LLM Wiki</text>
+  <text x="512" y="364" text-anchor="middle" class="small">什么在语义上连接？</text>
+
+  <rect x="688" y="294" width="252" height="82" rx="9" class="green"/>
+  <text x="814" y="322" text-anchor="middle" class="card-title green-text">当下状态视图</text>
+  <text x="814" y="346" text-anchor="middle" class="body green-text">daily / discussion</text>
+  <text x="814" y="364" text-anchor="middle" class="small">此刻正在发生什么？</text>
+
+  <!-- 汇聚到生命反馈引擎 -->
+  <path d="M 210 376 L 210 402 L 512 402 L 512 418" class="line" marker-end="url(#arrow)"/>
+  <line x1="512" y1="376" x2="512" y2="418" class="line" marker-end="url(#arrow)"/>
+  <path d="M 814 376 L 814 402 L 512 402" class="line"/>
+
+  <rect x="54" y="424" width="916" height="124" rx="11" class="purple"/>
+  <text x="512" y="452" text-anchor="middle" class="section-title purple-text">生命反馈引擎</text>
+  <text x="512" y="472" text-anchor="middle" class="small">把“我懂了”变成可被现实验证、反驳和更新的循环</text>
+
+  <rect x="78" y="486" width="126" height="44" rx="8" class="white"/>
+  <text x="141" y="513" text-anchor="middle" class="card-title">观察</text>
+  <line x1="204" y1="508" x2="222" y2="508" class="line" marker-end="url(#arrow)"/>
+  <rect x="228" y="486" width="126" height="44" rx="8" class="blue"/>
+  <text x="291" y="513" text-anchor="middle" class="card-title blue-text">假设</text>
+  <line x1="354" y1="508" x2="372" y2="508" class="line" marker-end="url(#arrow)"/>
+  <rect x="378" y="486" width="126" height="44" rx="8" class="yellow"/>
+  <text x="441" y="513" text-anchor="middle" class="card-title yellow-text">反证</text>
+  <line x1="504" y1="508" x2="522" y2="508" class="line" marker-end="url(#arrow)"/>
+  <rect x="528" y="486" width="126" height="44" rx="8" class="green"/>
+  <text x="591" y="513" text-anchor="middle" class="card-title green-text">实验</text>
+  <line x1="654" y1="508" x2="672" y2="508" class="line" marker-end="url(#arrow)"/>
+  <rect x="678" y="486" width="126" height="44" rx="8" class="blue"/>
+  <text x="741" y="513" text-anchor="middle" class="card-title blue-text">结果</text>
+  <line x1="804" y1="508" x2="822" y2="508" class="line" marker-end="url(#arrow)"/>
+  <rect x="828" y="486" width="118" height="44" rx="8" class="green"/>
+  <text x="887" y="513" text-anchor="middle" class="card-title green-text">修订</text>
+
+  <!-- 输出能力 -->
+  <line x1="512" y1="548" x2="512" y2="568" class="line" marker-end="url(#arrow)"/>
+  <path d="M 512 568 L 158 568 L 158 582" class="line-soft" marker-end="url(#arrow)"/>
+  <path d="M 512 568 L 394 568 L 394 582" class="line-soft" marker-end="url(#arrow)"/>
+  <path d="M 512 568 L 630 568 L 630 582" class="line-soft" marker-end="url(#arrow)"/>
+  <path d="M 512 568 L 866 568 L 866 582" class="line-soft" marker-end="url(#arrow)"/>
+
+  <rect x="64" y="588" width="188" height="68" rx="9" class="purple"/>
+  <text x="158" y="616" text-anchor="middle" class="card-title purple-text">数字内观</text>
+  <text x="158" y="640" text-anchor="middle" class="small">私人陪伴与觉察</text>
+
+  <rect x="300" y="588" width="188" height="68" rx="9" class="blue"/>
+  <text x="394" y="616" text-anchor="middle" class="card-title blue-text">写作与艺术</text>
+  <text x="394" y="640" text-anchor="middle" class="small">把理解变成作品</text>
+
+  <rect x="536" y="588" width="188" height="68" rx="9" class="green"/>
+  <text x="630" y="616" text-anchor="middle" class="card-title green-text">营地与社区</text>
+  <text x="630" y="640" text-anchor="middle" class="small">把方法放进关系现场</text>
+
+  <rect x="772" y="588" width="188" height="68" rx="9" class="yellow"/>
+  <text x="866" y="616" text-anchor="middle" class="card-title yellow-text">ciao</text>
+  <text x="866" y="640" text-anchor="middle" class="small">公开人格与对话入口</text>
+
+  <!-- 现实结果与回流 -->
+  <line x1="158" y1="656" x2="158" y2="682" class="line-soft"/>
+  <line x1="394" y1="656" x2="394" y2="682" class="line-soft"/>
+  <line x1="630" y1="656" x2="630" y2="682" class="line-soft"/>
+  <line x1="866" y1="656" x2="866" y2="682" class="line-soft"/>
+  <rect x="64" y="678" width="896" height="52" rx="9" class="green"/>
+  <text x="512" y="699" text-anchor="middle" class="card-title green-text">现实结果</text>
+  <text x="512" y="718" text-anchor="middle" class="body green-text">选择 · 身体变化 · 关系动作 · 作品 · 制度原型</text>
+
+  <path d="M 64 704 L 18 704 L 18 120 L 70 120" class="line-green" marker-end="url(#arrow-green)"/>
+  <text x="35" y="414" transform="rotate(-90 35 414)" text-anchor="middle" class="small green-text">现实反哺下一轮生活</text>
+
+  <text x="512" y="754" text-anchor="middle" class="small green-text">现实结果不是输出终点，而是下一轮生活的输入</text>
+</svg>

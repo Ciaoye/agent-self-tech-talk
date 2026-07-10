@@ -1,120 +1,137 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
-  <title id="title">本次分享会的实际工作流</title>
-  <desc id="desc">这套 slides 本身也是用同样的写作工作流产出的</desc>
-
+<svg viewBox="0 0 1024 768" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      text {
-        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
-        fill: #18343a;
-      }
-      .title { font-size: 28px; font-weight: 760; }
-      .claim { font-size: 15px; fill: #596362; }
-      .step-title { font-size: 20px; font-weight: 760; }
-      .body { font-size: 13.5px; fill: #3f4e4c; }
-      .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px; fill: #596362; }
-      .note { font-size: 12.5px; fill: #596362; font-style: italic; }
-      .folder-title { font-size: 17px; font-weight: 760; fill: #18343a; }
-      .folder-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 760; fill: #18343a; }
-      .folder-mono-sub { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px; fill: #596362; }
-      .folder-note { font-size: 12.5px; fill: #596362; }
-      .summary-text { font-size: 14px; fill: #7a3f00; }
-      .choices-title { font-size: 17px; font-weight: 760; fill: #1b4d7a; }
-      .choices-text { font-size: 13.5px; fill: #3f4e4c; }
-      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
-      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
-      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
-      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
-      .panel { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
-      .yellow-text { fill: #7a3f00; }
-      .blue-text { fill: #1b4d7a; }
-      .purple-text { fill: #4b2e83; }
-      .green-text { fill: #006b61; }
-      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .bg { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.5; }
+      .title { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 20px; font-weight: 700; fill: #18343a; text-anchor: middle; }
+      .subtitle { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 12px; fill: #4c4b46; text-anchor: middle; }
+      /* Step 1 - Yellow */
+      .s1-card { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.5; }
+      .s1-title { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 14px; font-weight: 700; fill: #7a3f00; text-anchor: middle; }
+      .s1-text { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 11px; fill: #4c4b46; }
+      .s1-mono { font-family: 'JetBrains Mono', 'Cascadia Code', ui-monospace, monospace; font-size: 10px; fill: #74736c; }
+      .s1-note { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 10px; fill: #74736c; font-style: italic; }
+      /* Step 2 - Blue */
+      .s2-card { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.5; }
+      .s2-title { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 14px; font-weight: 700; fill: #1b4d7a; text-anchor: middle; }
+      .s2-text { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 11px; fill: #4c4b46; }
+      .s2-note { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 10px; fill: #74736c; font-style: italic; }
+      /* Step 3 - Purple */
+      .s3-card { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.5; }
+      .s3-title { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 14px; font-weight: 700; fill: #4b2e83; text-anchor: middle; }
+      .s3-text { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 11px; fill: #4c4b46; }
+      .s3-note { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 10px; fill: #74736c; font-style: italic; }
+      /* Step 4 - Green */
+      .s4-card { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.5; }
+      .s4-title { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 14px; font-weight: 700; fill: #006b61; text-anchor: middle; }
+      .s4-text { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 11px; fill: #4c4b46; }
+      .s4-note { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 10px; fill: #74736c; font-style: italic; }
+      /* Arrows */
+      .arrow-line { stroke: #74736c; stroke-width: 2; fill: none; }
+      /* Folder */
+      .folder-card { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.5; }
+      .folder-title { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 13px; font-weight: 700; fill: #18343a; }
+      .folder-mono { font-family: 'JetBrains Mono', 'Cascadia Code', ui-monospace, monospace; font-size: 10px; fill: #4c4b46; }
+      .folder-note { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 9px; fill: #74736c; }
+      /* Summary */
+      .summary-card { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.5; }
+      .summary-text { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 12px; fill: #7a3f00; text-anchor: middle; }
+      /* Key choices */
+      .choices-card { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.5; }
+      .choices-title { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 12px; font-weight: 700; fill: #1b4d7a; }
+      .choices-text { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 11px; fill: #4c4b46; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#74736c"/>
     </marker>
   </defs>
 
-  <!-- Header -->
-  <text x="512" y="38" text-anchor="middle" class="title">本次分享会的实际工作流</text>
-  <text x="512" y="62" text-anchor="middle" class="claim">这套 slides 本身也是用同样的写作工作流产出的</text>
+  <!-- Background -->
+  <rect x="12" y="12" width="1000" height="744" rx="12" class="bg"/>
 
-  <!-- ===== FOUR STEP BOXES ===== -->
+  <!-- Main Title -->
+  <text x="512" y="42" class="title">本次分享会的实际工作流</text>
+  <text x="512" y="62" class="subtitle">这套 slides 本身也是用同样的写作工作流产出的</text>
+
+  <!-- ====== FOUR STEP BOXES (original content, unchanged) ====== -->
+
   <!-- Step 1: 素材搜集 -->
-  <rect x="24" y="82" width="232" height="200" rx="8" class="yellow"/>
-  <text x="140" y="112" text-anchor="middle" class="step-title yellow-text">Step 1 · 素材搜集</text>
-  <text x="40" y="140" class="body">📁 references/</text>
-  <text x="40" y="162" class="mono">├ 分享会结构提纲与可用素材.md</text>
-  <text x="40" y="182" class="mono">├ 分享会思维素材库.md (50K)</text>
-  <text x="40" y="202" class="mono">├ 别人的分享/ (Poolside等)</text>
-  <text x="40" y="232" class="note">AI 搜索 flomo/wiki/网络</text>
-  <text x="140" y="262" text-anchor="middle" class="note">👤 俏也提供素材方向</text>
+  <rect x="24" y="80" width="232" height="162" rx="8" class="s1-card"/>
+  <text x="140" y="106" class="s1-title">Step 1 · 素材搜集</text>
+  <text x="40" y="130" class="s1-text">📁 references/</text>
+  <text x="40" y="150" class="s1-mono">├ 分享会结构提纲与可用素材.md</text>
+  <text x="40" y="168" class="s1-mono">├ 分享会思维素材库.md (50K)</text>
+  <text x="40" y="186" class="s1-mono">├ 别人的分享/ (Poolside等)</text>
+  <text x="40" y="212" class="s1-note">AI 搜索 flomo/wiki/网络</text>
+  <text x="140" y="234" text-anchor="middle" class="s1-note">👤 俏也提供素材方向</text>
 
-  <line x1="260" y1="182" x2="280" y2="182" class="line" marker-end="url(#arrow)"/>
+  <line x1="260" y1="161" x2="280" y2="161" class="arrow-line" marker-end="url(#arrow)"/>
 
   <!-- Step 2: 讨论 & 出架构 -->
-  <rect x="284" y="82" width="232" height="200" rx="8" class="blue"/>
-  <text x="400" y="112" text-anchor="middle" class="step-title blue-text">Step 2 · 讨论 &amp; 出架构</text>
-  <text x="300" y="140" class="body">🗣 俏也与 AI 聊方向</text>
-  <text x="300" y="162" class="body">📝 生成完整参考架构稿</text>
-  <text x="300" y="184" class="body">📎 引用所有可用素材</text>
-  <text x="300" y="206" class="body">🔗 指定应插入的 SVG 图表</text>
-  <text x="300" y="236" class="note">俏也确认方向 · 补充反馈</text>
-  <text x="400" y="262" text-anchor="middle" class="note">🤖 AI 整理 → 👤 俏也确认</text>
+  <rect x="284" y="80" width="232" height="162" rx="8" class="s2-card"/>
+  <text x="400" y="106" class="s2-title">Step 2 · 讨论 &amp; 出架构</text>
+  <text x="300" y="130" class="s2-text">🗣 俏也与 AI 聊方向</text>
+  <text x="300" y="150" class="s2-text">📝 生成完整参考架构稿</text>
+  <text x="300" y="170" class="s2-text">📎 引用所有可用素材</text>
+  <text x="300" y="190" class="s2-text">🔗 指定应插入的 SVG 图表</text>
+  <text x="300" y="216" class="s2-note">俏也确认方向 · 补充反馈</text>
+  <text x="400" y="234" text-anchor="middle" class="s2-note">🤖 AI 整理架构 → 👤 俏也确认</text>
 
-  <line x1="520" y1="182" x2="540" y2="182" class="line" marker-end="url(#arrow)"/>
+  <line x1="520" y1="161" x2="540" y2="161" class="arrow-line" marker-end="url(#arrow)"/>
 
   <!-- Step 3: 俏也讲 -->
-  <rect x="544" y="82" width="232" height="200" rx="8" class="purple"/>
-  <text x="660" y="112" text-anchor="middle" class="step-title purple-text">Step 3 · 俏也讲</text>
-  <text x="560" y="140" class="body">🎙 语音转文字</text>
-  <text x="560" y="162" class="body">📄 分享会想讲什么 v1.md</text>
-  <text x="560" y="184" class="body">(68K · 完整语音转录)</text>
-  <text x="560" y="206" class="body">✏ 我是自己写的提纲</text>
-  <text x="560" y="236" class="note">AI写的太成块 · 人不是机器</text>
-  <text x="660" y="262" text-anchor="middle" class="note">👤 俏也主导讲述</text>
+  <rect x="544" y="80" width="232" height="162" rx="8" class="s3-card"/>
+  <text x="660" y="106" class="s3-title">Step 3 · 俏也讲</text>
+  <text x="560" y="130" class="s3-text">🎙 语音转文字</text>
+  <text x="560" y="150" class="s3-text">📄 分享会想讲什么 v1.md</text>
+  <text x="560" y="170" class="s3-text">(68K · 完整语音转录)</text>
+  <text x="560" y="192" class="s3-text">✏ 我是自己写的提纲</text>
+  <text x="560" y="216" class="s3-note">AI写的太成块 · 人不是机器</text>
+  <text x="660" y="234" text-anchor="middle" class="s3-note">👤 俏也主导讲述</text>
 
-  <line x1="780" y1="182" x2="800" y2="182" class="line" marker-end="url(#arrow)"/>
+  <line x1="780" y1="161" x2="800" y2="161" class="arrow-line" marker-end="url(#arrow)"/>
 
   <!-- Step 4: 产出 -->
-  <rect x="804" y="82" width="196" height="200" rx="8" class="green"/>
-  <text x="902" y="112" text-anchor="middle" class="step-title green-text">Step 4 · 产出</text>
-  <text x="820" y="140" class="body">📄 整理结构 → PPT 大纲</text>
-  <text x="820" y="162" class="body">🎨 生成 HTML 预览</text>
-  <text x="820" y="184" class="body">🖼 嵌入 SVG 图表</text>
-  <text x="820" y="206" class="body">🎬 演示模式一键播放</text>
-  <text x="820" y="236" class="note">HTML→演示 · 原生格式</text>
-  <text x="902" y="262" text-anchor="middle" class="note">🤖 AI 生成 · 俏也审查</text>
+  <rect x="804" y="80" width="196" height="162" rx="8" class="s4-card"/>
+  <text x="902" y="106" class="s4-title">Step 4 · 产出</text>
+  <text x="820" y="130" class="s4-text">📄 整理结构 → PPT 大纲</text>
+  <text x="820" y="150" class="s4-text">🎨 生成 HTML 预览</text>
+  <text x="820" y="170" class="s4-text">🖼 嵌入 SVG 图表</text>
+  <text x="820" y="190" class="s4-text">🎬 演示模式一键播放</text>
+  <text x="820" y="216" class="s4-note">HTML→演示 · 原生格式</text>
+  <text x="902" y="234" text-anchor="middle" class="s4-note">🤖 AI 生成· 俏也审查</text>
 
-  <!-- ===== FOLDER STRUCTURE ===== -->
-  <rect x="24" y="300" width="976" height="170" rx="8" class="panel"/>
-  <text x="40" y="328" class="folder-title">实际项目文件夹结构</text>
-  <text x="40" y="356" class="folder-mono">人的harness/</text>
-  <text x="56" y="378" class="folder-mono-sub">├── README.md</text>
-  <text x="230" y="378" class="folder-note">← 项目文档 · 整体协调</text>
-  <text x="56" y="400" class="folder-mono-sub">├── 分享会想讲什么 v1 语音转文字.md</text>
-  <text x="390" y="400" class="folder-note">← 俏也讲 · 原始输入</text>
-  <text x="56" y="422" class="folder-mono-sub">├── references/</text>
-  <text x="230" y="422" class="folder-note">← AI 整理的参考资料</text>
-  <text x="72" y="444" class="folder-note">├── 分享会结构提纲与可用素材.md (75K) · 分享会思维素材库.md (50K)</text>
-  <text x="72" y="462" class="folder-note">└── 别人的分享/ (Poolside · Social Layer · 大鱼营造)</text>
+  <!-- ====== FOLDER STRUCTURE (updated) ====== -->
+  <rect x="24" y="260" width="976" height="200" rx="8" class="folder-card"/>
+  <text x="40" y="284" class="folder-title">实际项目文件夹结构</text>
+  <text x="40" y="308" class="folder-mono" fill="#18343a" font-weight="700">人的harness/</text>
 
-  <!-- ===== SUMMARY BAR ===== -->
-  <rect x="24" y="486" width="976" height="40" rx="6" class="yellow"/>
-  <text x="512" y="512" text-anchor="middle" class="summary-text">🤖 AI 负责：搜索素材 · 整理结构 · 生成 HTML/SVG · 排版 — 👤 俏也负责：定方向 · 语音讲 · 批注 · 最终判断</text>
+  <text x="56" y="326" class="folder-mono">├── README.md</text>
+  <text x="190" y="326" class="folder-note">← 项目文档 · 整体协调</text>
 
-  <!-- ===== KEY CHOICES ===== -->
-  <rect x="24" y="542" width="976" height="100" rx="8" class="blue"/>
-  <text x="40" y="572" class="choices-title">本次的关键选择</text>
-  <text x="40" y="598" class="choices-text">· 提纲是俏也自己想的——AI 写的太"成块"，第一部分15%就真的只写15%，但人讲着讲着开头可能就一小时</text>
-  <text x="40" y="622" class="choices-text">· 语音转文字后不做标注反馈，直接让 AI 根据提纲整理——因为内容太长</text>
+  <text x="56" y="344" class="folder-mono">├── 分享会想讲什么 v1 语音转文字.md (68K)</text>
+  <text x="380" y="344" class="folder-note">← 俏也讲 · 原始输入</text>
 
-  <!-- ===== BOTTOM FLOW ===== -->
-  <rect x="150" y="660" width="724" height="40" rx="8" class="green"/>
-  <text x="512" y="685" text-anchor="middle" class="body green-text" font-weight="760" font-size="15">四阶段环环相扣：人定方向 → 人机协作架构 → 人讲述 → 机器生成最终产出</text>
+  <text x="56" y="362" class="folder-mono">├── references/</text>
+  <text x="190" y="362" class="folder-note">← AI 整理的参考资料 (123个文件 · 15MB)</text>
+  <text x="72" y="380" class="folder-note">├── 分享会结构提纲与可用素材.md (74K) · 分享会思维素材库.md (50K)</text>
+  <text x="72" y="396" class="folder-note">├── 营地介绍语料库.md (28K) · 营地介绍写作架构.md (20K)</text>
+  <text x="72" y="412" class="folder-note">└── 别人的分享/ (Poolside · Social Layer · 大鱼营造 PDF · 赖声川 EPUB)</text>
 
-  <!-- ===== BOTTOM NOTE ===== -->
-  <text x="512" y="730" text-anchor="middle" class="note">每个 draft 头部累积决策日志 · 这套 slides 本身就是工作流的产物</text>
+  <text x="56" y="430" class="folder-mono">├── attachment/</text>
+  <text x="190" y="430" class="folder-note">← 37 个 SVG/PNG/HTML 信息图</text>
+  <text x="56" y="448" class="folder-mono">└── output/slides/</text>
+  <text x="190" y="448" class="folder-note">← index.html (93KB) + 37 attachment · 已部署 GitHub Pages</text>
+
+  <!-- ====== SUMMARY BAR ====== -->
+  <rect x="24" y="476" width="976" height="36" rx="6" class="summary-card"/>
+  <text x="512" y="500" class="summary-text">🤖 AI 负责：搜索素材 · 整理结构 · 生成 HTML/SVG · 排版 — 👤 俏也负责：定方向 · 语音讲 · 批注 · 最终判断</text>
+
+  <!-- ====== KEY CHOICES ====== -->
+  <rect x="24" y="528" width="976" height="86" rx="8" class="choices-card"/>
+  <text x="40" y="552" class="choices-title">本次的关键选择</text>
+  <text x="40" y="576" class="choices-text">· 提纲是俏也自己想的——AI 写的太"成块"，第一部分15%就真的只写15%，但人讲着讲着开头可能就一小时</text>
+  <text x="40" y="600" class="choices-text">· 语音转文字后不做标注反馈，直接让 AI 根据提纲整理——因为内容太长</text>
+
+  <!-- ====== BOTTOM NOTE ====== -->
+  <text x="512" y="650" text-anchor="middle" class="subtitle">四阶段环环相扣：人定方向 → 人机协作架构 → 人讲述 → 机器生成最终产出</text>
 </svg>
