@@ -104,9 +104,6 @@
   <text x="50" y="670" class="folder-desc">已部署运行（Web · 微信 · CloudBase）</text>
   <text x="50" y="690" class="folder-name green-text">package/</text>
   <text x="130" y="690" class="folder-desc">人格包（core/ 7 + worldview/ 11）</text>
-  <text x="50" y="702" class="folder-name green-text">agent/</text>
-  <text x="100" y="702" class="folder-desc">app.py + agent.py + knowledge_loader.py</text>
-
   <!-- ===== 俏也 OS/ ===== -->
   <rect x="514" y="606" width="482" height="100" rx="8" class="green"/>
   <rect x="514" y="606" width="6" height="100" rx="3" class="accent-green"/>
