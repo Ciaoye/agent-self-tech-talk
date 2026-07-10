@@ -1,0 +1,123 @@
+<svg viewBox="0 0 1024 768" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+
+      .bg-card { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.5; }
+      .title { font-size: 28px; font-weight: 760; fill: #18343a; }
+      .col-title { font-size: 20px; font-weight: 760; fill: #18343a; }
+      .col-subtitle { font-size: 13px; fill: #596362; }
+      .card-title { font-size: 17px; font-weight: 760; }
+      .card-body { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 13px; }
+      .card-note { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 11px; }
+      .arrow-line { stroke: #74736c; stroke-width: 2; fill: none; }
+      .label-note { font-family: system-ui, 'PingFang SC', sans-serif; font-size: 11px; fill: #596362; text-anchor: middle; }
+      /* Layer 1 - Data */
+      .l1-card { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.5; }
+      .l1-title { fill: #7a3f00; }
+      .l1-body { fill: #7a3f00; }
+      .l1-note { fill: #c28530; }
+      /* Layer 2 - Processing */
+      .l2-card { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.5; }
+      .l2-title { fill: #1b4d7a; }
+      .l2-body { fill: #1b4d7a; }
+      .l2-note { fill: #6fa3c7; }
+      /* Layer 3 - Insight */
+      .l3-card { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.5; }
+      .l3-title { fill: #4b2e83; }
+      .l3-body { fill: #4b2e83; }
+      .l3-note { fill: #8b6fd6; }
+      /* Layer 4 - Creation */
+      .l4-card { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.5; }
+      .l4-title { fill: #006b61; }
+      .l4-body { fill: #006b61; }
+      .l4-note { fill: #5abfad; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="12" y="12" width="1024" height="768" rx="12" class="bg-card"/>
+
+  <!-- Main Title -->
+  <text x="512" y="44" text-anchor="middle" class="title">系统八层金字塔 — 赖声川映射到俏也系统</text>
+
+  <!-- Column Headers -->
+  <text x="260" y="80" text-anchor="middle" class="col-title">赖声川创作金字塔</text>
+  <text x="260" y="98" text-anchor="middle" class="col-subtitle">创意学理论框架</text>
+
+  <text x="764" y="80" text-anchor="middle" class="col-title">俏也系统</text>
+  <text x="764" y="98" text-anchor="middle" class="col-subtitle">数据驱动的数字创作系统</text>
+
+  <!-- ====== LAYER 1: Data / Archives ====== -->
+  <!-- Left -->
+  <rect x="50" y="115" width="420" height="100" rx="8" class="l1-card"/>
+  <text x="260" y="142" text-anchor="middle" class="card-title l1-title">内在档案库 · 数据库</text>
+  <text x="260" y="164" text-anchor="middle" class="card-body l1-body">创意第一关键：内在储存的一切</text>
+  <text x="260" y="186" text-anchor="middle" class="card-note l1-note">一切创造的基础素材积累</text>
+
+  <!-- Right -->
+  <rect x="554" y="115" width="420" height="100" rx="8" class="l1-card"/>
+  <text x="764" y="142" text-anchor="middle" class="card-title l1-title">原始数据集（只读封存）</text>
+  <text x="764" y="164" text-anchor="middle" class="card-body l1-body">3,912 文件 · 12,999 记录 · 2008-2026</text>
+  <text x="764" y="186" text-anchor="middle" class="card-note l1-note">数字化的内在档案库</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="512" y1="225" x2="512" y2="255" class="arrow-line" marker-end="url(#arrow)"/>
+
+  <!-- ====== LAYER 2: Processing / OS ====== -->
+  <!-- Left -->
+  <rect x="50" y="265" width="420" height="110" rx="8" class="l2-card"/>
+  <text x="260" y="294" text-anchor="middle" class="card-title l2-title">操作系统 · 习性 · 三观</text>
+  <text x="260" y="316" text-anchor="middle" class="card-body l2-body">去标签地观察 · 价值观/世界观</text>
+  <text x="260" y="338" text-anchor="middle" class="card-note l2-note">「神秘电脑」将档案抓出组合的机制</text>
+  <text x="260" y="358" text-anchor="middle" class="card-note l2-note">习性阻碍智慧——自动驾驶、不假思索</text>
+
+  <!-- Right -->
+  <rect x="554" y="265" width="420" height="110" rx="8" class="l2-card"/>
+  <text x="764" y="294" text-anchor="middle" class="card-title l2-title">LLM Wiki · 整理习性与认知</text>
+  <text x="764" y="316" text-anchor="middle" class="card-body l2-body">梳理价值观 · 世界观 · 反复出现的习性</text>
+  <text x="764" y="338" text-anchor="middle" class="card-note l2-note">200+ 页 · 7215 双链 · 自我/关系/社会/世界</text>
+  <text x="764" y="358" text-anchor="middle" class="card-note l2-note">结构化认知系统</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="512" y1="385" x2="512" y2="415" class="arrow-line" marker-end="url(#arrow)"/>
+
+  <!-- ====== LAYER 3: Insight / Wisdom ====== -->
+  <!-- Left -->
+  <rect x="50" y="425" width="420" height="95" rx="8" class="l3-card"/>
+  <text x="260" y="454" text-anchor="middle" class="card-title l3-title">如是观 · 智慧 · 灵感</text>
+  <text x="260" y="476" text-anchor="middle" class="card-body l3-body">从数据库产生智慧</text>
+  <text x="260" y="498" text-anchor="middle" class="card-note l3-note">去标签地观察生活，用不同角度审视数据</text>
+
+  <!-- Right -->
+  <rect x="554" y="425" width="420" height="95" rx="8" class="l3-card"/>
+  <text x="764" y="454" text-anchor="middle" class="card-title l3-title">数字内观 · 觉察动机</text>
+  <text x="764" y="476" text-anchor="middle" class="card-body l3-body">回看动机模式 · 去标签 · 三观切换 → 灵感</text>
+  <text x="764" y="498" text-anchor="middle" class="card-note l3-note">从数据反映中觉察模式，获得创作灵感</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="512" y1="530" x2="512" y2="560" class="arrow-line" marker-end="url(#arrow)"/>
+
+  <!-- ====== LAYER 4: Form / Creation ====== -->
+  <!-- Left -->
+  <rect x="50" y="570" width="420" height="90" rx="8" class="l4-card"/>
+  <text x="260" y="599" text-anchor="middle" class="card-title l4-title">形式 · 方法 · 媒介 · 创作</text>
+  <text x="260" y="621" text-anchor="middle" class="card-body l4-body">智慧 × 形式 = 创作</text>
+  <text x="260" y="643" text-anchor="middle" class="card-note l4-note">结合媒介形式的最终产出</text>
+
+  <!-- Right -->
+  <rect x="554" y="570" width="420" height="90" rx="8" class="l4-card"/>
+  <text x="764" y="599" text-anchor="middle" class="card-title l4-title">写作工作流 · 创作执行</text>
+  <text x="764" y="621" text-anchor="middle" class="card-body l4-body">备菜 → 炒制 → 装盘 · 发布</text>
+  <text x="764" y="643" text-anchor="middle" class="card-note l4-note">系统化的数字创作执行管道</text>
+
+  <!-- Bottom note -->
+  <rect x="200" y="690" width="624" height="36" rx="8" class="l4-card"/>
+  <text x="512" y="714" text-anchor="middle" class="card-note l4-note">四层递进：数据 → 认知 → 智慧 → 创作。从底层积累到顶层产出，每一步都有人机协作。</text>
+</svg>

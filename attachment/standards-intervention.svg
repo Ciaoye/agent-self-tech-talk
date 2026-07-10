@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
+  <title id="title">三个 Standard 介入时机</title>
+  <desc id="desc">三条标准文档在备菜 8 步流程中的介入时机</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .std-tag { font-size: 12px; font-weight: 760; }
+      .std-title { font-size: 20px; font-weight: 760; }
+      .body { font-size: 13.5px; fill: #3f4e4c; }
+      .hint { font-size: 12.5px; fill: #596362; }
+      .step-name { font-size: 13.5px; font-weight: 760; fill: #18343a; }
+      .step-desc { font-size: 12.5px; fill: #596362; }
+      .step-intervene { font-size: 12px; font-weight: 760; }
+      .flow-text { font-size: 15px; font-weight: 760; }
+      .review-title { font-size: 15px; font-weight: 760; }
+      .review-text { font-size: 13px; fill: #3f4e4c; }
+      .draft-title { font-size: 15px; font-weight: 760; }
+      .draft-text { font-size: 13px; fill: #3f4e4c; }
+      .footer-text { font-size: 15px; font-weight: 760; fill: #006b61; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .panel { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .blue-text { fill: #1b4d7a; }
+      .yellow-text { fill: #7a3f00; }
+      .green-text { fill: #006b61; }
+      .purple-text { fill: #4b2e83; }
+      .line { stroke: #74736c; stroke-width: 1.5; fill: none; }
+      .divider { stroke: #d5d1c7; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">三个 Standard 介入时机</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">三条标准文档在备菜 8 步流程中的介入时机</text>
+
+  <!-- ===== THREE STANDARD COLUMNS ===== -->
+  <rect x="24" y="82" width="312" height="130" rx="8" class="blue"/>
+  <text x="48" y="106" class="std-tag blue-text">Standard 1</text>
+  <text x="48" y="130" class="std-title blue-text">思维方式</text>
+  <text x="48" y="154" class="body">八节：核心世界观 → 价值优先级 → 思考路径</text>
+  <text x="48" y="172" class="body">→ 问题意识 → 素材选择 → 隐喻思维 → 收尾 → 读者</text>
+  <text x="48" y="192" class="hint">作用：知道这个人怎么看世界，判断素材对味</text>
+
+  <rect x="356" y="82" width="312" height="130" rx="8" class="yellow"/>
+  <text x="380" y="106" class="std-tag yellow-text">Standard 2</text>
+  <text x="380" y="130" class="std-title yellow-text">文章结构</text>
+  <text x="380" y="154" class="body">七节：创作路径 → 选题切入 → 三套结构模式</text>
+  <text x="380" y="172" class="body">→ 开场模式 → 主体结构 → 收尾模式 → 节奏控制</text>
+  <text x="380" y="192" class="hint">作用：知道她习惯怎么搭骨架，出对味的写作架构</text>
+
+  <rect x="688" y="82" width="312" height="130" rx="8" class="green"/>
+  <text x="712" y="106" class="std-tag green-text">Standard 3</text>
+  <text x="712" y="130" class="std-title green-text">文风指南</text>
+  <text x="712" y="154" class="body">十一节：核心特征 → 语言质感 → 语法特征</text>
+  <text x="712" y="172" class="body">→ 常用修辞 → 禁用写法 → 分层读者 → 检查清单</text>
+  <text x="712" y="192" class="hint">作用：落实到句子层面，每个段落前过一遍</text>
+
+  <!-- ===== SECTION BAR ===== -->
+  <rect x="24" y="228" width="976" height="36" rx="6" class="yellow"/>
+  <text x="512" y="252" text-anchor="middle" class="flow-text yellow-text">备菜 8 步流程 · 标准文档在各步骤的介入时机</text>
+
+  <!-- ===== PROCESS ROW 1 (y=278) ===== -->
+  <rect x="24" y="278" width="128" height="68" rx="6" class="blue"/>
+  <text x="88" y="304" text-anchor="middle" class="step-name">1. 搭架子</text>
+  <text x="88" y="324" text-anchor="middle" class="step-desc">俏也放 reference</text>
+  <text x="88" y="340" text-anchor="middle" class="step-intervene blue-text">Std 1+2 打底</text>
+
+  <line x1="156" y1="312" x2="174" y2="312" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="178" y="278" width="128" height="68" rx="6" class="blue"/>
+  <text x="242" y="304" text-anchor="middle" class="step-name">2. 聊方向</text>
+  <text x="242" y="324" text-anchor="middle" class="step-desc">核心环节 · 聊透</text>
+  <text x="242" y="340" text-anchor="middle" class="step-intervene yellow-text">← Std 1 介入</text>
+
+  <line x1="310" y1="312" x2="328" y2="312" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="332" y="278" width="132" height="68" rx="6" class="yellow"/>
+  <text x="398" y="304" text-anchor="middle" class="step-name">3. 搜索素材</text>
+  <text x="398" y="324" text-anchor="middle" class="step-desc">flomo/wiki/raw/网络</text>
+  <text x="398" y="340" text-anchor="middle" class="step-intervene yellow-text">← Std 1+2 共同</text>
+
+  <line x1="468" y1="312" x2="486" y2="312" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="490" y="278" width="128" height="68" rx="6" class="yellow"/>
+  <text x="554" y="304" text-anchor="middle" class="step-name">4. 语料库</text>
+  <text x="554" y="324" text-anchor="middle" class="step-desc">一次到位生成</text>
+  <text x="554" y="340" text-anchor="middle" class="step-intervene yellow-text">← Std 1+2 介入</text>
+
+  <line x1="622" y1="312" x2="640" y2="312" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="644" y="278" width="128" height="68" rx="6" class="green"/>
+  <text x="708" y="304" text-anchor="middle" class="step-name">5. 俏也批注</text>
+  <text x="708" y="324" text-anchor="middle" class="step-desc">高亮 / 删除 / 回复</text>
+  <text x="708" y="340" text-anchor="middle" class="step-intervene green-text">Std 1+2+3 隐式</text>
+
+  <line x1="776" y1="312" x2="794" y2="312" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="798" y="278" width="118" height="68" rx="6" class="green"/>
+  <text x="857" y="304" text-anchor="middle" class="step-name">6. Angle</text>
+  <text x="857" y="324" text-anchor="middle" class="step-desc">讨论切入点</text>
+  <text x="857" y="340" text-anchor="middle" class="step-intervene green-text">← Std 2 主导</text>
+
+  <line x1="920" y1="312" x2="938" y2="312" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== PROCESS ROW 2 (y=362) ===== -->
+  <rect x="24" y="362" width="200" height="72" rx="6" class="yellow"/>
+  <text x="124" y="390" text-anchor="middle" class="step-name">7. 写作架构</text>
+  <text x="124" y="410" text-anchor="middle" class="step-desc">俏也批注 · 调结构</text>
+  <text x="124" y="426" text-anchor="middle" class="step-intervene yellow-text">← Std 2 骨架 + Std 1 角度</text>
+
+  <line x1="228" y1="398" x2="248" y2="398" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="252" y="362" width="320" height="72" rx="6" class="green"/>
+  <text x="412" y="390" text-anchor="middle" class="step-name">8. 写 draft（AI 或俏也）</text>
+  <text x="412" y="410" text-anchor="middle" class="step-desc">加载全部三条 Standard + 读者分层审查</text>
+  <text x="412" y="426" text-anchor="middle" class="step-intervene green-text">← Std 3 句子层面（文风·语法·修辞·禁用）</text>
+
+  <line x1="576" y1="398" x2="596" y2="398" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="600" y="362" width="400" height="72" rx="6" class="purple"/>
+  <text x="800" y="390" text-anchor="middle" class="review-title purple-text">Draft 自动审查（读者视角）</text>
+  <text x="800" y="410" text-anchor="middle" class="review-text">分层读者 · 风格检查 · 内容检查 · 流畅度</text>
+  <text x="800" y="426" text-anchor="middle" class="review-text">AI 以读者身份通读 → 标记 AI 味/啰嗦/跳跃 → 迭代一版</text>
+
+  <!-- ===== DRAFT REVIEW DETAIL ===== -->
+  <rect x="24" y="452" width="976" height="110" rx="8" class="panel"/>
+  <text x="40" y="478" class="draft-title">Draft 审查的具体检查项</text>
+  <text x="40" y="502" class="draft-text">① 风格检查：AI味（"好接下来""总而言之"）· 啰嗦重复 · 段落间跳跃 · 收尾是否落入升华/总结模式</text>
+  <text x="40" y="524" class="draft-text">② 内容检查：论据是否来自语料库 · 引用是否标注来源 · 角度是否符合 Standard 1 的思维方式</text>
+  <text x="40" y="546" class="draft-text">③ 分层读者阅读：新手读者能否跟上？老读者是否感到重复？AI 分别模拟两类读者视角给出反馈</text>
+
+  <!-- ===== FOOTER ===== -->
+  <rect x="150" y="600" width="724" height="48" rx="8" class="green"/>
+  <text x="512" y="630" text-anchor="middle" class="footer-text">AI 加载所有 standards → 俏也逐轮批注 → 迭代到对味后进入炒制阶段</text>
+</svg>

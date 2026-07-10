@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
+  <title id="title">数字内观 — 三层数据架构</title>
+  <desc id="desc">最底层是原始数据，中间是编年史，最上面是模式发现。一层一层往上走</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .layer-title { font-size: 20px; font-weight: 760; }
+      .card-title { font-size: 17px; font-weight: 760; }
+      .body { font-size: 13.5px; fill: #3f4e4c; }
+      .small { font-size: 12.5px; fill: #596362; }
+      .ego-label { font-size: 17px; font-weight: 760; }
+      .ego-sub { font-size: 13px; fill: #596362; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .white-blue { fill: #ffffff; stroke: #4f8fd6; stroke-width: 1.1; }
+      .white-purple { fill: #ffffff; stroke: #8b6fd6; stroke-width: 1.1; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .dashed { stroke: #74736c; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; }
+      .dashed-soft { stroke: #d5d1c7; stroke-width: 1; fill: none; stroke-dasharray: 4,4; }
+    </style>
+    <marker id="arrow-up" markerWidth="8" markerHeight="8" refX="4" refY="1" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 8 L 4 0 L 8 8 Z" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">数字内观 — 三层数据架构</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">原始数据 → 编年史 → 模式发现 · 一层一层往上走</text>
+
+  <!-- ===== LEFT: Three "我" annotations ===== -->
+  <!-- 现在解释的我 → top (模式发现) -->
+  <rect x="14" y="120" width="164" height="60" rx="8" fill="none" stroke="#8b6fd6" stroke-width="1.4" stroke-dasharray="6,3"/>
+  <text x="96" y="146" text-anchor="middle" class="ego-label purple-text">现在解释的我</text>
+  <text x="96" y="166" text-anchor="middle" class="ego-sub">wiki 归纳</text>
+  <line x1="178" y1="150" x2="340" y2="165" class="dashed" stroke="#8b6fd6"/>
+
+  <!-- 后来回忆的我 → middle (编年史) -->
+  <rect x="14" y="310" width="164" height="60" rx="8" fill="none" stroke="#4f8fd6" stroke-width="1.4" stroke-dasharray="6,3"/>
+  <text x="96" y="336" text-anchor="middle" class="ego-label blue-text">后来回忆的我</text>
+  <text x="96" y="356" text-anchor="middle" class="ego-sub">回顾与反思</text>
+  <line x1="178" y1="340" x2="280" y2="355" class="dashed" stroke="#4f8fd6"/>
+
+  <!-- 当时的我 → bottom (原始数据) -->
+  <rect x="14" y="500" width="164" height="60" rx="8" fill="none" stroke="#d5d1c7" stroke-width="1.4" stroke-dasharray="6,3"/>
+  <text x="96" y="526" text-anchor="middle" class="ego-label" fill="#596362">当时的我</text>
+  <text x="96" y="546" text-anchor="middle" class="ego-sub">同期记录</text>
+  <line x1="178" y1="530" x2="220" y2="545" class="dashed" stroke="#d5d1c7"/>
+
+  <!-- Vertical connector -->
+  <line x1="96" y1="180" x2="96" y2="310" class="dashed-soft"/>
+  <line x1="96" y1="370" x2="96" y2="500" class="dashed-soft"/>
+
+  <!-- ===== TOP LAYER: 模式发现 ===== -->
+  <rect x="200" y="85" width="600" height="170" rx="8" class="purple"/>
+  <text x="500" y="115" text-anchor="middle" class="layer-title purple-text">模式发现</text>
+
+  <rect x="218" y="130" width="180" height="105" rx="6" class="white-purple"/>
+  <text x="228" y="154" class="card-title purple-text">Myth Archive</text>
+  <text x="228" y="178" class="body purple-text">人生母题是什么？</text>
+  <text x="228" y="198" class="small">识别贯穿一生的</text>
+  <text x="228" y="218" class="small">核心主题与张力</text>
+
+  <rect x="410" y="130" width="180" height="105" rx="6" class="white-purple"/>
+  <text x="420" y="154" class="card-title purple-text">Myth Detector</text>
+  <text x="420" y="178" class="body purple-text">什么故事在重复？</text>
+  <text x="420" y="198" class="small">发现重复出现的</text>
+  <text x="420" y="218" class="small">叙事模式与结构</text>
+
+  <rect x="602" y="130" width="180" height="105" rx="6" class="white-purple"/>
+  <text x="612" y="154" class="card-title purple-text">Myth Generator</text>
+  <text x="612" y="178" class="body purple-text">下一章节是什么？</text>
+  <text x="612" y="198" class="small">基于历史模式</text>
+  <text x="612" y="218" class="small">推演未来可能</text>
+
+  <!-- Arrow top → middle -->
+  <line x1="500" y1="258" x2="500" y2="278" class="line" marker-end="url(#arrow-up)" transform="rotate(180 500 268)"/>
+
+  <!-- ===== MIDDLE LAYER: 编年史 ===== -->
+  <rect x="200" y="285" width="700" height="175" rx="8" class="blue"/>
+  <text x="550" y="315" text-anchor="middle" class="layer-title blue-text">编年史</text>
+
+  <rect x="218" y="330" width="210" height="110" rx="6" class="white-blue"/>
+  <text x="228" y="354" class="card-title blue-text">19 个年度档案</text>
+  <text x="228" y="376" class="body blue-text">2008 – 2026</text>
+  <text x="228" y="396" class="small">连续年份全覆盖</text>
+  <text x="228" y="416" class="small">独立成篇，可按年查阅</text>
+
+  <rect x="443" y="330" width="235" height="110" rx="6" class="white-blue"/>
+  <text x="453" y="354" class="card-title blue-text">每篇包含</text>
+  <text x="463" y="378" class="body blue-text">· 一句话画像</text>
+  <text x="463" y="398" class="body blue-text">· 生活底板 / 编年事实</text>
+  <text x="463" y="418" class="body blue-text">· 地理位置 / 经济来源</text>
+
+  <rect x="693" y="330" width="195" height="110" rx="6" class="white-blue"/>
+  <text x="703" y="354" class="card-title blue-text">+ 更多维度</text>
+  <text x="713" y="378" class="body blue-text">· 声音指纹</text>
+  <text x="713" y="398" class="body blue-text">· 情绪需要</text>
+  <text x="713" y="418" class="body blue-text">· 内部矛盾</text>
+
+  <!-- Arrow middle → bottom -->
+  <line x1="500" y1="463" x2="500" y2="483" class="line" marker-end="url(#arrow-up)" transform="rotate(180 500 473)"/>
+
+  <!-- ===== BOTTOM LAYER: 原始数据 ===== -->
+  <rect x="200" y="490" width="790" height="230" rx="8" class="neutral"/>
+  <text x="595" y="520" text-anchor="middle" class="layer-title">原始数据</text>
+
+  <rect x="218" y="535" width="235" height="76" rx="6" class="white"/>
+  <text x="228" y="558" class="card-title">说说（QQ空间）</text>
+  <text x="228" y="578" class="small">1,217 条 · 2008 – 2016</text>
+  <text x="228" y="598" class="small">青少年时期的自我表达</text>
+
+  <rect x="468" y="535" width="235" height="76" rx="6" class="white"/>
+  <text x="478" y="558" class="card-title">日记（flomo）</text>
+  <text x="478" y="578" class="small">2,446 条 · 2022 – 2026</text>
+  <text x="478" y="598" class="small">四年间每日内省记录</text>
+
+  <rect x="718" y="535" width="235" height="76" rx="6" class="white"/>
+  <text x="728" y="558" class="card-title">聊天记录（微信）</text>
+  <text x="728" y="578" class="small">9 个文件 · 2016 – 2026</text>
+  <text x="728" y="598" class="small">十年社交对话轨迹</text>
+
+  <rect x="218" y="625" width="735" height="48" rx="6" class="white"/>
+  <text x="585" y="648" text-anchor="middle" class="body" font-weight="760">3,912 原始文件 → 12,999 条标准化记录</text>
+  <text x="585" y="666" text-anchor="middle" class="small">经清洗、去重、结构化后的统一数据格式</text>
+
+  <text x="595" y="700" text-anchor="middle" class="small">数据的活态呈现 — 每一层都建立在前一层之上，又反哺前一层</text>
+  <text x="595" y="720" text-anchor="middle" class="small">当时记录 → 回顾整理 → 模式归纳</text>
+</svg>

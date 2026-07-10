@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
+  <title id="title">LLM Wiki 知识管线 — 四个工作流 + 三层架构</title>
+  <desc id="desc">从输入源到知识库再到输出，四个工作流串联三层架构</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .layer-label { font-size: 13px; font-weight: 760; fill: #596362; }
+      .card-title { font-size: 17px; font-weight: 760; }
+      .body { font-size: 13.5px; fill: #3f4e4c; }
+      .small { font-size: 12.5px; fill: #596362; }
+      .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; fill: #3f4e4c; }
+      .mono-name { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 760; fill: #18343a; }
+      .mono-desc { font-size: 12.5px; fill: #596362; }
+      .footer { font-size: 18px; font-weight: 760; fill: #006b61; }
+      .panel { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .yellow-text { fill: #7a3f00; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .green-text { fill: #006b61; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .divider { stroke: #d5d1c7; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">LLM Wiki 知识管线 — 四个工作流 + 三层架构</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">输入源 → 同步 → 摄取 → 知识库 → 查询 / 检查 / 公开</text>
+
+  <!-- ===== INPUT SOURCES ===== -->
+  <text x="48" y="90" class="layer-label">输入源</text>
+
+  <rect x="48" y="98" width="220" height="56" rx="8" class="yellow"/>
+  <text x="158" y="122" text-anchor="middle" class="card-title yellow-text">flomo 推送</text>
+  <text x="158" y="142" text-anchor="middle" class="small">MCP 自动拉取</text>
+
+  <rect x="280" y="98" width="220" height="56" rx="8" class="yellow"/>
+  <text x="390" y="122" text-anchor="middle" class="card-title yellow-text">微信 / AI 聊天</text>
+  <text x="390" y="142" text-anchor="middle" class="small">手动或自动导出</text>
+
+  <rect x="512" y="98" width="220" height="56" rx="8" class="yellow"/>
+  <text x="622" y="122" text-anchor="middle" class="card-title yellow-text">语音转文字</text>
+  <text x="622" y="142" text-anchor="middle" class="small">15 篇播客+分享+对话</text>
+
+  <rect x="744" y="98" width="220" height="56" rx="8" class="yellow"/>
+  <text x="854" y="122" text-anchor="middle" class="card-title yellow-text">网页 / 长文章</text>
+  <text x="854" y="142" text-anchor="middle" class="small">Obsidian Clipper</text>
+
+  <line x1="512" y1="158" x2="512" y2="180" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== Layer 1: W0 同步 ===== -->
+  <text x="48" y="194" class="layer-label">Layer 1 — 同步</text>
+  <rect x="48" y="202" width="916" height="50" rx="8" class="yellow"/>
+  <text x="62" y="224" class="card-title yellow-text">W0 · flomo 同步 → inbox/短笔记/</text>
+  <text x="62" y="244" class="small">MCP 拉取 → 解析字段 → 去重 → 并入 inbox（自动后台运行）</text>
+
+  <line x1="512" y1="256" x2="512" y2="278" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== Layer 2: W1 摄取 ===== -->
+  <text x="48" y="292" class="layer-label">Layer 2 — 摄取</text>
+  <rect x="48" y="300" width="916" height="66" rx="8" class="blue"/>
+  <text x="62" y="324" class="card-title blue-text">W1 · Ingest 摄取 — 「多杯倒水」：一篇源 → 10-15 个 wiki 页面</text>
+  <text x="62" y="344" class="body blue-text">读源 → 提方案（俏也确认）→ 建新页面 → 更新已有 → 更新 MOC → 更新 core/ → 更新 index.md</text>
+  <text x="62" y="360" class="small">短笔记批处理 · 长文章/语音稿一源一确认 ← 始终保持人在 loop 里</text>
+
+  <line x1="512" y1="370" x2="512" y2="392" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== Layer 3: 知识库 ===== -->
+  <text x="48" y="406" class="layer-label">Layer 3 — 知识库</text>
+  <rect x="48" y="414" width="916" height="118" rx="8" class="panel"/>
+  <text x="62" y="438" class="mono-name">LLM wiki/</text>
+  <line x1="62" y1="446" x2="950" y2="446" class="divider"/>
+
+  <text x="72" y="466" class="mono">├── raw/</text>
+  <text x="190" y="466" class="mono-desc">已收录原文 3,984 文件（只读封存）</text>
+
+  <text x="72" y="486" class="mono">├── wiki/</text>
+  <text x="190" y="486" class="mono-desc">结构化知识 246 页 7,215 双链</text>
+  <text x="500" y="486" class="mono-desc">concepts / people / places / events / insights / synthesis / core</text>
+
+  <text x="72" y="506" class="mono">├── inbox/</text>
+  <text x="190" y="506" class="mono-desc">待处理队列</text>
+
+  <text x="72" y="524" class="mono">└── scripts/</text>
+  <text x="190" y="524" class="mono-desc">维护脚本（dead_link / moc_analysis / wiki_analysis / wiki_scan）</text>
+
+  <line x1="512" y1="536" x2="512" y2="558" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== 输出 ===== -->
+  <text x="48" y="572" class="layer-label">输出</text>
+
+  <rect x="48" y="580" width="290" height="68" rx="8" class="purple"/>
+  <text x="193" y="604" text-anchor="middle" class="card-title purple-text">W2 · Query 查询</text>
+  <text x="193" y="622" text-anchor="middle" class="body purple-text">俏也提问 → 三步检索链</text>
+  <text x="193" y="640" text-anchor="middle" class="small">flomo语义 → wiki检索 → raw原文</text>
+
+  <rect x="367" y="580" width="290" height="68" rx="8" class="green"/>
+  <text x="512" y="604" text-anchor="middle" class="card-title green-text">W3 · Lint 检查</text>
+  <text x="512" y="622" text-anchor="middle" class="body green-text">五维度并行扫描</text>
+  <text x="512" y="640" text-anchor="middle" class="small">死链 · 反馈 · 来源 · 双链 · raw多杯</text>
+
+  <rect x="686" y="580" width="278" height="68" rx="8" class="blue"/>
+  <text x="825" y="604" text-anchor="middle" class="card-title blue-text">wiki-public/</text>
+  <text x="825" y="622" text-anchor="middle" class="body blue-text">184 篇脱敏页面</text>
+  <text x="825" y="640" text-anchor="middle" class="small">公开知识 → ciao / 分享</text>
+
+  <!-- ===== Footer ===== -->
+  <rect x="48" y="664" width="916" height="34" rx="6" class="green"/>
+  <text x="512" y="687" text-anchor="middle" class="footer">「编译型知识」vs「检索型知识」— 进入即完成综合 · 维护趋零 · 知识复利 · 好回答归档回 wiki</text>
+
+  <rect x="48" y="708" width="916" height="28" rx="6" class="panel"/>
+  <text x="512" y="727" text-anchor="middle" class="small">反馈机制：俏也用 %% 注释小修 · #feedback 大段意见 → Agent Lint 阶段批量处理 → log.md 跟踪全部操作</text>
+</svg>

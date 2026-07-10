@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768">
+  <defs>
+    <style>text { font-family: system-ui, 'PingFang SC', sans-serif; }</style>
+  </defs>
+  <circle cx="80" cy="20" r="5" fill="#74736c"/>
+  <text x="95" y="25" font-size="16" font-weight="bold" fill="#18343a">trae_projects/</text>
+  <line x1="80" y1="28" x2="80" y2="733" stroke="#74736c" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Card 1: 原始数据集 -->
+  <line x1="80" y1="89" x2="110" y2="89" stroke="#74736c" stroke-width="1.5"/>
+  <circle cx="80" cy="89" r="4" fill="#74736c"/>
+  <rect x="110" y="35" width="800" height="108" rx="8" ry="8" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.5"/>
+  <rect x="110" y="35" width="800" height="108" rx="8" ry="8" fill="#f1efe7"/>
+  <text x="125" y="59" font-size="18" font-weight="bold" fill="#18343a">原始数据集</text>
+  <text x="225" y="59" font-size="13" fill="#8c887a">只读封存 · 2008-2026</text>
+  <text x="125" y="83" font-size="14" fill="#18343a">日记 2,449篇 · 日志 35篇 · 聊天记录 12文件 35万条</text>
+  <text x="125" y="103" font-size="14" fill="#18343a">说说 1,360条 · 语音转文字 15篇 · 长文章 39篇 · My Activity</text>
+  <text x="125" y="123" font-size="13" fill="#a39e91">来源：QQ空间 · 微信 · 本地日记 · Google Takeout</text>
+
+  <!-- Card 2: LLM Wiki -->
+  <line x1="80" y1="207" x2="110" y2="207" stroke="#74736c" stroke-width="1.5"/>
+  <circle cx="80" cy="207" r="4" fill="#74736c"/>
+  <rect x="110" y="153" width="800" height="108" rx="8" ry="8" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.5"/>
+  <text x="125" y="177" font-size="18" font-weight="bold" fill="#1b4d7a">LLM Wiki</text>
+  <text x="215" y="177" font-size="13" fill="#5a8fc7">知识整理层</text>
+  <text x="125" y="201" font-size="14" fill="#1b4d7a">wiki/ 246页 7,215双链 · wiki-public/ 184页</text>
+  <text x="125" y="221" font-size="14" fill="#1b4d7a">inbox/待处理 · raw/已收录 3,984文件 · scripts/维护脚本</text>
+  <text x="125" y="241" font-size="13" fill="#8cb0d6">工具：Obsidian · 全量向量化 · 双链图谱</text>
+
+  <!-- Card 3: 不同年龄的我 -->
+  <line x1="80" y1="325" x2="110" y2="325" stroke="#74736c" stroke-width="1.5"/>
+  <circle cx="80" cy="325" r="4" fill="#74736c"/>
+  <rect x="110" y="271" width="800" height="108" rx="8" ry="8" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.5"/>
+  <text x="125" y="295" font-size="18" font-weight="bold" fill="#4b2e83">不同年龄的我</text>
+  <text x="235" y="295" font-size="13" fill="#9b85d4">年度档案</text>
+  <text x="125" y="319" font-size="14" fill="#4b2e83">years/ 19篇(2008-2026) · processed/ 12,999标准记录</text>
+  <text x="125" y="339" font-size="14" fill="#4b2e83">evolution/跨年分析 · reports/质量报告 · themes/主题提取</text>
+  <text x="125" y="359" font-size="13" fill="#b09fd9">数据源：日记 + 说说 + 聊天记录</text>
+
+  <!-- Card 4: 数字内观 -->
+  <line x1="80" y1="443" x2="110" y2="443" stroke="#74736c" stroke-width="1.5"/>
+  <circle cx="80" cy="443" r="4" fill="#74736c"/>
+  <rect x="110" y="389" width="800" height="108" rx="8" ry="8" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.5"/>
+  <text x="125" y="413" font-size="18" font-weight="bold" fill="#4b2e83">数字内观</text>
+  <text x="205" y="413" font-size="13" fill="#9b85d4">Life OS</text>
+  <text x="125" y="437" font-size="14" fill="#4b2e83">agent/ Agent说明 · daily/日常记录 · discussion/讨论区</text>
+  <text x="125" y="457" font-size="14" fill="#4b2e83">wiki/收录区 · reference/参考书 7本 · 6个核心lens</text>
+  <text x="125" y="477" font-size="13" fill="#b09fd9">框架：GraphAgent · 人机协作内观系统</text>
+
+  <!-- Card 5: 写作项目 -->
+  <line x1="80" y1="561" x2="110" y2="561" stroke="#74736c" stroke-width="1.5"/>
+  <circle cx="80" cy="561" r="4" fill="#74736c"/>
+  <rect x="110" y="507" width="800" height="108" rx="8" ry="8" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.5"/>
+  <text x="125" y="531" font-size="18" font-weight="bold" fill="#1b4d7a">写作项目</text>
+  <text x="205" y="531" font-size="13" fill="#5a8fc7">人机协作写作</text>
+  <text x="125" y="555" font-size="14" fill="#1b4d7a">CLAUDE.md(Pipeline定义) · standards/写作标准</text>
+  <text x="125" y="575" font-size="14" fill="#1b4d7a">各写作项目文件夹 · 已完成/3个项目归档 · templates/模板库</text>
+  <text x="125" y="595" font-size="13" fill="#8cb0d6">协作：Claude · GPT · Gemini · DeepSeek</text>
+
+  <!-- Card 6: 涌现层 -->
+  <line x1="80" y1="679" x2="110" y2="679" stroke="#74736c" stroke-width="1.5"/>
+  <circle cx="80" cy="679" r="4" fill="#74736c"/>
+  <rect x="110" y="625" width="800" height="108" rx="8" ry="8" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.5"/>
+  <text x="125" y="649" font-size="18" font-weight="bold" fill="#006b61">涌现层</text>
+  <text x="185" y="649" font-size="13" fill="#2eab8a">最终产出</text>
+  <text x="125" y="673" font-size="14" fill="#006b61">ciao LANGGRAPH/ AI后端+人格系统</text>
+  <text x="125" y="693" font-size="14" fill="#006b61">俏也 OS/ 浏览器桌面操作系统</text>
+  <text x="125" y="713" font-size="14" fill="#006b61">情绪数据可视化/ 交互式星云图</text>
+
+  <!-- 数据流箭头 -->
+  <polygon points="76,144 84,144 80,154" fill="#74736c"/>
+  <polygon points="76,262 84,262 80,272" fill="#74736c"/>
+  <polygon points="76,380 84,380 80,390" fill="#74736c"/>
+  <polygon points="76,498 84,498 80,508" fill="#74736c"/>
+  <polygon points="76,616 84,616 80,626" fill="#74736c"/>
+
+  <!-- 右侧层级标注 (精确对齐卡片) -->
+  <rect x="918" y="35" width="6" height="108" rx="3" fill="#74736c" opacity="0.3"/>
+  <text x="910" y="95" font-size="11" fill="#74736c" text-anchor="end">数据层</text>
+
+  <rect x="918" y="153" width="6" height="108" rx="3" fill="#4f8fd6" opacity="0.3"/>
+  <text x="910" y="213" font-size="11" fill="#4f8fd6" text-anchor="end">整理层</text>
+
+  <rect x="918" y="271" width="6" height="108" rx="3" fill="#8b6fd6" opacity="0.3"/>
+  <text x="910" y="331" font-size="11" fill="#8b6fd6" text-anchor="end">分析层</text>
+
+  <rect x="918" y="389" width="6" height="108" rx="3" fill="#8b6fd6" opacity="0.3"/>
+  <text x="910" y="449" font-size="11" fill="#8b6fd6" text-anchor="end">内观层</text>
+
+  <rect x="918" y="507" width="6" height="108" rx="3" fill="#4f8fd6" opacity="0.3"/>
+  <text x="910" y="567" font-size="11" fill="#4f8fd6" text-anchor="end">创作层</text>
+
+  <rect x="918" y="625" width="6" height="108" rx="3" fill="#10a98c" opacity="0.3"/>
+  <text x="910" y="685" font-size="11" fill="#10a98c" text-anchor="end">涌现层</text>
+</svg>

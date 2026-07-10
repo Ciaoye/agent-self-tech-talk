@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768" role="img" aria-labelledby="title desc">
+  <title id="title">AI 让你第一次能对自己的人生建模</title>
+  <desc id="desc">一张透明背景、文字可复制的 SVG 信息图：过去了解自己受采集成本、分析能力和反馈周期三重瓶颈限制；AI 同时压低三项瓶颈，让自我建模第一次变得可持续。</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+
+      .title { font-size: 30px; font-weight: 780; }
+      .claim { font-size: 15px; fill: #596362; }
+      .panel-title { font-size: 21px; font-weight: 760; }
+      .panel-note { font-size: 13.5px; fill: #596362; }
+      .node-title { font-size: 18px; font-weight: 760; }
+      .small-title { font-size: 16px; font-weight: 760; }
+      .caption { font-size: 13.5px; fill: #3f4e4c; }
+      .tiny { font-size: 12px; fill: #596362; }
+      .footer { font-size: 18px; font-weight: 760; fill: #364642; }
+      .panel { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .yellow-text { fill: #7a3f00; }
+      .green-text { fill: #006b61; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .soft-line { stroke: #74736c; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; opacity: 0.72; }
+      .dash { stroke-dasharray: 6 7; }
+      .divider { stroke: #d5d1c7; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Claim -->
+  <text x="512" y="45" text-anchor="middle" class="title">AI 让你第一次能对自己的人生建模</text>
+  <text x="512" y="75" text-anchor="middle" class="claim">“了解自己”过去不是不重要，而是建模循环一直跑不起来。</text>
+  <rect x="178" y="91" width="668" height="34" rx="8" class="white"/>
+  <text x="512" y="113" text-anchor="middle" class="tiny">AI 同时压低采集、分析、反馈三项瓶颈，让自我建模从一次复盘变成持续系统。</text>
+
+  <!-- Lanes -->
+  <rect x="48" y="144" width="286" height="464" rx="8" class="panel"/>
+  <rect x="378" y="168" width="268" height="360" rx="8" class="purple"/>
+  <rect x="690" y="144" width="286" height="464" rx="8" class="panel"/>
+
+  <text x="72" y="180" class="panel-title yellow-text">过去的三重瓶颈</text>
+  <text x="72" y="205" class="panel-note">人生建模断在循环本身</text>
+
+  <text x="512" y="206" text-anchor="middle" class="panel-title purple-text">AI 转换层</text>
+  <text x="512" y="231" text-anchor="middle" class="panel-note">把三项成本一起压低</text>
+
+  <text x="714" y="180" class="panel-title green-text">可持续建模</text>
+  <text x="714" y="205" class="panel-note">循环能跑起来，模型会更新</text>
+
+  <!-- Left bottlenecks -->
+  <rect x="78" y="232" width="226" height="72" rx="8" class="yellow"/>
+  <text x="191" y="261" text-anchor="middle" class="node-title yellow-text">手动填表</text>
+  <text x="191" y="284" text-anchor="middle" class="caption">采集成本太高</text>
+
+  <line x1="191" y1="304" x2="191" y2="337" class="soft-line"/>
+  <polygon points="191,345 185,335 197,335" fill="#74736c" opacity="0.72"/>
+
+  <rect x="78" y="345" width="226" height="72" rx="8" class="yellow"/>
+  <text x="191" y="374" text-anchor="middle" class="node-title yellow-text">看不懂数据</text>
+  <text x="191" y="397" text-anchor="middle" class="caption">分析能力太弱</text>
+
+  <line x1="191" y1="417" x2="191" y2="450" class="soft-line"/>
+  <polygon points="191,458 185,448 197,448" fill="#74736c" opacity="0.72"/>
+
+  <rect x="78" y="458" width="226" height="72" rx="8" class="yellow"/>
+  <text x="191" y="487" text-anchor="middle" class="node-title yellow-text">复盘太晚</text>
+  <text x="191" y="510" text-anchor="middle" class="caption">反馈周期太长</text>
+
+  <rect x="101" y="554" width="180" height="32" rx="8" fill="#ffffff" stroke="#f1a23a" stroke-width="1.1"/>
+  <text x="191" y="575" text-anchor="middle" class="small-title yellow-text">无法持续</text>
+
+  <!-- AI layer rows -->
+  <rect x="412" y="258" width="200" height="58" rx="8" fill="#ffffff" stroke="#8b6fd6" stroke-width="1.1"/>
+  <text x="512" y="281" text-anchor="middle" class="small-title purple-text">自动收集整理</text>
+  <text x="512" y="301" text-anchor="middle" class="tiny">日志、对话、行为线索</text>
+
+  <line x1="512" y1="316" x2="512" y2="340" class="divider"/>
+
+  <rect x="412" y="340" width="200" height="58" rx="8" fill="#ffffff" stroke="#8b6fd6" stroke-width="1.1"/>
+  <text x="512" y="363" text-anchor="middle" class="small-title purple-text">持续模式识别</text>
+  <text x="512" y="383" text-anchor="middle" class="tiny">把碎片变成假设</text>
+
+  <line x1="512" y1="398" x2="512" y2="422" class="divider"/>
+
+  <rect x="412" y="422" width="200" height="58" rx="8" fill="#ffffff" stroke="#8b6fd6" stroke-width="1.1"/>
+  <text x="512" y="445" text-anchor="middle" class="small-title purple-text">即时反馈追问</text>
+  <text x="512" y="465" text-anchor="middle" class="tiny">让复盘贴近当下</text>
+
+  <!-- Right sustainable loop -->
+  <rect x="720" y="232" width="226" height="66" rx="8" class="blue"/>
+  <text x="833" y="258" text-anchor="middle" class="node-title blue-text">连续数据</text>
+  <text x="833" y="280" text-anchor="middle" class="caption">不用只靠回忆</text>
+
+  <line x1="833" y1="298" x2="833" y2="326" class="soft-line"/>
+  <polygon points="833,334 827,324 839,324" fill="#74736c" opacity="0.72"/>
+
+  <rect x="720" y="334" width="226" height="66" rx="8" class="green"/>
+  <text x="833" y="360" text-anchor="middle" class="node-title green-text">模式识别</text>
+  <text x="833" y="382" text-anchor="middle" class="caption">看见重复结构</text>
+
+  <line x1="833" y1="400" x2="833" y2="428" class="soft-line"/>
+  <polygon points="833,436 827,426 839,426" fill="#74736c" opacity="0.72"/>
+
+  <rect x="720" y="436" width="226" height="66" rx="8" class="green"/>
+  <text x="833" y="462" text-anchor="middle" class="node-title green-text">实时反馈</text>
+  <text x="833" y="484" text-anchor="middle" class="caption">马上修正假设</text>
+
+  <line x1="833" y1="502" x2="833" y2="530" class="soft-line"/>
+  <polygon points="833,538 827,528 839,528" fill="#74736c" opacity="0.72"/>
+
+  <rect x="718" y="538" width="230" height="50" rx="8" class="purple"/>
+  <text x="833" y="559" text-anchor="middle" class="small-title purple-text">自己的生活系统模型</text>
+  <text x="833" y="579" text-anchor="middle" class="tiny">偏好 / 能力 / 情境 / 策略</text>
+
+  <!-- Cross-lane connectors -->
+  <line x1="304" y1="268" x2="404" y2="287" class="line"/>
+  <polygon points="412,289 400,281 398,293" fill="#74736c"/>
+  <line x1="612" y1="287" x2="712" y2="265" class="line"/>
+  <polygon points="720,263 708,258 710,270" fill="#74736c"/>
+
+  <line x1="304" y1="381" x2="404" y2="369" class="line"/>
+  <polygon points="412,368 401,362 402,374" fill="#74736c"/>
+  <line x1="612" y1="369" x2="712" y2="367" class="line"/>
+  <polygon points="720,367 708,361 708,373" fill="#74736c"/>
+
+  <line x1="304" y1="494" x2="404" y2="451" class="line"/>
+  <polygon points="412,448 399,445 404,456" fill="#74736c"/>
+  <line x1="612" y1="451" x2="712" y2="469" class="line"/>
+  <polygon points="720,470 708,462 706,474" fill="#74736c"/>
+
+  <rect x="357" y="554" width="310" height="32" rx="8" fill="#ffffff" stroke="#8b6fd6" stroke-width="1.1"/>
+  <text x="512" y="575" text-anchor="middle" class="small-title purple-text">三项瓶颈同时下降，循环才成立</text>
+
+  <!-- Bottom conclusion -->
+  <rect x="86" y="640" width="852" height="78" rx="8" class="panel"/>
+  <text x="512" y="673" text-anchor="middle" class="footer">自我建模第一次可行，靠的不是一次顿悟。</text>
+  <text x="512" y="700" text-anchor="middle" class="footer">它靠低成本循环：记录 -&gt; 识别 -&gt; 反馈 -&gt; 更新。</text>
+</svg>

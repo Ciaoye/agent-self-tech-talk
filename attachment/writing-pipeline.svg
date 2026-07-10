@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
+  <title id="title">写作 Pipeline 全流程</title>
+  <desc id="desc">备菜 8 步 → 炒制 5 步 → 装盘 3 步，每个步骤标注 AI 或俏也负责</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .stage-label { font-size: 17px; font-weight: 760; }
+      .box-text { font-size: 17px; font-weight: 760; }
+      .body { font-size: 13.5px; fill: #3f4e4c; }
+      .small { font-size: 13px; fill: #596362; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .blue-text { fill: #1b4d7a; }
+      .green-text { fill: #006b61; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; }
+      .divider { stroke: #d5d1c7; stroke-width: 1; fill: none; stroke-dasharray: 6,4; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0 0, 8 4, 0 8" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">写作 Pipeline 全流程</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">备菜 8 步 → 炒制 5 步 → 装盘 3 步 · 蓝色 = AI · 绿色 = 俏也 · 灰色 = 共同</text>
+
+  <!-- ========== STAGE 1: 备菜 ========== -->
+  <rect x="28" y="86" width="60" height="30" rx="15" class="neutral"/>
+  <text x="58" y="106" class="stage-label" text-anchor="middle">备菜</text>
+
+  <!-- Stage 1 boxes -->
+  <rect x="46" y="130" width="78" height="48" rx="7" class="blue"/>
+  <text x="85" y="160" text-anchor="middle" class="box-text blue-text">搭架子</text>
+  <line x1="124" y1="154" x2="138" y2="154" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="145" y="130" width="110" height="48" rx="7" class="green"/>
+  <text x="200" y="160" text-anchor="middle" class="box-text green-text">放 reference</text>
+  <line x1="255" y1="154" x2="269" y2="154" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="276" y="130" width="88" height="48" rx="7" class="neutral"/>
+  <text x="320" y="160" text-anchor="middle" class="box-text">聊方向</text>
+  <line x1="364" y1="154" x2="378" y2="154" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="385" y="130" width="68" height="48" rx="7" class="blue"/>
+  <text x="419" y="160" text-anchor="middle" class="box-text blue-text">搜索</text>
+  <line x1="453" y1="154" x2="467" y2="154" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="474" y="130" width="112" height="48" rx="7" class="neutral"/>
+  <text x="530" y="160" text-anchor="middle" class="box-text">生成语料库</text>
+  <line x1="586" y1="154" x2="600" y2="154" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="607" y="130" width="68" height="48" rx="7" class="green"/>
+  <text x="641" y="160" text-anchor="middle" class="box-text green-text">批注</text>
+  <line x1="675" y1="154" x2="689" y2="154" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="696" y="130" width="108" height="48" rx="7" class="neutral"/>
+  <text x="750" y="160" text-anchor="middle" class="box-text">讨论 angle</text>
+  <line x1="804" y1="154" x2="818" y2="154" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="825" y="130" width="100" height="48" rx="7" class="neutral"/>
+  <text x="875" y="160" text-anchor="middle" class="box-text">写作架构</text>
+  <line x1="925" y1="154" x2="939" y2="154" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="946" y="130" width="70" height="48" rx="7" class="blue"/>
+  <text x="981" y="160" text-anchor="middle" class="box-text blue-text">写草稿</text>
+
+  <!-- Stage 1 role annotations -->
+  <rect x="46" y="194" width="8" height="8" rx="2" fill="#4f8fd6"/>
+  <text x="60" y="202" class="small blue-text">AI 搭架子</text>
+  <rect x="145" y="194" width="8" height="8" rx="2" fill="#10a98c"/>
+  <text x="159" y="202" class="small green-text">俏也放 reference</text>
+  <rect x="276" y="194" width="8" height="8" rx="2" fill="#4f8fd6"/>
+  <text x="290" y="202" class="small blue-text">AI 聊方向</text>
+  <rect x="276" y="206" width="8" height="8" rx="2" fill="#10a98c"/>
+  <text x="290" y="214" class="small green-text">俏也 聊方向</text>
+  <rect x="385" y="194" width="8" height="8" rx="2" fill="#4f8fd6"/>
+  <text x="399" y="202" class="small blue-text">AI 搜索</text>
+  <rect x="607" y="194" width="8" height="8" rx="2" fill="#10a98c"/>
+  <text x="621" y="202" class="small green-text">俏也 批注</text>
+  <rect x="946" y="194" width="8" height="8" rx="2" fill="#4f8fd6"/>
+  <text x="960" y="202" class="small blue-text">AI 写草稿</text>
+
+  <text x="512" y="226" text-anchor="middle" class="small">搜索 flomo / wiki / raw / 网络生成语料库，讨论角度确定后生成写作架构</text>
+
+  <!-- ========== STAGE SEPARATOR 1 ========== -->
+  <line x1="28" y1="258" x2="996" y2="258" class="divider"/>
+
+  <!-- ========== STAGE 2: 炒制 ========== -->
+  <rect x="28" y="274" width="60" height="30" rx="15" class="neutral"/>
+  <text x="58" y="294" class="stage-label" text-anchor="middle">炒制</text>
+
+  <!-- Stage 2 boxes -->
+  <rect x="46" y="318" width="140" height="48" rx="7" class="neutral"/>
+  <text x="116" y="348" text-anchor="middle" class="box-text">回看生成过程</text>
+  <line x1="186" y1="342" x2="200" y2="342" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="207" y="318" width="116" height="48" rx="7" class="blue"/>
+  <text x="265" y="348" text-anchor="middle" class="box-text blue-text">Flow 对比</text>
+  <line x1="323" y1="342" x2="337" y2="342" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="344" y="318" width="128" height="48" rx="7" class="blue"/>
+  <text x="408" y="348" text-anchor="middle" class="box-text blue-text">段落级 diff</text>
+  <line x1="472" y1="342" x2="486" y2="342" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="493" y="318" width="176" height="48" rx="7" class="blue"/>
+  <text x="581" y="348" text-anchor="middle" class="box-text blue-text">生成 diff-analysis</text>
+
+  <rect x="690" y="318" width="160" height="48" rx="7" class="green"/>
+  <text x="770" y="348" text-anchor="middle" class="box-text green-text">提炼可回写规则</text>
+
+  <!-- Stage 2 role annotations -->
+  <rect x="207" y="382" width="8" height="8" rx="2" fill="#4f8fd6"/>
+  <text x="221" y="390" class="small blue-text">AI 执行 Diff</text>
+  <rect x="690" y="382" width="8" height="8" rx="2" fill="#10a98c"/>
+  <text x="704" y="390" class="small green-text">俏也 写 Final</text>
+
+  <text x="512" y="414" text-anchor="middle" class="small">回看 draft 头部决策链 → 通篇对比 → 段落级标注删/加/改/保留 → 生成 diff-analysis → 提炼标准文档建议</text>
+
+  <!-- ========== STAGE SEPARATOR 2 ========== -->
+  <line x1="28" y1="446" x2="996" y2="446" class="divider"/>
+
+  <!-- ========== STAGE 3: 装盘 ========== -->
+  <rect x="28" y="462" width="60" height="30" rx="15" class="neutral"/>
+  <text x="58" y="482" class="stage-label" text-anchor="middle">装盘</text>
+
+  <!-- Stage 3 boxes -->
+  <rect x="46" y="506" width="260" height="48" rx="7" class="green"/>
+  <text x="176" y="536" text-anchor="middle" class="box-text green-text">多平台排版</text>
+  <line x1="306" y1="530" x2="324" y2="530" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="331" y="506" width="200" height="48" rx="7" class="green"/>
+  <text x="431" y="536" text-anchor="middle" class="box-text green-text">归档回写 wiki</text>
+  <line x1="531" y1="530" x2="549" y2="530" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="556" y="506" width="140" height="48" rx="7" class="green"/>
+  <text x="626" y="536" text-anchor="middle" class="box-text green-text">更新状态</text>
+
+  <!-- Stage 3 annotations -->
+  <rect x="46" y="570" width="8" height="8" rx="2" fill="#10a98c"/>
+  <text x="60" y="578" class="small green-text">公众号 HTML / 小红书文本</text>
+  <rect x="331" y="570" width="8" height="8" rx="2" fill="#10a98c"/>
+  <text x="345" y="578" class="small green-text">回写 wiki 知识库</text>
+  <rect x="556" y="570" width="8" height="8" rx="2" fill="#10a98c"/>
+  <text x="570" y="578" class="small green-text">更新 README</text>
+
+  <!-- ========== BOTTOM SUMMARY ========== -->
+  <rect x="150" y="620" width="724" height="48" rx="8" class="green"/>
+  <text x="512" y="650" text-anchor="middle" class="body green-text" font-weight="760" font-size="15">每个 draft 头部累积决策日志：语料库批注 → 写作架构批注 → v1 → v2 → … → 本版策略</text>
+
+  <text x="512" y="700" text-anchor="middle" class="small">备菜该被 AI 消灭（整理素材、排版），炒制该被保护（犹豫、推敲、写完才发现想说什么）</text>
+  <text x="512" y="722" text-anchor="middle" class="small">Diff-Learn 闭环：从单篇经验到可复用标准 · 一次 diff 只提 3-5 条回写规则</text>
+</svg>

@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" role="img" aria-labelledby="title">
+  <title id="title">ciao 系统架构 — 多入口前端 + 统一后端</title>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .layer-title { font-size: 16px; font-weight: 700; }
+      .entry-label { font-size: 14px; font-weight: 700; text-anchor: middle; }
+      .entry-sub { font-size: 11px; fill: #596362; text-anchor: middle; }
+      .route-label { font-size: 11px; fill: #596362; font-family: 'JetBrains Mono', 'Courier New', monospace; text-anchor: middle; }
+      .comp-title { font-size: 15px; font-weight: 700; text-anchor: middle; }
+      .comp-desc { font-size: 12px; fill: #596362; }
+      .deploy-label { font-size: 13px; fill: #18343a; font-weight: 600; text-anchor: middle; }
+      .deploy-desc { font-size: 12px; fill: #596362; }
+      .num-label { font-size: 12px; fill: #596362; font-weight: 600; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.5; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.5; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.5; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.5; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.5; }
+      .green-text { fill: #006b61; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .yellow-text { fill: #7a3f00; }
+      .entry-card { fill: #fff; stroke: #d5d1c7; stroke-width: 1.2; rx: 8; }
+      .entry-card-blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.2; rx: 8; }
+      .entry-card-green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.2; rx: 8; }
+      .entry-card-purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.2; rx: 8; }
+      .comp-box { fill: #fff; stroke: #d5d1c7; stroke-width: 1.2; rx: 6; }
+      .comp-box-green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.2; rx: 6; }
+      .comp-box-blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.2; rx: 6; }
+    </style>
+    <marker id="arrow-down" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#74736c"/>
+    </marker>
+    <marker id="arrow-right" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- ===== LAYER 1: ENTRY POINTS ===== -->
+  <rect x="48" y="24" width="928" height="162" rx="10" class="green"/>
+  <text x="68" y="50" class="layer-title green-text">① 用户入口层</text>
+  <text x="180" y="50" style="font-size:12px;fill:#006b61;">四个入口 · 共享同一后端</text>
+
+  <!-- Entry 1: Web Chat -->
+  <rect x="68" y="68" width="200" height="100" rx="8" class="entry-card-blue"/>
+  <text x="168" y="94" class="entry-label blue-text">💻 Web Chat</text>
+  <text x="168" y="114" style="font-size:11px;fill:#596362;text-anchor:middle;">ciaoye.github.io</text>
+  <text x="168" y="132" style="font-size:11px;fill:#596362;text-anchor:middle;">SSE 流式对话</text>
+  <text x="168" y="150" class="route-label">/web-chat</text>
+
+  <!-- Entry 2: 公众号 -->
+  <rect x="290" y="68" width="200" height="100" rx="8" class="entry-card-green"/>
+  <text x="390" y="94" class="entry-label green-text">📱 微信公众号</text>
+  <text x="390" y="114" style="font-size:11px;fill:#596362;text-anchor:middle;">用户发消息</text>
+  <text x="390" y="132" style="font-size:11px;fill:#596362;text-anchor:middle;">CloudBase Agent Service</text>
+  <text x="390" y="150" class="route-label">/wx-send-message</text>
+
+  <!-- Entry 3: Letter -->
+  <rect x="512" y="68" width="200" height="100" rx="8" class="entry-card-purple"/>
+  <text x="612" y="94" class="entry-label purple-text">✉️ Letter 长信</text>
+  <text x="612" y="114" style="font-size:11px;fill:#596362;text-anchor:middle;">AI 笔友模式</text>
+  <text x="612" y="132" style="font-size:11px;fill:#596362;text-anchor:middle;">慢节奏·长回复</text>
+  <text x="612" y="150" class="route-label">/web-chat (branch)</text>
+
+  <!-- Entry 4: Local -->
+  <rect x="734" y="68" width="200" height="100" rx="8" class="entry-card"/>
+  <text x="834" y="94" class="entry-label">🖥️ 本地调试</text>
+  <text x="834" y="114" style="font-size:11px;fill:#596362;text-anchor:middle;">127.0.0.1:3100</text>
+  <text x="834" y="132" style="font-size:11px;fill:#596362;text-anchor:middle;">开发与测试</text>
+  <text x="834" y="150" class="route-label">localhost:9000</text>
+
+  <!-- Arrows from entries to backend -->
+  <line x1="168" y1="170" x2="168" y2="200" stroke="#74736c" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+  <line x1="390" y1="170" x2="390" y2="200" stroke="#74736c" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+  <line x1="612" y1="170" x2="612" y2="200" stroke="#74736c" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+  <line x1="834" y1="170" x2="834" y2="200" stroke="#74736c" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Merge label -->
+  <text x="512" y="196" text-anchor="middle" style="font-size:11px;fill:#596362;">↓ 统一路由到 FastAPI ↓</text>
+
+  <!-- ===== LAYER 2: BACKEND ===== -->
+  <rect x="48" y="206" width="928" height="200" rx="10" class="blue"/>
+  <text x="68" y="232" class="layer-title blue-text">② ciao LANGGRAPH 后端</text>
+  <text x="300" y="232" style="font-size:12px;fill:#1b4d7a;">Python · FastAPI · LangGraph · 部署在 CloudBase 云托管</text>
+
+  <!-- FastAPI -->
+  <rect x="80" y="252" width="200" height="64" rx="6" class="comp-box-blue"/>
+  <text x="180" y="276" class="comp-title blue-text">FastAPI · app.py</text>
+  <text x="180" y="296" style="font-size:11px;fill:#1b4d7a;text-anchor:middle;">路由分发 · CORS · 限流</text>
+  <text x="180" y="310" style="font-size:10px;fill:#596362;text-anchor:middle;">/web-chat /wx-send-message /healthz</text>
+
+  <!-- Arrow -->
+  <line x1="280" y1="284" x2="320" y2="284" stroke="#74736c" stroke-width="1.5" marker-end="url(#arrow-right)"/>
+
+  <!-- LangGraph -->
+  <rect x="326" y="252" width="240" height="64" rx="6" class="comp-box"/>
+  <text x="446" y="276" class="comp-title">LangGraph · agent.py</text>
+  <text x="446" y="296" style="font-size:11px;fill:#596362;text-anchor:middle;">对话状态图 · 意图分类</text>
+  <text x="446" y="310" style="font-size:10px;fill:#596362;text-anchor:middle;">SSE 流式生成 · 会话记忆</text>
+
+  <!-- Arrow -->
+  <line x1="566" y1="284" x2="606" y2="284" stroke="#74736c" stroke-width="1.5" marker-end="url(#arrow-right)"/>
+
+  <!-- Knowledge Loader -->
+  <rect x="612" y="252" width="220" height="64" rx="6" class="comp-box"/>
+  <text x="722" y="276" class="comp-title">knowledge_loader.py</text>
+  <text x="722" y="296" style="font-size:11px;fill:#596362;text-anchor:middle;">启动时向量化建索引</text>
+  <text x="722" y="310" style="font-size:10px;fill:#596362;text-anchor:middle;">wiki/ · chronicle/ · sources/</text>
+
+  <!-- Knowledge packages row -->
+  <text x="68" y="344" class="num-label">人格包 package/</text>
+
+  <rect x="68" y="354" width="140" height="36" rx="5" class="comp-box-green"/>
+  <text x="138" y="376" class="comp-desc" text-anchor="middle">core/ · 7 个文件</text>
+
+  <rect x="220" y="354" width="140" height="36" rx="5" class="comp-box-green"/>
+  <text x="290" y="376" class="comp-desc" text-anchor="middle">worldview/ · 11 个文件</text>
+
+  <rect x="372" y="354" width="200" height="36" rx="5" class="comp-box-blue"/>
+  <text x="472" y="376" class="comp-desc" text-anchor="middle">knowledge/ · wiki+编年史检索</text>
+
+  <rect x="584" y="354" width="140" height="36" rx="5" class="comp-box"/>
+  <text x="654" y="376" class="comp-desc" text-anchor="middle">memory/ · 会话记忆</text>
+
+  <!-- Arrows to packages -->
+  <line x1="722" y1="316" x2="722" y2="354" stroke="#d5d1c7" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- ===== LAYER 3: DEPLOYMENT ===== -->
+  <rect x="48" y="418" width="928" height="100" rx="10" class="purple"/>
+  <text x="68" y="444" class="layer-title purple-text">③ 部署与分发</text>
+
+  <!-- GitHub -->
+  <rect x="80" y="460" width="260" height="44" rx="6" class="comp-box"/>
+  <text x="210" y="478" class="deploy-label">GitHub · local-stable 分支</text>
+  <text x="210" y="496" style="font-size:11px;fill:#596362;text-anchor:middle;">源码仓库 · 推送触发自动构建</text>
+
+  <!-- Arrow -->
+  <line x1="340" y1="482" x2="380" y2="482" stroke="#74736c" stroke-width="1.5" marker-end="url(#arrow-right)"/>
+
+  <!-- CloudBase -->
+  <rect x="386" y="460" width="260" height="44" rx="6" class="comp-box"/>
+  <text x="516" y="478" class="deploy-label">CloudBase 云托管</text>
+  <text x="516" y="496" style="font-size:11px;fill:#596362;text-anchor:middle;">Docker 构建 · 端口 9000</text>
+
+  <!-- Arrow -->
+  <line x1="646" y1="482" x2="686" y2="482" stroke="#74736c" stroke-width="1.5" marker-end="url(#arrow-right)"/>
+
+  <!-- GitHub Pages -->
+  <rect x="692" y="460" width="244" height="44" rx="6" class="comp-box"/>
+  <text x="814" y="478" class="deploy-label">GitHub Pages</text>
+  <text x="814" y="496" style="font-size:11px;fill:#596362;text-anchor:middle;">前端静态托管 · ciaoye.github.io</text>
+
+  <!-- ===== BOTTOM: KEY FEATURES ===== -->
+  <rect x="48" y="534" width="290" height="68" rx="8" class="yellow"/>
+  <text x="68" y="558" class="layer-title yellow-text">安全机制</text>
+  <text x="68" y="578" style="font-size:12px;fill:#3f4e4c;">Token 鉴权 · CORS 白名单 · 限流 20/min</text>
+  <text x="68" y="594" style="font-size:12px;fill:#3f4e4c;">生产环境关闭 /docs · SSE 仅返回文本</text>
+
+  <rect x="354" y="534" width="290" height="68" rx="8" class="neutral"/>
+  <text x="374" y="558" class="layer-title">分支策略</text>
+  <text x="374" y="578" style="font-size:12px;fill:#3f4e4c;">local-stable · 本地与线上同源码</text>
+  <text x="374" y="594" style="font-size:12px;fill:#3f4e4c;">差异仅在环境变量</text>
+
+  <rect x="660" y="534" width="316" height="68" rx="8" class="green"/>
+  <text x="680" y="558" class="layer-title green-text">三句总结</text>
+  <text x="680" y="578" style="font-size:12px;fill:#3f4e4c;">人格写死「我是谁」 · 知识检索「我知道什么」</text>
+  <text x="680" y="594" style="font-size:12px;fill:#3f4e4c;">记忆累积「我们聊过什么」 · 三合一才是衍生</text>
+
+  <!-- URL -->
+  <rect x="48" y="616" width="928" height="32" rx="6" class="neutral" stroke-dasharray="4,3"/>
+  <text x="512" y="637" text-anchor="middle" class="route-label" style="font-size:12px;">Web: https://ciaoye.github.io/ · 源码: github.com/Ciaoye/ciao_langgraph</text>
+</svg>

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768">
+  <defs>
+    
+    
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+    </style>
+  <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+    </style>
+  <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#74736c"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4f8fd6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="768" fill="transparent"/>
+
+  <!-- ===== CONNECTIONS (drawn behind boxes) ===== -->
+
+  <!-- Fork 1: 原始数据集 → LLM Wiki + 不同年龄的我 -->
+  <polyline points="180,384 215,384 215,225 220,225" fill="none" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+  <polyline points="215,384 215,543 220,543" fill="none" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Upper branch -->
+  <line x1="360" y1="225" x2="378" y2="225" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="525" y1="225" x2="543" y2="225" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Lower branch -->
+  <line x1="360" y1="543" x2="378" y2="543" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="525" y1="543" x2="543" y2="543" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Merge from Wiki-Public and 跨年分析报告 → 知识包分发 -->
+  <polyline points="708,225 730,225 730,371" fill="none" stroke="#74736c" stroke-width="2"/>
+  <polyline points="708,543 730,543 730,397" fill="none" stroke="#74736c" stroke-width="2"/>
+  <line x1="730" y1="384" x2="738" y2="384" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Fork 2: 知识包分发 → Ciao 后端 + 俏也 OS -->
+  <line x1="878" y1="384" x2="900" y2="384" stroke="#74736c" stroke-width="2"/>
+  <polyline points="900,384 900,225 908,225" fill="none" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+  <polyline points="900,384 900,543 908,543" fill="none" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ===== BOXES ===== -->
+
+  <!-- Box 1: 原始数据集 -->
+  <rect x="30" y="359" width="150" height="50" rx="8" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4"/>
+  <text x="105" y="380" font-size="20" fill="#1b4d7a" text-anchor="middle" font-weight="600">原始数据集</text>
+  <text x="105" y="398" font-size="13" fill="#4f8fd6" text-anchor="middle">只读封存 2008-2026</text>
+
+  <!-- Box 2a: LLM Wiki -->
+  <rect x="220" y="200" width="140" height="50" rx="8" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.4"/>
+  <text x="290" y="224" font-size="20" fill="#18343a" text-anchor="middle">LLM Wiki</text>
+  <text x="290" y="242" font-size="13" fill="#596362" text-anchor="middle">整理知识</text>
+
+  <!-- Box 2b: 不同年龄的我 -->
+  <rect x="220" y="518" width="140" height="50" rx="8" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.4"/>
+  <text x="290" y="542" font-size="20" fill="#18343a" text-anchor="middle">不同年龄的我</text>
+  <text x="290" y="560" font-size="13" fill="#596362" text-anchor="middle">年度档案</text>
+
+  <!-- Box 3a: 脱敏 (upper) -->
+  <rect x="380" y="200" width="145" height="50" rx="8" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="452" y="230" font-size="20" fill="#006b61" text-anchor="middle" font-weight="600">脱敏</text>
+
+  <!-- Box 3b: 脱敏 (lower) -->
+  <rect x="380" y="518" width="145" height="50" rx="8" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="452" y="548" font-size="20" fill="#006b61" text-anchor="middle" font-weight="600">脱敏</text>
+
+  <!-- Box 4a: Wiki-Public -->
+  <rect x="545" y="200" width="163" height="50" rx="8" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="626" y="230" font-size="20" fill="#006b61" text-anchor="middle" font-weight="600">Wiki-Public</text>
+
+  <!-- Box 4b: 跨年分析报告 -->
+  <rect x="545" y="518" width="163" height="50" rx="8" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="626" y="548" font-size="20" fill="#006b61" text-anchor="middle" font-weight="600">跨年分析报告</text>
+
+  <!-- Box 5: 知识包分发 -->
+  <rect x="740" y="359" width="140" height="50" rx="8" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4"/>
+  <text x="810" y="389" font-size="20" fill="#1b4d7a" text-anchor="middle" font-weight="600">知识包分发</text>
+
+  <!-- Box 6a: Ciao 后端 -->
+  <rect x="910" y="200" width="96" height="50" rx="8" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4"/>
+  <text x="958" y="224" font-size="16" fill="#4b2e83" text-anchor="middle">Ciao 后端</text>
+  <text x="958" y="242" font-size="11" fill="#8b6fd6" text-anchor="middle">package/</text>
+
+  <!-- Box 6b: 俏也 OS -->
+  <rect x="910" y="518" width="96" height="50" rx="8" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4"/>
+  <text x="958" y="542" font-size="16" fill="#4b2e83" text-anchor="middle">俏也 OS</text>
+  <text x="958" y="560" font-size="11" fill="#8b6fd6" text-anchor="middle">data/</text>
+
+  <!-- ===== FORK LABELS ===== -->
+
+  <!-- Fork 1 label -->
+  <rect x="178" y="340" width="46" height="24" rx="12" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1"/>
+  <text x="201" y="357" font-size="13" fill="#1b4d7a" text-anchor="middle">分流</text>
+
+  <!-- Fork 2 label -->
+  <rect x="870" y="340" width="46" height="24" rx="12" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1"/>
+  <text x="893" y="357" font-size="13" fill="#1b4d7a" text-anchor="middle">分流</text>
+</svg>

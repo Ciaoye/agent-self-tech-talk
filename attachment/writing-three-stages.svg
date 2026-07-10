@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
+  <title id="title">写作三阶段：备菜 → 炒制 → 装盘</title>
+  <desc id="desc">从素材搜集到多平台发布，每个阶段的详细步骤与人机分工</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .stage-title { font-size: 20px; font-weight: 760; }
+      .stage-desc { font-size: 13.5px; fill: #596362; }
+      .step-text { font-size: 13.5px; fill: #18343a; }
+      .step-hint { font-size: 12.5px; fill: #596362; }
+      .role-label { font-size: 13px; font-weight: 760; }
+      .role-text { font-size: 12.5px; fill: #3f4e4c; }
+      .principle { font-size: 13px; fill: #3f4e4c; }
+      .quote-text { font-size: 15px; fill: #7a3f00; font-style: italic; }
+      .flow-text { font-size: 14px; font-weight: 760; fill: #006b61; }
+      .bottom-label { font-size: 13px; fill: #596362; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .blue-text { fill: #1b4d7a; }
+      .yellow-text { fill: #7a3f00; }
+      .green-text { fill: #006b61; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .divider { stroke: #d5d1c7; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">写作三阶段：备菜 → 炒制 → 装盘</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">从素材搜集到多平台发布，每个阶段的详细步骤与人机分工</text>
+
+  <!-- ===== STAGE 1: 备菜 ===== -->
+  <rect x="24" y="82" width="310" height="500" rx="10" class="blue"/>
+  <rect x="24" y="82" width="310" height="40" rx="10" fill="#4f8fd6"/>
+  <rect x="24" y="102" width="310" height="20" fill="#4f8fd6"/>
+  <text x="179" y="109" text-anchor="middle" class="stage-title" fill="#ffffff">Stage 1 · 备菜</text>
+  <text x="179" y="140" text-anchor="middle" class="stage-desc blue-text">素材准备与结构搭建</text>
+
+  <text x="42" y="170" class="step-text">1. 搭架子 + 放 reference</text>
+  <text x="42" y="196" class="step-text">2. 聊方向</text>
+  <text x="140" y="196" class="step-hint">聊透再搜索 · 核心环节</text>
+  <text x="42" y="222" class="step-text">3. 搜索素材</text>
+  <text x="140" y="222" class="step-hint">flomo · wiki · raw · 网络</text>
+  <text x="42" y="248" class="step-text">4. 生成语料库</text>
+  <text x="140" y="248" class="step-hint">一次到位</text>
+  <text x="42" y="274" class="step-text">5. 俏也批注</text>
+  <text x="140" y="274" class="step-hint">高亮 / 删除线 / 回复</text>
+  <text x="42" y="300" class="step-text">6. 讨论 angle</text>
+  <text x="42" y="326" class="step-text">7. 出写作架构</text>
+  <text x="140" y="326" class="step-hint">俏也批注调结构</text>
+  <text x="42" y="352" class="step-text">8. 写 draft</text>
+  <text x="120" y="352" class="step-hint">AI 或人写</text>
+
+  <line x1="34" y1="375" x2="324" y2="375" class="divider"/>
+
+  <text x="42" y="400" class="role-label blue-text">AI 负责</text>
+  <text x="120" y="400" class="role-text">搭架子 · 聊方向 · 搜索 · 写 draft</text>
+  <text x="42" y="424" class="role-label blue-text">俏也 负责</text>
+  <text x="120" y="424" class="role-text">放 reference · 聊方向 · 批注</text>
+
+  <rect x="42" y="448" width="274" height="56" rx="8" class="white"/>
+  <text x="179" y="472" text-anchor="middle" class="step-text blue-text">产出：语料库 + 写作架构 + draft</text>
+  <text x="179" y="492" text-anchor="middle" class="step-hint">draft 头部记录全部决策链</text>
+
+  <text x="179" y="540" text-anchor="middle" class="bottom-label">8 个子步骤 · AI 主导执行</text>
+
+  <line x1="338" y1="320" x2="358" y2="320" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== STAGE 2: 炒制 ===== -->
+  <rect x="362" y="82" width="310" height="500" rx="10" class="yellow"/>
+  <rect x="362" y="82" width="310" height="40" rx="10" fill="#f1a23a"/>
+  <rect x="362" y="102" width="310" height="20" fill="#f1a23a"/>
+  <text x="517" y="109" text-anchor="middle" class="stage-title" fill="#ffffff">Stage 2 · 炒制</text>
+  <text x="517" y="140" text-anchor="middle" class="stage-desc yellow-text">审阅与差异分析</text>
+
+  <text x="380" y="170" class="step-text">1. 回看生成过程</text>
+  <text x="540" y="170" class="step-hint">读 draft 头部批注链</text>
+  <text x="380" y="196" class="step-text">2. 通篇 flow 对比</text>
+  <text x="380" y="222" class="step-text">3. 段落级 diff</text>
+  <text x="540" y="222" class="step-hint">删 · 加 · 改 · 保留</text>
+  <text x="380" y="248" class="step-text">4. 生成 diff-analysis</text>
+  <text x="380" y="274" class="step-text">5. 提标准文档建议</text>
+
+  <line x1="372" y1="297" x2="662" y2="297" class="divider"/>
+
+  <text x="380" y="322" class="step-text yellow-text" font-weight="760">⚠ 关键原则</text>
+  <text x="384" y="346" class="principle">· 自问「规律还是这篇的选择」</text>
+  <text x="384" y="370" class="principle">· 两篇 final 同一模式才算规律</text>
+  <text x="384" y="394" class="principle">· 一次 diff 只提 3-5 条回写规则</text>
+
+  <text x="390" y="428" class="role-label yellow-text">AI 负责</text>
+  <text x="470" y="428" class="role-text">执行 Diff</text>
+  <text x="390" y="452" class="role-label yellow-text">俏也 负责</text>
+  <text x="470" y="452" class="role-text">写 Final</text>
+
+  <rect x="380" y="476" width="274" height="56" rx="8" class="white"/>
+  <text x="517" y="500" text-anchor="middle" class="step-text yellow-text">产出：diff-analysis + final</text>
+  <text x="517" y="520" text-anchor="middle" class="step-hint">标准文档可回写的新规则</text>
+
+  <text x="517" y="540" text-anchor="middle" class="bottom-label">5 个子步骤 · 人机紧密协作</text>
+
+  <line x1="676" y1="320" x2="696" y2="320" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== STAGE 3: 装盘 ===== -->
+  <rect x="700" y="82" width="300" height="500" rx="10" class="green"/>
+  <rect x="700" y="82" width="300" height="40" rx="10" fill="#10a98c"/>
+  <rect x="700" y="102" width="300" height="20" fill="#10a98c"/>
+  <text x="850" y="109" text-anchor="middle" class="stage-title" fill="#ffffff">Stage 3 · 装盘</text>
+  <text x="850" y="140" text-anchor="middle" class="stage-desc green-text">多平台排版与分发</text>
+
+  <text x="718" y="170" class="step-text">1. 读取终稿</text>
+  <text x="718" y="196" class="step-text">2. 选择目标平台</text>
+  <text x="870" y="196" class="step-hint">公众号·小红书·飞书</text>
+  <text x="718" y="222" class="step-text">3. 公众号排版</text>
+  <text x="870" y="222" class="step-hint">Markdown→HTML 兼容</text>
+  <text x="718" y="248" class="step-text">4. 小红书文本</text>
+  <text x="870" y="248" class="step-hint">生成发帖文本</text>
+  <text x="718" y="274" class="step-text">5. 复制终稿归档</text>
+  <text x="870" y="274" class="step-hint">wiki/raw/长文章/</text>
+  <text x="718" y="300" class="step-text">6. 整理 wiki 回写方案</text>
+  <text x="718" y="326" class="step-text">7. 更新 README 状态</text>
+
+  <line x1="710" y1="350" x2="990" y2="350" class="divider"/>
+
+  <text x="718" y="375" class="role-label green-text">AI 负责</text>
+  <text x="800" y="375" class="role-text">HTML 转换 · 多平台适配 · 归档</text>
+  <text x="718" y="399" class="role-label green-text">俏也 负责</text>
+  <text x="800" y="399" class="role-text">预览 · 确认 · 发布</text>
+
+  <rect x="718" y="424" width="264" height="56" rx="8" class="white"/>
+  <text x="850" y="448" text-anchor="middle" class="step-text green-text">产出：公众号 HTML + 小红书文本</text>
+  <text x="850" y="468" text-anchor="middle" class="step-hint">终稿归档 · wiki 回写方案</text>
+
+  <text x="850" y="540" text-anchor="middle" class="bottom-label">7 个子步骤 · AI 转换人确认</text>
+
+  <!-- ===== BOTTOM QUOTE ===== -->
+  <rect x="24" y="604" width="976" height="48" rx="8" class="yellow"/>
+  <text x="512" y="635" text-anchor="middle" class="quote-text">「备菜该被 AI 消灭（整理素材、排版），炒制该被保护（犹豫、推敲、写完才发现想说什么）」</text>
+
+  <!-- ===== SHARED FLOW ===== -->
+  <rect x="150" y="668" width="724" height="34" rx="8" class="green"/>
+  <text x="512" y="690" text-anchor="middle" class="flow-text">每个 draft 头部累积决策日志：语料库批注 → 写作架构批注 → v1 → v2 → … → 本版策略</text>
+
+  <!-- ===== BOTTOM LABELS ===== -->
+  <text x="179" y="730" text-anchor="middle" class="bottom-label">8 个子步骤 · AI 主导执行</text>
+  <text x="517" y="730" text-anchor="middle" class="bottom-label">5 个子步骤 · 人机紧密协作</text>
+  <text x="850" y="730" text-anchor="middle" class="bottom-label">7 个子步骤 · AI 转换人确认</text>
+</svg>

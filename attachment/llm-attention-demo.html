@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM 注意力机制可视化 — 它如何"读"一段文字</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f9;
+    --border: #e5e7eb;
+    --text: #1a1a2e;
+    --text-secondary: #6b7280;
+    --text-dim: #9ca3af;
+    --accent: #6366f1;
+    --accent-soft: #eef2ff;
+    --accent-strong: #4338ca;
+    --warn: #f59e0b;
+    --success: #10b981;
+    --radius: 10px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --mono: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .app {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 14px 24px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .header h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+  .header p { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
+
+  .main-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+  }
+  .card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .card-title .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .text-pane {
+    font-size: 12px;
+    line-height: 1.65;
+    min-height: 0;
+  }
+  .text-pane .word {
+    display: inline;
+    padding: 1px 0;
+    margin: 0;
+    border-radius: 3px;
+    transition: background-color 0.6s ease, box-shadow 0.6s ease, color 0.4s ease;
+    cursor: default;
+    position: relative;
+  }
+  .text-pane .word.highlight-0 { background: rgba(99,102,241,0.04); }
+  .text-pane .word.highlight-1 { background: rgba(99,102,241,0.18); }
+  .text-pane .word.highlight-2 { background: rgba(99,102,241,0.38); }
+  .text-pane .word.highlight-3 { background: rgba(99,102,241,0.62); }
+  .text-pane .word.highlight-4 { background: rgba(99,102,241,0.82); }
+  .text-pane .word.highlight-struct { background: rgba(16,185,129,0.20); }
+  .text-pane .word.highlight-struct-strong { background: rgba(16,185,129,0.55); }
+  .text-pane .word.highlight-relation { background: rgba(245,158,11,0.22); }
+  .text-pane .word.highlight-relation-strong { background: rgba(245,158,11,0.60); }
+  .text-pane .segment-break {
+    display: block;
+    height: 4px;
+  }
+  .text-pane .segment-break-double {
+    display: block;
+    height: 10px;
+  }
+
+  .stage-indicator {
+    display: flex;
+    gap: 0;
+    margin-bottom: 12px;
+  }
+  .stage-dot {
+    flex: 1;
+    text-align: center;
+    padding: 6px 4px;
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    user-select: none;
+  }
+  .stage-dot .num {
+    display: inline-block;
+    width: 22px; height: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+    background: var(--border);
+    font-weight: 600;
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  .stage-dot.active {
+    color: var(--accent-strong);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .stage-dot.active .num {
+    background: var(--accent);
+    color: white;
+  }
+  .stage-dot.done {
+    color: var(--text-secondary);
+  }
+  .stage-dot.done .num {
+    background: var(--success);
+    color: white;
+  }
+  .stage-dot .label { display: block; font-weight: 500; }
+  .stage-dot .sub { display: block; font-size: 10px; opacity: 0.7; }
+
+  .sidebar-card {
+    margin-bottom: 10px;
+  }
+  .focus-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 6px;
+    border-radius: 6px;
+    margin-bottom: 2px;
+    font-size: 12px;
+    transition: all 0.5s ease;
+    opacity: 0.4;
+    transform: translateX(8px);
+  }
+  .focus-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .focus-item .badge {
+    font-size: 9px;
+    padding: 1px 6px;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge.entity { background: #eef2ff; color: #4338ca; }
+  .badge.concept { background: #ecfdf5; color: #065f46; }
+  .badge.relation { background: #fffbeb; color: #92400e; }
+  .focus-item .weight-bar {
+    flex: 1;
+    height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .focus-item .weight-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.8s ease;
+  }
+
+  .summary-box {
+    background: linear-gradient(135deg, #eef2ff, #faf5ff);
+    border: 1px solid #c7d2fe;
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-top: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), #a78bfa, var(--accent));
+  }
+  .summary-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .summary-label .pulse {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 1.5s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.5); }
+  }
+  .summary-content {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  .summary-content .line {
+    display: block;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeIn 0.5s ease forwards;
+    margin-bottom: 2px;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  .btn {
+    padding: 6px 16px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: white;
+    font-size: 12px;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+  .btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .btn.primary {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .btn.primary:hover { background: var(--accent-strong); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .tooltip {
+    position: fixed;
+    background: #1a1a2e;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 100;
+    max-width: 240px;
+    line-height: 1.5;
+  }
+  .tooltip.show { opacity: 1; }
+
+  .explain-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--accent);
+    cursor: pointer;
+    font-weight: 500;
+    user-select: none;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+  .explain-toggle:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+  .explain-toggle .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 10px;
+  }
+  .explain-toggle.open .arrow {
+    transform: rotate(180deg);
+  }
+  .explain-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: var(--surface);
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .explain-body.open {
+    max-height: 300px;
+  }
+  .explain-inner {
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .explain-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .explain-table th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--text-dim);
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .explain-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 12px;
+  }
+  .explain-table tr:last-child td { border-bottom: none; }
+  .explain-tag {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .stage-indicator { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div class="header-icon">&#9881;</div>
+    <div>
+      <h1>LLM 注意力机制 &mdash; 实时可视化</h1>
+      <p>模拟 Transformer 模型阅读文本时注意力权重的分配过程</p>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:8px">
+    <span class="explain-toggle" id="explainToggle" onclick="document.getElementById('explainToggle').classList.toggle('open');document.getElementById('explainBody').classList.toggle('open')">
+      <span class="arrow">&#9660;</span> 原理说明
+    </span>
+    <span style="font-size:11px;color:var(--text-dim)">同一段文字，不同阶段注意力完全不同</span>
+  </div>
+  <div class="explain-body" id="explainBody">
+    <div class="explain-inner">
+      <table class="explain-table">
+        <thead>
+          <tr><th>阶段</th><th>注意力焦点</th><th>高亮词示例</th><th>为什么</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="white-space:nowrap"><span class="explain-tag" style="background:#818cf8"></span>扫描关键词</td>
+            <td>名词、核心概念</td>
+            <td>教育、工作、消费、规训、符号、小王</td>
+            <td>先认出话题在讲什么</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap"><span class="explain-tag" style="background:#34d399"></span>理解结构</td>
+            <td>编号、连词、逻辑标记</td>
+            <td>1. 2. 3. 因为 所以 →</td>
+            <td>识别论证骨架和层次</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap"><span class="explain-tag" style="background:#fbbf24"></span>提取关系</td>
+            <td>因果链上的概念</td>
+            <td>生产规训、工资、消费规训、空虚、循环</td>
+            <td>建立因果连接</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap"><span class="explain-tag" style="background:#34d399"></span>生成总结</td>
+            <td>全阶段汇聚的关键词</td>
+            <td>身份、链条、循环、自愿、生产者、消费者</td>
+            <td>蒸馏成最终输出</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:8px;font-size:11px;color:var(--text-dim);line-height:1.6">
+        同一个词"消费"：阶段1 85%（核心话题）→ 阶段2 50%（焦点在结构）→ 阶段3 60%（因果链中）→ 阶段4 90%（总结必须保留）。<br>
+        而"的""是""这个"等虚词在所有阶段权重都接近 0%。<strong>这就是多头注意力：不同头关注不同层面，最后合一。</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-indicator" id="stageIndicator">
+    <div class="stage-dot active" data-stage="0">
+      <span class="num">0</span>
+      <span class="label">就绪</span>
+      <span class="sub">等待阅读</span>
+    </div>
+    <div class="stage-dot" data-stage="1">
+      <span class="num">1</span>
+      <span class="label">扫描关键词</span>
+      <span class="sub">实体 &amp; 概念识别</span>
+    </div>
+    <div class="stage-dot" data-stage="2">
+      <span class="num">2</span>
+      <span class="label">理解结构</span>
+      <span class="sub">逻辑段落 &amp; 层次</span>
+    </div>
+    <div class="stage-dot" data-stage="3">
+      <span class="num">3</span>
+      <span class="label">提取关系</span>
+      <span class="sub">因果 &amp; 论证链</span>
+    </div>
+    <div class="stage-dot" data-stage="4">
+      <span class="num">4</span>
+      <span class="label">生成总结</span>
+      <span class="sub">输出</span>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>输入文本 — 每读一个词，注意力权重随之变化</div>
+      <div class="text-pane" id="textPane"></div>
+    </div>
+
+    <div>
+      <div class="card sidebar-card">
+        <div class="card-title"><span class="dot" style="background:var(--success)"></span>模型当前"看到"的重点</div>
+        <div id="focusItems"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-box" id="summaryBox" style="display:none">
+    <div class="summary-label"><span class="pulse"></span>模型输出 — 总结</div>
+    <div class="summary-content" id="summaryContent"></div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn" id="btnPrev" disabled>&larr; 上一步</button>
+    <button class="btn primary" id="btnNext">开始阅读 &rarr;</button>
+    <button class="btn" id="btnReset">重置</button>
+    <button class="btn" id="btnAuto" style="font-size:12px">&#9654; 自动播放</button>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+(function() {
+
+const FULL_TEXT = `现在把前面的线索串起来。我们的身份和价值被"教育-工作-消费"的这个链条定义：你上的是什么学、在哪里工作、做的是什么行业，喜欢消费什么。\n1. 生产规训：学校教育 + 职场管理。从小被教育"不努力就被淘汰"，进入职场后有OKR、绩效、晋升、企业文化。你会主动加班、主动学习新技能、主动优化自己。休息会有罪恶感，低效会有焦虑感。\n2. 获得消费资本：生产规训的成果是工资。\n3. 消费规训：品牌、身份、符号。你用什么手机、喝什么咖啡、穿什么牌子的衣服，你的 class，你的 identity，由消费决定。消费不再是为了使用价值，而是为了交换符号价值——告诉别人，也告诉自己：我是谁。\n4. 消费带来短暂填补，新的空虚。消费的欲望永不满足，因为符号永远可以升级。\n5. 空虚驱动更努力的工作。为了买更好的消费符号，你需要更多的钱 → 更努力、更久地工作 → 更深的倦怠 → 更需要用消费来"犒劳自己" → 循环。\n为什么这个系统如此稳固？因为它不靠奴隶主的鞭子，而是靠"自愿"。\n小王自愿加班：因为他相信"奋斗改变命运"。小王自愿买最新款：因为他相信"我值得更好的生活"。小王在生产系统里自我剥削，获得消费的资本；小王在消费系统里自我证明，为了填补工作带来的疲惫和空虚。消费的压力，又驱动小王更努力地工作。\n所以现在社会的"成功"是：一个高效的生产者 + 一个合格的消费者。系统高明的设计是：如果你不这样，没有固定的工作、消费很便宜的商品、整日游手好闲，可能被认为是不体面、不上进、懒惰、失败、怪异。`;
+
+function tokenize(text) {
+  const segments = [];
+  const re = /([\u4e00-\u9fff]+|[a-zA-Z]+|[0-9]+|[，。、；：""''！？（）—…→\n]|[^\S\n]+)/g;
+  let match;
+  while ((match = re.exec(text)) !== null) {
+    const t = match[0];
+    if (t === '\n') {
+      segments.push({ text: '', break: true });
+    } else if (/^[^\S\n]+$/.test(t)) {
+      segments.push({ text: ' ', space: true });
+    } else {
+      segments.push({ text: t, break: false, space: false });
+    }
+  }
+  const merged = [];
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i].break && merged.length > 0 && merged[merged.length-1].break) {
+      merged[merged.length-1] = { text: '', break: true, double: true };
+    } else {
+      merged.push(segments[i]);
+    }
+  }
+  return merged;
+}
+
+const tokens = tokenize(FULL_TEXT);
+
+const KEY_CONCEPTS = new Set([
+  '身份','价值','教育','工作','消费','链条','定义','学校','行业',
+  '生产规训','职场','OKR','绩效','晋升','企业文化','主动加班',
+  '消费资本','工资','消费规训','品牌','符号','使用价值','符号价值',
+  '身份','谁是','空虚','欲望','永不满足','升级','循环','系统','稳固',
+  '奴隶主','鞭子','自愿','小王','奋斗','改变命运','自我剥削',
+  '自我证明','生产者','消费者','成功','不体面','不上进','懒惰','失败','怪异',
+  '高效','合格','设计'
+]);
+
+const STRUCT_MARKERS = new Set(['1','2','3','4','5','因为','所以','于是','因此','→']);
+
+function isKeyConcept(word) {
+  const cleaned = word.replace(/[""''，。、；：！？（）—…]/g, '');
+  return KEY_CONCEPTS.has(cleaned);
+}
+function isStructMarker(word) {
+  const cleaned = word.replace(/[^\u4e00-\u9fff0-9a-zA-Z→]/g, '');
+  return STRUCT_MARKERS.has(cleaned);
+}
+
+const stageNames = ['就绪','扫描关键词','理解结构','提取关系','生成总结'];
+
+const stageFocusItems = [
+  [],
+  [
+    { text: '教育-工作-消费', weight: 0.92, type: 'entity', detail: '核心三元链条' },
+    { text: '生产规训', weight: 0.88, type: 'concept', detail: '学校+职场管理制度' },
+    { text: '消费规训', weight: 0.85, type: 'concept', detail: '品牌符号定义身份' },
+    { text: '符号价值', weight: 0.80, type: 'concept', detail: '消费的符号交换功能' },
+    { text: '自愿 / 自我剥削', weight: 0.75, type: 'relation', detail: '系统稳固的关键' },
+  ],
+  [
+    { text: '1→2→3→4→5', weight: 0.95, type: 'entity', detail: '五步循环论证结构' },
+    { text: '生产规训 → 工资', weight: 0.90, type: 'relation', detail: '第1步产出第2步' },
+    { text: '消费规训 → 空虚', weight: 0.87, type: 'relation', detail: '第3步导致第4步' },
+    { text: '空虚 → 更努力工作', weight: 0.85, type: 'relation', detail: '第5步闭环核心' },
+    { text: '系统稳固原因', weight: 0.82, type: 'concept', detail: '"自愿"是关键' },
+  ],
+  [
+    { text: '自我剥削', weight: 0.93, type: 'concept', detail: '小王自愿加班/消费' },
+    { text: '生产→消费→生产', weight: 0.91, type: 'relation', detail: '双向加强的闭环' },
+    { text: '符号决定身份', weight: 0.87, type: 'relation', detail: '消费定义 class' },
+    { text: '成功 = 生产者+消费者', weight: 0.84, type: 'concept', detail: '社会对"成功"的定义' },
+    { text: '不体面/失败者', weight: 0.78, type: 'concept', detail: '偏离系统的代价' },
+  ],
+  [
+    { text: '教育-工作-消费链条定义身份与价值', weight: 0.95, type: 'entity', detail: '全文核心论点' },
+    { text: '生产规训→工资→消费规训→空虚→更努力工作', weight: 0.92, type: 'relation', detail: '核心循环' },
+    { text: '自愿而非强制，自我剥削', weight: 0.89, type: 'concept', detail: '系统稳固的根本原因' },
+    { text: '成功 = 高效生产者 + 合格消费者', weight: 0.86, type: 'concept', detail: '社会评价尺度' },
+  ],
+];
+
+function computeTokenWeights(stage) {
+  const weights = tokens.map(() => 0);
+  if (stage === 0) return weights;
+
+  tokens.forEach((t, i) => {
+    const word = t.text;
+    if (!word || t.space || t.break) return;
+    let w = 0;
+
+    if (stage === 1) {
+      if (isKeyConcept(word)) w = 0.75 + Math.random() * 0.25;
+      else if (word.length >= 3 && /[\u4e00-\u9fff]/.test(word)) w = 0.08 + Math.random() * 0.12;
+      else w = Math.random() * 0.06;
+    } else if (stage === 2) {
+      if (isStructMarker(word)) w = 0.80 + Math.random() * 0.20;
+      else if (isKeyConcept(word)) w = 0.35 + Math.random() * 0.30;
+      else w = Math.random() * 0.10;
+    } else if (stage === 3) {
+      if (word === '→' || word === '因为' || word === '所以') w = 0.90;
+      else if (['生产规训','消费规训','消费资本','自我剥削','自愿'].includes(word)) w = 0.75 + Math.random() * 0.25;
+      else if (isKeyConcept(word)) w = 0.45 + Math.random() * 0.35;
+      else w = Math.random() * 0.15;
+    } else if (stage === 4) {
+      if (['身份','价值','教育','工作','消费','链条','循环','自我剥削','自愿','成功','生产者','消费者'].includes(word)) w = 0.80 + Math.random() * 0.20;
+      else if (isKeyConcept(word)) w = 0.50 + Math.random() * 0.35;
+      else w = Math.random() * 0.15;
+    }
+    weights[i] = w;
+  });
+  return weights;
+}
+
+function weightToHighlightClass(weight, stage) {
+  if (stage === 2) {
+    if (weight > 0.55) return 'highlight-struct-strong';
+    if (weight > 0.25) return 'highlight-struct';
+    return 'highlight-0';
+  }
+  if (stage === 3) {
+    if (weight > 0.55) return 'highlight-relation-strong';
+    if (weight > 0.25) return 'highlight-relation';
+    return 'highlight-0';
+  }
+  if (weight > 0.70) return 'highlight-4';
+  if (weight > 0.45) return 'highlight-3';
+  if (weight > 0.20) return 'highlight-2';
+  if (weight > 0.05) return 'highlight-1';
+  return 'highlight-0';
+}
+
+function renderTextPane(weights, stage) {
+  const pane = document.getElementById('textPane');
+  let html = '';
+  tokens.forEach((t, i) => {
+    if (t.break) {
+      html += t.double
+        ? '<span class="segment-break-double"></span>'
+        : '<span class="segment-break"></span>';
+      return;
+    }
+    if (t.space) {
+      html += ' ';
+      return;
+    }
+    const cls = weightToHighlightClass(weights[i], stage);
+    html += `<span class="word ${cls}" data-idx="${i}">${escapeHtml(t.text)}</span>`;
+  });
+  pane.innerHTML = html;
+
+  pane.querySelectorAll('.word').forEach(el => {
+    el.addEventListener('mouseenter', function(e) {
+      const idx = parseInt(this.dataset.idx);
+      if (isNaN(idx)) return;
+      const w = weights[idx];
+      const tip = document.getElementById('tooltip');
+      tip.innerHTML = `<strong>${tokens[idx].text}</strong><br>注意力权重: ${(w*100).toFixed(0)}%<br>阶段: ${stageNames[stage]}`;
+      tip.classList.add('show');
+      tip.style.left = (e.clientX + 14) + 'px';
+      tip.style.top = (e.clientY - 10) + 'px';
+    });
+    el.addEventListener('mouseleave', function() {
+      document.getElementById('tooltip').classList.remove('show');
+    });
+    el.addEventListener('mousemove', function(e) {
+      const tip = document.getElementById('tooltip');
+      tip.style.left = (e.clientX + 14) + 'px';
+      tip.style.top = (e.clientY - 10) + 'px';
+    });
+  });
+}
+
+function updateFocusItems(stage) {
+  const container = document.getElementById('focusItems');
+  const items = stageFocusItems[stage] || [];
+  let html = '';
+  items.forEach((item, i) => {
+    const colorMap = { entity: '#6366f1', concept: '#10b981', relation: '#f59e0b' };
+    html += `
+      <div class="focus-item" style="animation-delay:${i*0.15}s">
+        <span class="badge ${item.type}">${item.type === 'entity' ? '实体' : item.type === 'concept' ? '概念' : '关系'}</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:500;font-size:13px">${item.text}</div>
+          <div style="font-size:11px;color:var(--text-dim)">${item.detail}</div>
+        </div>
+        <div class="weight-bar"><div class="weight-fill" style="width:${item.weight*100}%;background:${colorMap[item.type]}"></div></div>
+        <span style="font-size:11px;color:var(--text-dim);width:32px;text-align:right">${(item.weight*100).toFixed(0)}%</span>
+      </div>`;
+  });
+  container.innerHTML = html;
+
+  requestAnimationFrame(() => {
+    container.querySelectorAll('.focus-item').forEach(el => el.classList.add('visible'));
+  });
+}
+
+function showSummary(stage) {
+  const box = document.getElementById('summaryBox');
+  const content = document.getElementById('summaryContent');
+  if (stage < 4) {
+    box.style.display = 'none';
+    return;
+  }
+  box.style.display = 'block';
+  const lines = [
+    '本文揭示了一个由<strong>教育-工作-消费</strong>三元链条定义的现代人身份系统：',
+    '<strong>1. 生产规训</strong>（学校+职场）塑造"不努力就被淘汰"的自我驱动 → 获得工资（消费资本）',
+    '<strong>2. 消费规训</strong>用品牌符号定义身份 — 消费的不是使用价值，而是"我是谁"的符号',
+    '<strong>3. 循环闭环：</strong>消费带来短暂满足 → 新的空虚 → 需要更多钱 → 更努力工作 → 更倦怠 → 更需要消费犒劳自己',
+    '<strong>核心洞察：</strong>系统不靠强制，靠"自愿" — 小王自愿加班、自愿消费，在自我剥削中完成循环',
+    '<strong>社会定义：</strong>"成功"=高效生产者+合格消费者；偏离者被打上"不体面、懒惰、失败"的标签',
+  ];
+  content.innerHTML = lines.map((l, i) =>
+    `<span class="line" style="animation-delay:${i*0.3}s">${l}</span>`
+  ).join('');
+}
+
+let currentStage = 0;
+let autoTimer = null;
+
+function setStage(stage, animate = true) {
+  currentStage = Math.max(0, Math.min(4, stage));
+
+  document.querySelectorAll('.stage-dot').forEach(d => {
+    const s = parseInt(d.dataset.stage);
+    d.className = 'stage-dot';
+    if (s < currentStage) d.classList.add('done');
+    else if (s === currentStage) d.classList.add('active');
+  });
+
+  const weights = computeTokenWeights(currentStage);
+  renderTextPane(weights, currentStage);
+  updateFocusItems(currentStage);
+  showSummary(currentStage);
+
+  document.getElementById('btnPrev').disabled = currentStage === 0;
+  document.getElementById('btnNext').disabled = currentStage === 4;
+  document.getElementById('btnNext').textContent = currentStage === 4 ? '已完成' : (currentStage === 3 ? '生成总结 →' : '下一步 →');
+}
+
+function resetAll() {
+  stopAuto();
+  setStage(0);
+}
+
+function stopAuto() {
+  if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  document.getElementById('btnAuto').innerHTML = '&#9654; 自动播放';
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+document.getElementById('btnNext').addEventListener('click', () => {
+  stopAuto();
+  if (currentStage < 4) setStage(currentStage + 1);
+});
+
+document.getElementById('btnPrev').addEventListener('click', () => {
+  stopAuto();
+  if (currentStage > 0) setStage(currentStage - 1);
+});
+
+document.getElementById('btnReset').addEventListener('click', resetAll);
+
+document.getElementById('btnAuto').addEventListener('click', function() {
+  if (autoTimer) {
+    stopAuto();
+    return;
+  }
+  setStage(0);
+  this.innerHTML = '&#9632; 停止';
+  autoTimer = setInterval(() => {
+    if (currentStage >= 4) {
+      stopAuto();
+      return;
+    }
+    setStage(currentStage + 1);
+  }, 2800);
+});
+
+document.querySelectorAll('.stage-dot').forEach(dot => {
+  dot.addEventListener('click', function() {
+    stopAuto();
+    setStage(parseInt(this.dataset.stage));
+  });
+});
+
+setStage(0);
+
+})();
+</script>
+</body>
+</html>

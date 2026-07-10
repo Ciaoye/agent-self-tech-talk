@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768" role="img" aria-labelledby="title desc">
+  <title id="title">从存、结构、找到持续维护的知识管理范式演进</title>
+  <desc id="desc">一张透明背景、文字可复制的 SVG 信息图：对比纯收集型、结构化笔记工具、RAG 类产品与 LLM Wiki，说明 LLM Wiki 的关键变化是让 AI 持续综合、交叉引用、归档并维护知识库一致性。</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .stage-label { font-size: 12px; font-weight: 760; }
+      .card-title { font-size: 20px; font-weight: 760; }
+      .section-title { font-size: 18px; font-weight: 760; }
+      .node-title { font-size: 17px; font-weight: 760; }
+      .body { font-size: 13.5px; fill: #3f4e4c; }
+      .small { font-size: 12.5px; fill: #596362; }
+      .tiny { font-size: 11.5px; fill: #596362; }
+      .footer { font-size: 18px; font-weight: 760; fill: #006b61; }
+      .panel { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
+      .yellow-soft { fill: #fffaf0; stroke: #f1a23a; stroke-width: 1.1; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .blue-soft { fill: #f4f9ff; stroke: #4f8fd6; stroke-width: 1.1; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .purple-soft { fill: #faf7ff; stroke: #8b6fd6; stroke-width: 1.1; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .green-soft { fill: #f3fffb; stroke: #10a98c; stroke-width: 1.1; }
+      .muted-line { stroke: #74736c; stroke-width: 1.4; fill: none; stroke-linecap: round; }
+      .arrow-line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .yellow-text { fill: #7a3f00; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .green-text { fill: #006b61; }
+    </style>
+  </defs>
+
+  <text x="512" y="38" text-anchor="middle" class="title">知识管理范式：从“存 / 结构 / 找”到“持续维护”</text>
+  <text x="512" y="65" text-anchor="middle" class="claim">过去分别解决“存、结构、找”，但没有解决“持续综合和维护”；</text>
+  <text x="512" y="86" text-anchor="middle" class="claim">LLM Wiki 让 AI 接手综合、交叉引用、归档和一致性维护，知识库开始复合增长。</text>
+
+  <rect x="38" y="118" width="218" height="360" rx="8" class="yellow"/>
+  <rect x="58" y="138" width="60" height="24" rx="12" class="yellow-soft"/>
+  <text x="88" y="154" text-anchor="middle" class="stage-label yellow-text">第 1 代</text>
+  <text x="58" y="190" class="card-title yellow-text">纯收集型</text>
+  <text x="58" y="218" class="body">收藏夹 / Evernote</text>
+  <text x="58" y="239" class="body">微信收藏 / 文件夹</text>
+  <line x1="58" y1="258" x2="236" y2="258" class="muted-line"/>
+  <rect x="58" y="276" width="178" height="38" rx="8" fill="#ffffff" stroke="#f1a23a" stroke-width="1.1"/>
+  <text x="147" y="300" text-anchor="middle" class="node-title yellow-text">解决：存起来</text>
+  <text x="58" y="338" class="section-title yellow-text">留下的问题</text>
+  <rect x="58" y="354" width="178" height="30" rx="7" class="yellow-soft"/>
+  <text x="147" y="374" text-anchor="middle" class="small yellow-text">信息坟场</text>
+  <rect x="58" y="392" width="178" height="30" rx="7" class="yellow-soft"/>
+  <text x="147" y="412" text-anchor="middle" class="small yellow-text">少回看</text>
+  <rect x="58" y="430" width="178" height="30" rx="7" class="yellow-soft"/>
+  <text x="147" y="450" text-anchor="middle" class="small yellow-text">链接过期 / 分类混乱</text>
+
+  <line x1="260" y1="298" x2="270" y2="298" class="arrow-line"/>
+  <polygon points="276,298 267,292 267,304" fill="#74736c"/>
+
+  <rect x="276" y="118" width="218" height="360" rx="8" class="blue"/>
+  <rect x="296" y="138" width="60" height="24" rx="12" class="blue-soft"/>
+  <text x="326" y="154" text-anchor="middle" class="stage-label blue-text">第 2 代</text>
+  <text x="296" y="190" class="card-title blue-text">结构化笔记</text>
+  <text x="296" y="218" class="body">Notion / 飞书</text>
+  <text x="296" y="239" class="body">Obsidian / Roam</text>
+  <line x1="296" y1="258" x2="474" y2="258" class="muted-line"/>
+  <rect x="296" y="276" width="178" height="38" rx="8" fill="#ffffff" stroke="#4f8fd6" stroke-width="1.1"/>
+  <text x="385" y="300" text-anchor="middle" class="node-title blue-text">解决：结构连接</text>
+  <text x="296" y="338" class="section-title blue-text">留下的问题</text>
+  <rect x="296" y="354" width="178" height="30" rx="7" class="blue-soft"/>
+  <text x="385" y="374" text-anchor="middle" class="small blue-text">维护全靠人</text>
+  <rect x="296" y="392" width="178" height="30" rx="7" class="blue-soft"/>
+  <text x="385" y="412" text-anchor="middle" class="small blue-text">标签 / 双链腐烂</text>
+  <rect x="296" y="430" width="178" height="30" rx="7" class="blue-soft"/>
+  <text x="385" y="450" text-anchor="middle" class="small blue-text">旧页更新缺位</text>
+
+  <line x1="498" y1="298" x2="508" y2="298" class="arrow-line"/>
+  <polygon points="514,298 505,292 505,304" fill="#74736c"/>
+
+  <rect x="514" y="118" width="218" height="360" rx="8" class="purple"/>
+  <rect x="534" y="138" width="60" height="24" rx="12" class="purple-soft"/>
+  <text x="564" y="154" text-anchor="middle" class="stage-label purple-text">第 3 代</text>
+  <text x="534" y="190" class="card-title purple-text">RAG 类产品</text>
+  <text x="534" y="218" class="body">NotebookLM</text>
+  <text x="534" y="239" class="body">ChatGPT 文件上传</text>
+  <line x1="534" y1="258" x2="712" y2="258" class="muted-line"/>
+  <rect x="534" y="276" width="178" height="38" rx="8" fill="#ffffff" stroke="#8b6fd6" stroke-width="1.1"/>
+  <text x="623" y="300" text-anchor="middle" class="node-title purple-text">解决：找答案</text>
+  <text x="534" y="338" class="section-title purple-text">留下的问题</text>
+  <rect x="534" y="354" width="178" height="30" rx="7" class="purple-soft"/>
+  <text x="623" y="374" text-anchor="middle" class="small purple-text">每次提问从零</text>
+  <rect x="534" y="392" width="178" height="30" rx="7" class="purple-soft"/>
+  <text x="623" y="412" text-anchor="middle" class="small purple-text">发现不沉淀</text>
+  <rect x="534" y="430" width="178" height="30" rx="7" class="purple-soft"/>
+  <text x="623" y="450" text-anchor="middle" class="small purple-text">结果不回库</text>
+
+  <line x1="736" y1="298" x2="746" y2="298" class="arrow-line"/>
+  <polygon points="752,298 743,292 743,304" fill="#74736c"/>
+
+  <rect x="752" y="118" width="218" height="360" rx="8" class="green"/>
+  <rect x="772" y="138" width="60" height="24" rx="12" class="green-soft"/>
+  <text x="802" y="154" text-anchor="middle" class="stage-label green-text">第 4 代</text>
+  <text x="772" y="190" class="card-title green-text">LLM Wiki</text>
+  <text x="772" y="218" class="body">AI 持续维护</text>
+  <text x="772" y="239" class="body">知识库可生长</text>
+  <line x1="772" y1="258" x2="950" y2="258" class="muted-line"/>
+  <rect x="772" y="276" width="178" height="38" rx="8" fill="#ffffff" stroke="#10a98c" stroke-width="1.1"/>
+  <text x="861" y="300" text-anchor="middle" class="node-title green-text">解决：持续维护</text>
+  <text x="772" y="338" class="section-title green-text">核心优势</text>
+  <rect x="772" y="354" width="178" height="26" rx="7" class="green-soft"/>
+  <text x="861" y="372" text-anchor="middle" class="small green-text">编译知识</text>
+  <rect x="772" y="386" width="178" height="26" rx="7" class="green-soft"/>
+  <text x="861" y="404" text-anchor="middle" class="small green-text">近零维护</text>
+  <rect x="772" y="418" width="178" height="26" rx="7" class="green-soft"/>
+  <text x="861" y="436" text-anchor="middle" class="small green-text">复合增长</text>
+  <rect x="772" y="450" width="178" height="26" rx="7" class="green-soft"/>
+  <text x="861" y="468" text-anchor="middle" class="small green-text">探索结果回 wiki</text>
+
+  <rect x="38" y="504" width="932" height="122" rx="8" class="panel"/>
+  <text x="62" y="535" class="section-title">新的分工：人负责判断，AI 负责维护</text>
+  <text x="62" y="557" class="tiny">维护不再依赖人的额外自律，而成为知识系统的默认动作。</text>
+
+  <rect x="62" y="573" width="412" height="44" rx="8" class="white"/>
+  <rect x="78" y="584" width="44" height="22" rx="11" class="yellow-soft"/>
+  <text x="100" y="599" text-anchor="middle" class="stage-label yellow-text">人</text>
+  <text x="144" y="591" class="small">筛选来源 / 引导分析</text>
+  <text x="144" y="611" class="small">提出好问题 / 判断意义</text>
+
+  <rect x="516" y="573" width="412" height="44" rx="8" class="white"/>
+  <rect x="532" y="584" width="44" height="22" rx="11" class="green-soft"/>
+  <text x="554" y="599" text-anchor="middle" class="stage-label green-text">AI</text>
+  <text x="598" y="591" class="small">总结 / 交叉引用 / 归档</text>
+  <text x="598" y="611" class="small">更新旧页 / 维护一致性</text>
+
+  <rect x="64" y="650" width="896" height="70" rx="8" class="green"/>
+  <text x="512" y="680" text-anchor="middle" class="footer">结论：LLM 解决了 Memex / Wiki 一直卡住的问题：</text>
+  <text x="512" y="706" text-anchor="middle" class="footer">谁来做维护。维护变成 AI 的默认职责。</text>
+</svg>

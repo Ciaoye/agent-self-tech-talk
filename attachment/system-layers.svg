@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768" role="img" aria-labelledby="title desc">
+  <title id="title">系统八层金字塔</title>
+  <desc id="desc">从原始数据到输出workflow的八层递进结构，对应赖声川创作金字塔</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .layer-title { font-size: 20px; font-weight: 760; }
+      .layer-sub { font-size: 13px; }
+      .side-label { font-size: 14px; font-weight: 760; }
+      .side-sub { font-size: 13px; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .green-text { fill: #006b61; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow-up" markerWidth="8" markerHeight="8" refX="4" refY="1" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0 8, 4 0, 8 8" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">系统八层金字塔</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">从原始数据到输出 workflow · 对应赖声川创作金字塔的智慧×形式</text>
+
+  <!-- Left side: 赖声川金字塔 -->
+  <rect x="40" y="100" width="130" height="540" rx="8" fill="none" stroke="#8b6fd6" stroke-width="1.4" stroke-dasharray="6,4"/>
+  <text x="105" y="124" text-anchor="middle" class="side-label purple-text">赖声川金字塔</text>
+  <text x="105" y="190" text-anchor="middle" class="side-sub purple-text">顶层：智慧×形式</text>
+  <text x="105" y="325" text-anchor="middle" class="side-sub purple-text">中层：三观/去标签</text>
+  <text x="105" y="525" text-anchor="middle" class="side-sub purple-text">底层：经验档案库</text>
+
+  <!-- Right side: 系统对应板块 -->
+  <rect x="854" y="100" width="130" height="540" rx="8" fill="none" stroke="#4f8fd6" stroke-width="1.4" stroke-dasharray="6,4"/>
+  <text x="919" y="124" text-anchor="middle" class="side-label blue-text">系统对应板块</text>
+  <text x="919" y="190" text-anchor="middle" class="side-sub blue-text">涌现</text>
+  <text x="919" y="270" text-anchor="middle" class="side-sub blue-text">创作</text>
+  <text x="919" y="410" text-anchor="middle" class="side-sub blue-text">觉察</text>
+  <text x="919" y="525" text-anchor="middle" class="side-sub blue-text">组织</text>
+
+  <!-- Layer 8: 输出workflow -->
+  <rect x="340" y="78" width="344" height="56" rx="8" class="green"/>
+  <text x="512" y="104" text-anchor="middle" class="layer-title green-text">输出 workflow</text>
+  <text x="512" y="124" text-anchor="middle" class="layer-sub green-text">ciao · 俏也OS · 多平台分发</text>
+
+  <line x1="512" y1="138" x2="512" y2="154" class="line" marker-end="url(#arrow-up)"/>
+
+  <!-- Layer 7: 创作层面 -->
+  <rect x="300" y="160" width="424" height="56" rx="8" class="blue"/>
+  <text x="512" y="180" text-anchor="middle" class="layer-title blue-text">创作层面</text>
+  <text x="512" y="198" text-anchor="middle" class="layer-sub blue-text">读之前的记录本身就有很多灵感</text>
+
+  <line x1="512" y1="216" x2="512" y2="214" class="line" marker-end="url(#arrow-up)"/>
+
+  <!-- Layer 6: 节律对照 -->
+  <rect x="260" y="224" width="504" height="56" rx="8" class="blue"/>
+  <text x="512" y="240" text-anchor="middle" class="layer-title blue-text">节律对照</text>
+  <text x="512" y="258" text-anchor="middle" class="layer-sub blue-text">创作和迁徙的周期 · 寻找模式与规律</text>
+
+  <line x1="512" y1="284" x2="512" y2="274" class="line" marker-end="url(#arrow-up)"/>
+
+  <!-- Layer 5: 情感与行为 -->
+  <rect x="220" y="288" width="584" height="56" rx="8" class="purple"/>
+  <text x="512" y="300" text-anchor="middle" class="layer-title purple-text">情感与外部行为数据</text>
+  <text x="512" y="318" text-anchor="middle" class="layer-sub purple-text">情绪可视化 · 聊天情绪词检测 · 从小到大的情绪曲线</text>
+
+  <line x1="512" y1="348" x2="512" y2="334" class="line" marker-end="url(#arrow-up)"/>
+
+  <!-- Layer 4: myth -->
+  <rect x="180" y="352" width="664" height="56" rx="8" class="purple"/>
+  <text x="512" y="362" text-anchor="middle" class="layer-title purple-text">myth — 人生叙事 / 神话</text>
+  <text x="512" y="380" text-anchor="middle" class="layer-sub purple-text">荣格意义上的神话——人如何理解自己的人生。事实没变，神话变了。</text>
+
+  <line x1="512" y1="412" x2="512" y2="400" class="line" marker-end="url(#arrow-up)"/>
+
+  <!-- Layer 3: narrative -->
+  <rect x="140" y="416" width="744" height="56" rx="8" class="purple"/>
+  <text x="512" y="426" text-anchor="middle" class="layer-title purple-text">narrative — 自传 / 编年史</text>
+  <text x="512" y="442" text-anchor="middle" class="layer-sub purple-text">19个年度档案（2008-2026）· 每篇万人字 · 画像/生活底板/声音指纹/证据索引</text>
+
+  <line x1="512" y1="472" x2="512" y2="460" class="line" marker-end="url(#arrow-up)"/>
+
+  <!-- Layer 2: LLM Wiki -->
+  <rect x="100" y="476" width="824" height="56" rx="8" class="blue"/>
+  <text x="512" y="486" text-anchor="middle" class="layer-title blue-text">LLM Wiki</text>
+  <text x="512" y="504" text-anchor="middle" class="layer-sub blue-text">索引 · 梳理 · 双链网络 · 246页 · 7,215处链接 · 语义搜索</text>
+
+  <line x1="512" y1="532" x2="512" y2="520" class="line" marker-end="url(#arrow-up)"/>
+
+  <!-- Layer 1: raw data -->
+  <rect x="80" y="522" width="864" height="52" rx="8" class="neutral"/>
+  <text x="512" y="548" text-anchor="middle" class="layer-title">raw data — 所有原始数据</text>
+  <text x="512" y="566" text-anchor="middle" class="layer-sub">2008-2026 · 约80M纯文本 · 日记/聊天记录/说说/语音/长文章/日志</text>
+
+  <!-- Bottom baseline -->
+  <rect x="80" y="596" width="864" height="4" rx="2" fill="#d5d1c7"/>
+</svg>

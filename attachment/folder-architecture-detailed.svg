@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 820" width="1024" height="820" role="img" aria-labelledby="title desc">
+  <title id="title">trae_projects 全工作区目录结构</title>
+  <desc id="desc">从原始数据集到涌现层，每个文件夹一个框</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .layer-title { font-size: 20px; font-weight: 760; }
+      .layer-sub { font-size: 13px; fill: #596362; }
+      .folder-name { font-size: 14px; font-weight: 760; }
+      .folder-desc { font-size: 13px; fill: #3f4e4c; }
+      .folder-note { font-size: 12.5px; fill: #596362; }
+      .tiny { font-size: 11.5px; fill: #596362; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .dashed { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; stroke-dasharray: 5,3; }
+      .accent-neutral { fill: #74736c; }
+      .accent-blue { fill: #4f8fd6; }
+      .accent-purple { fill: #8b6fd6; }
+      .accent-green { fill: #10a98c; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .green-text { fill: #006b61; }
+    </style>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">trae_projects 全工作区目录结构</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">每个文件夹一个框 · 从原始数据到涌现创造</text>
+
+  <!-- ===== 原始数据集 ===== -->
+  <rect x="28" y="80" width="968" height="82" rx="8" class="neutral"/>
+  <rect x="28" y="80" width="6" height="82" rx="3" class="accent-neutral"/>
+  <text x="50" y="104" class="layer-title">原始数据集</text>
+  <text x="180" y="104" class="layer-sub">只读封存 · 2008-2026 · 3,912 个文件</text>
+  <text x="50" y="126" class="folder-name">日记/</text>
+  <text x="100" y="126" class="folder-desc">2,449篇</text>
+  <text x="200" y="126" class="folder-name">聊天记录/</text>
+  <text x="285" y="126" class="folder-desc">351,398条消息</text>
+  <text x="450" y="126" class="folder-name">说说/</text>
+  <text x="500" y="126" class="folder-desc">1,360条</text>
+  <text x="600" y="126" class="folder-name">日志/</text>
+  <text x="640" y="126" class="folder-desc">35篇</text>
+  <text x="710" y="126" class="folder-name">语音转文字/</text>
+  <text x="810" y="126" class="folder-desc">15篇</text>
+  <text x="50" y="148" class="folder-name">长文章/</text>
+  <text x="120" y="148" class="folder-desc">39篇</text>
+  <text x="200" y="148" class="folder-name">My Activity/</text>
+  <text x="300" y="148" class="folder-desc">Google 全活动记录</text>
+
+  <!-- ===== LLM wiki ===== -->
+  <rect x="28" y="174" width="968" height="98" rx="8" class="blue"/>
+  <rect x="28" y="174" width="6" height="98" rx="3" class="accent-blue"/>
+  <text x="50" y="198" class="layer-title blue-text">LLM wiki</text>
+  <text x="155" y="198" class="layer-sub">知识整理层 · 246个 wiki 页面 · 7,215 处双链</text>
+  <text x="50" y="220" class="folder-name blue-text">CLAUDE.md</text>
+  <text x="155" y="220" class="folder-desc">活的 schema — 页面规范 + 4 个工作流 + 命名约定</text>
+  <text x="50" y="242" class="folder-name blue-text">wiki/</text>
+  <text x="100" y="242" class="folder-desc">core/ · concepts/ · people/ · places/ · projects/ · events/ · insights/ · public/ · synthesis/</text>
+  <text x="50" y="262" class="folder-desc">wiki-public/(184页) · raw/(3,984文件) · inbox/ · scripts/(4个维护脚本)</text>
+
+  <!-- ===== 不同年龄的我 ===== -->
+  <rect x="28" y="284" width="968" height="102" rx="8" class="purple"/>
+  <rect x="28" y="284" width="6" height="102" rx="3" class="accent-purple"/>
+  <text x="50" y="308" class="layer-title purple-text">不同年龄的我</text>
+  <text x="185" y="308" class="layer-sub">年度档案 · 19 个年份全覆盖 · 12,999 条标准记录</text>
+  <text x="50" y="330" class="folder-name purple-text">years/</text>
+  <text x="110" y="330" class="folder-desc">2008(12岁) - 2026(31岁) · 每篇万人字 · 画像 / 位置 / 收入 / 声音指纹 / 情绪 / 信念</text>
+  <text x="50" y="352" class="folder-name purple-text">processed/</text>
+  <text x="140" y="352" class="folder-desc">12,999 标准记录 · 337 附件 · 62 个「类别×年份」分区</text>
+  <text x="50" y="374" class="folder-desc">evolution/ · catalog/ · scripts/ · reports/ — 跨年分析 · 处理总账 · 质量报告</text>
+
+  <!-- ===== 数字内观 ===== -->
+  <rect x="28" y="398" width="968" height="82" rx="8" class="purple"/>
+  <rect x="28" y="398" width="6" height="82" rx="3" class="accent-purple"/>
+  <text x="50" y="422" class="layer-title purple-text">数字内观</text>
+  <text x="140" y="422" class="layer-sub">Life OS · 非脱敏全权限 · 长期陪跑的内在操作系统</text>
+  <text x="50" y="444" class="folder-desc">agent/ 核心入口（voice · workflows · 6 lens · 蒸馏知识） · daily/ · discussion/ · wiki/ · reference/ 7本书</text>
+  <text x="50" y="466" class="folder-desc">情绪数据可视化/ — 情绪可视化总表 · 情绪星云交互图 · 视觉风格规范</text>
+
+  <!-- ===== 写作项目 ===== -->
+  <rect x="28" y="492" width="968" height="102" rx="8" class="blue"/>
+  <rect x="28" y="492" width="6" height="102" rx="3" class="accent-blue"/>
+  <text x="50" y="516" class="layer-title blue-text">写作项目</text>
+  <text x="140" y="516" class="layer-sub">人机协作写作系统 · 3 阶段 Pipeline · 已完成 3 个项目归档</text>
+  <text x="50" y="538" class="folder-name blue-text">CLAUDE.md</text>
+  <text x="155" y="538" class="folder-desc">完整 Pipeline 定义 — Stage 1 备菜 → Stage 2 炒制 → Stage 3 装盘</text>
+  <text x="50" y="560" class="folder-name blue-text">standards/</text>
+  <text x="135" y="560" class="folder-desc">1-思维方式.md · 2-文章结构.md · 3-文风指南.md · 微信公众号HTML排版规范.md</text>
+  <text x="50" y="582" class="folder-desc">已完成/ demoday · peaceboat-申请 · 讲解资本主义 · 人的harness/ · 关系/ · 社区货币/ · 做人共学/</text>
+
+  <!-- ===== ciao LANGGRAPH/ ===== -->
+  <rect x="28" y="606" width="470" height="100" rx="8" class="green"/>
+  <rect x="28" y="606" width="6" height="100" rx="3" class="accent-green"/>
+  <text x="50" y="630" class="layer-title green-text">ciao LANGGRAPH/</text>
+  <text x="50" y="652" class="folder-desc">AI 后端 + 人格系统</text>
+  <text x="50" y="670" class="folder-desc">已部署运行（Web · 微信 · CloudBase）</text>
+  <text x="50" y="690" class="folder-name green-text">package/</text>
+  <text x="130" y="690" class="folder-desc">人格包（core/ 7 + worldview/ 11）</text>
+  <text x="50" y="702" class="folder-name green-text">agent/</text>
+  <text x="100" y="702" class="folder-desc">app.py + agent.py + knowledge_loader.py</text>
+
+  <!-- ===== 俏也 OS/ ===== -->
+  <rect x="514" y="606" width="482" height="100" rx="8" class="green"/>
+  <rect x="514" y="606" width="6" height="100" rx="3" class="accent-green"/>
+  <text x="536" y="630" class="layer-title green-text">俏也 OS/</text>
+  <text x="536" y="652" class="folder-desc">Win95 风格 · 纯静态零框架</text>
+  <text x="536" y="670" class="folder-desc">9 应用 · 3 小部件 · 184 篇 wiki-public</text>
+  <text x="536" y="690" class="folder-desc">浏览器桌面系统 · 数据的活态呈现</text>
+
+  <!-- ===== PROJECT_STRUCTURE.md ===== -->
+  <rect x="28" y="720" width="968" height="36" rx="8" class="dashed"/>
+  <text x="50" y="744" class="folder-name" fill="#596362">PROJECT_STRUCTURE.md</text>
+  <text x="250" y="744" class="folder-note">全工作区架构图 · 数据流文档 · 成熟度矩阵 · 隐私分层</text>
+
+  <text x="28" y="778" class="tiny">来源：QQ空间 · 微信 · 本地日记 · Google Takeout · flomo · 飞书 · 腾讯会议</text>
+  <text x="28" y="800" class="tiny">输入原材料 → 组织体系 → 觉察提炼 → 涌现创造</text>
+</svg>

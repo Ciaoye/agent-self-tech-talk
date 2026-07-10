@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768" role="img" aria-labelledby="title desc">
+  <title id="title">第二层：分析能力跃迁</title>
+  <desc id="desc">一张透明背景、文字可复制的 SVG 信息图：数据本身没有意义，模式才有意义；AI 从看数字升级到看跨时间尺度和跨维度模式。</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 30px; font-weight: 780; }
+      .claim { font-size: 15px; fill: #596362; }
+      .panel-title { font-size: 20px; font-weight: 760; }
+      .section-caption { font-size: 13px; fill: #596362; }
+      .node-title { font-size: 17px; font-weight: 760; }
+      .node-text { font-size: 13px; fill: #3f4e4c; }
+      .tiny { font-size: 11px; font-weight: 720; fill: #596362; }
+      .chip-text { font-size: 12px; font-weight: 760; }
+      .bottom-title { font-size: 19px; font-weight: 780; fill: #006b61; }
+      .bottom-text { font-size: 16px; font-weight: 720; fill: #18343a; }
+      .panel { fill: #f8f7f2; stroke: #d5d1c7; stroke-width: 1.4; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.3; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.35; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.35; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.35; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.35; }
+      .yellow-text { fill: #7a3f00; }
+      .green-text { fill: #006b61; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .muted { fill: #596362; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .soft-line { stroke: #74736c; stroke-width: 1.3; fill: none; stroke-linecap: round; opacity: 0.48; }
+      .grid { stroke: #d5d1c7; stroke-width: 1; fill: none; }
+      .bar-blue { fill: #4f8fd6; opacity: 0.86; }
+      .bar-yellow { fill: #f1a23a; opacity: 0.9; }
+      .bar-green { fill: #10a98c; opacity: 0.9; }
+      .bar-purple { fill: #8b6fd6; opacity: 0.82; }
+    </style>
+
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="42" text-anchor="middle" class="title">第二层：分析能力跃迁</text>
+  <text x="512" y="72" text-anchor="middle" class="claim">数据本身没有意义，模式才有意义；AI 从“看数字”升级到“看跨时间尺度和跨维度模式”。</text>
+
+  <!-- Left panel: raw timelines -->
+  <rect x="36" y="102" width="300" height="512" rx="8" class="panel"/>
+  <text x="60" y="134" class="panel-title">四张数据表 / 时间线</text>
+  <text x="60" y="158" class="section-caption">单看每张表，只看到一段段波动。</text>
+
+  <rect x="58" y="178" width="256" height="86" rx="8" class="white"/>
+  <rect x="76" y="195" width="50" height="22" rx="6" class="blue"/>
+  <text x="101" y="211" text-anchor="middle" class="chip-text blue-text">支出</text>
+  <text x="140" y="211" class="node-title">第 3 周外卖飙升</text>
+  <line x1="84" y1="248" x2="286" y2="248" class="grid"/>
+  <rect x="92" y="238" width="28" height="10" rx="2" class="bar-blue"/>
+  <rect x="136" y="235" width="28" height="13" rx="2" class="bar-blue"/>
+  <rect x="180" y="218" width="28" height="30" rx="2" class="bar-yellow"/>
+  <rect x="224" y="232" width="28" height="16" rx="2" class="bar-blue"/>
+  <text x="194" y="258" text-anchor="middle" class="tiny yellow-text">W3</text>
+  <text x="272" y="211" text-anchor="middle" class="tiny muted">¥↑</text>
+
+  <rect x="58" y="278" width="256" height="86" rx="8" class="white"/>
+  <rect x="76" y="295" width="74" height="22" rx="6" class="yellow"/>
+  <text x="113" y="311" text-anchor="middle" class="chip-text yellow-text">睡眠/工作</text>
+  <text x="164" y="311" class="node-title">同周加班 4 晚</text>
+  <path d="M 88 340 C 126 333, 158 349, 190 320 S 250 326, 284 336" class="soft-line"/>
+  <circle cx="190" cy="320" r="5" class="bar-yellow"/>
+  <text x="190" y="354" text-anchor="middle" class="tiny yellow-text">晚睡峰值</text>
+
+  <rect x="58" y="378" width="256" height="86" rx="8" class="white"/>
+  <rect x="76" y="395" width="50" height="22" rx="6" class="green"/>
+  <text x="101" y="411" text-anchor="middle" class="chip-text green-text">运动</text>
+  <text x="140" y="411" class="node-title">连续两周下降</text>
+  <rect x="96" y="428" width="28" height="24" rx="2" class="bar-green"/>
+  <rect x="140" y="435" width="28" height="17" rx="2" class="bar-green"/>
+  <rect x="184" y="445" width="28" height="7" rx="2" class="bar-yellow"/>
+  <rect x="228" y="445" width="28" height="7" rx="2" class="bar-yellow"/>
+  <text x="198" y="456" text-anchor="middle" class="tiny yellow-text">低谷</text>
+
+  <rect x="58" y="478" width="256" height="86" rx="8" class="white"/>
+  <rect x="76" y="495" width="50" height="22" rx="6" class="purple"/>
+  <text x="101" y="511" text-anchor="middle" class="chip-text purple-text">饮食</text>
+  <text x="140" y="511" class="node-title">出差后一周不规律</text>
+  <rect x="84" y="532" width="25" height="18" rx="4" class="purple"/>
+  <rect x="116" y="525" width="25" height="25" rx="4" class="yellow"/>
+  <rect x="148" y="536" width="25" height="14" rx="4" class="purple"/>
+  <rect x="180" y="522" width="25" height="28" rx="4" class="yellow"/>
+  <rect x="212" y="532" width="25" height="18" rx="4" class="purple"/>
+  <rect x="244" y="528" width="25" height="22" rx="4" class="yellow"/>
+  <text x="176" y="557" text-anchor="middle" class="tiny muted">D1-D7 波动</text>
+
+  <text x="186" y="590" text-anchor="middle" class="section-caption">数字是入口，不是答案。</text>
+
+  <!-- AI layer -->
+  <path d="M 336 358 L 366 358" class="line" marker-end="url(#arrow)"/>
+  <rect x="368" y="132" width="248" height="454" rx="8" class="purple"/>
+  <text x="492" y="166" text-anchor="middle" class="panel-title purple-text">AI 模式识别层</text>
+  <text x="492" y="191" text-anchor="middle" class="section-caption">把孤立指标对齐成可解释关系。</text>
+
+  <rect x="394" y="218" width="196" height="58" rx="8" class="blue"/>
+  <text x="492" y="243" text-anchor="middle" class="node-title blue-text">统一时间轴</text>
+  <text x="492" y="265" text-anchor="middle" class="node-text">周、日、事件对齐</text>
+  <path d="M 492 279 L 492 303" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="394" y="310" width="196" height="58" rx="8" class="neutral"/>
+  <text x="492" y="335" text-anchor="middle" class="node-title">跨维度关联</text>
+  <text x="492" y="357" text-anchor="middle" class="node-text">运动·饮食·支出·睡眠</text>
+  <path d="M 492 371 L 492 395" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="394" y="402" width="196" height="58" rx="8" class="yellow"/>
+  <text x="492" y="427" text-anchor="middle" class="node-title yellow-text">跨时间尺度</text>
+  <text x="492" y="449" text-anchor="middle" class="node-text">日波动 -&gt; 周模式</text>
+  <path d="M 492 463 L 492 487" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="394" y="494" width="196" height="58" rx="8" class="green"/>
+  <text x="492" y="519" text-anchor="middle" class="node-title green-text">生成根因假设</text>
+  <text x="492" y="541" text-anchor="middle" class="node-text">找关系，不只报警</text>
+
+  <!-- Right panel: pattern map -->
+  <path d="M 616 358 L 650 358" class="line" marker-end="url(#arrow)"/>
+  <rect x="652" y="102" width="336" height="512" rx="8" class="panel"/>
+  <text x="676" y="134" class="panel-title">模式图谱</text>
+  <text x="676" y="158" class="section-caption">单维噪声 -&gt; 交叉真相</text>
+
+  <rect x="674" y="178" width="132" height="76" rx="8" class="yellow"/>
+  <text x="740" y="204" text-anchor="middle" class="node-title yellow-text">单维噪声</text>
+  <text x="740" y="228" text-anchor="middle" class="node-text">只是涨跌？</text>
+  <text x="740" y="246" text-anchor="middle" class="node-text">只是变贵？</text>
+  <path d="M 808 216 L 834 216" class="line" marker-end="url(#arrow)"/>
+  <rect x="836" y="178" width="130" height="76" rx="8" class="green"/>
+  <text x="901" y="204" text-anchor="middle" class="node-title green-text">交叉真相</text>
+  <text x="901" y="228" text-anchor="middle" class="node-text">事件 + 行为</text>
+  <text x="901" y="246" text-anchor="middle" class="node-text">+ 时间尺度</text>
+
+  <rect x="674" y="278" width="292" height="64" rx="8" class="blue"/>
+  <text x="690" y="303" class="node-title blue-text">W3 外卖飙升 = 加班后的补偿</text>
+  <text x="690" y="326" class="node-text">支出表 + 睡眠/工作表，才解释峰值。</text>
+
+  <rect x="674" y="354" width="292" height="64" rx="8" class="yellow"/>
+  <text x="690" y="379" class="node-title yellow-text">大盘跌超 3% -&gt; 追涨杀跌</text>
+  <text x="690" y="402" class="node-text">市场波动 + 交易行为，暴露情绪触发。</text>
+
+  <rect x="674" y="430" width="292" height="64" rx="8" class="purple"/>
+  <text x="690" y="455" class="node-title purple-text">出差回来一周 -&gt; 饮食乱</text>
+  <text x="690" y="478" class="node-text">行程事件 + 作息漂移，形成恢复期模式。</text>
+
+  <rect x="674" y="520" width="292" height="58" rx="8" class="neutral"/>
+  <text x="820" y="544" text-anchor="middle" class="node-title">模式不是相关系数截图</text>
+  <text x="820" y="566" text-anchor="middle" class="node-text">它是能解释下一次选择的生活图谱。</text>
+
+  <!-- Bottom cross-modeling callout -->
+  <rect x="44" y="636" width="936" height="92" rx="8" class="green"/>
+  <text x="512" y="664" text-anchor="middle" class="bottom-title">交叉建模：运动、饮食、支出、睡眠不是四张孤立表，而是一个生活系统</text>
+
+  <rect x="106" y="684" width="140" height="28" rx="6" class="white"/>
+  <text x="176" y="704" text-anchor="middle" class="bottom-text">运动↓两周</text>
+  <path d="M 248 698 L 306 698" class="line" marker-end="url(#arrow)"/>
+  <rect x="314" y="684" width="154" height="28" rx="6" class="purple"/>
+  <text x="391" y="704" text-anchor="middle" class="bottom-text purple-text">状态不好</text>
+  <path d="M 470 698 L 528 698" class="line" marker-end="url(#arrow)"/>
+  <rect x="536" y="684" width="154" height="28" rx="6" class="yellow"/>
+  <text x="613" y="704" text-anchor="middle" class="bottom-text yellow-text">外卖↑</text>
+  <path d="M 692 698 L 750 698" class="line" marker-end="url(#arrow)"/>
+  <rect x="758" y="684" width="158" height="28" rx="6" class="yellow"/>
+  <text x="837" y="704" text-anchor="middle" class="bottom-text yellow-text">冲动消费↑</text>
+</svg>

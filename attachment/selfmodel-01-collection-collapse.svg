@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768" role="img" aria-labelledby="title desc">
+  <title id="title">第一层：采集成本坍缩</title>
+  <desc id="desc">一张透明背景、文字可复制的 SVG 信息图：展示记账和饮食采集从需要意志力的手动填表，变成一句顺嘴的话或一张照片，意志力成本接近零，连续数据才有保障。</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+
+
+      .title { font-size: 28px; font-weight: 760; }
+      .claim-main { font-size: 21px; font-weight: 760; }
+      .claim-sub { font-size: 16px; fill: #596362; }
+      .panel-title { font-size: 21px; font-weight: 760; }
+      .node-title { font-size: 18px; font-weight: 760; }
+      .body { font-size: 14px; fill: #3f4e4c; }
+      .small { font-size: 12.5px; fill: #596362; }
+      .tiny { font-size: 11.5px; fill: #596362; }
+      .footer { font-size: 18px; font-weight: 760; }
+      .chip { font-size: 12px; font-weight: 720; }
+
+      .panel { fill: #f8f7f2; stroke: #d5d1c7; stroke-width: 1.4; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
+      .yellow-soft { fill: #fffaf0; stroke: #f1a23a; stroke-width: 1.1; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .green-soft { fill: #f3fffb; stroke: #10a98c; stroke-width: 1.1; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .blue-soft { fill: #f4f9ff; stroke: #4f8fd6; stroke-width: 1.1; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .purple-soft { fill: #faf7ff; stroke: #8b6fd6; stroke-width: 1.1; }
+
+      .yellow-text { fill: #7a3f00; }
+      .green-text { fill: #006b61; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .muted-text { fill: #596362; }
+
+      .line {
+        stroke: #74736c;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .soft-line {
+        stroke: #74736c;
+        stroke-width: 1.4;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.55;
+      }
+      .dash {
+        stroke: #74736c;
+        stroke-width: 1.4;
+        fill: none;
+        stroke-dasharray: 5 7;
+        stroke-linecap: round;
+        opacity: 0.55;
+      }
+    </style>
+
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <text x="512" y="43" text-anchor="middle" class="title">第一层：采集成本坍缩</text>
+
+  <rect x="118" y="66" width="788" height="92" rx="10" class="panel"/>
+  <rect x="154" y="92" width="178" height="34" rx="8" class="yellow"/>
+  <text x="243" y="114" text-anchor="middle" class="node-title yellow-text">需要意志力</text>
+  <path d="M 348 109 L 418 109" class="line" marker-end="url(#arrow)"/>
+  <rect x="436" y="92" width="214" height="34" rx="8" class="green"/>
+  <text x="543" y="114" text-anchor="middle" class="node-title green-text">顺嘴一句 / 一张照片</text>
+  <path d="M 666 109 L 726 109" class="line" marker-end="url(#arrow)"/>
+  <rect x="744" y="92" width="126" height="34" rx="8" class="blue"/>
+  <text x="807" y="114" text-anchor="middle" class="node-title blue-text">连续数据</text>
+  <text x="512" y="145" text-anchor="middle" class="claim-sub">采集从“手动填表”变成自然表达，意志力成本接近零，数据连续性才有保障。</text>
+
+  <rect x="42" y="186" width="752" height="170" rx="10" class="panel"/>
+  <text x="70" y="220" class="panel-title">记账</text>
+
+  <rect x="150" y="212" width="272" height="116" rx="8" class="yellow-soft"/>
+  <text x="286" y="242" text-anchor="middle" class="node-title yellow-text">Before：手动填表</text>
+  <rect x="174" y="260" width="96" height="24" rx="7" class="white"/>
+  <text x="222" y="277" text-anchor="middle" class="chip yellow-text">打开 App</text>
+  <rect x="282" y="260" width="76" height="24" rx="7" class="white"/>
+  <text x="320" y="277" text-anchor="middle" class="chip yellow-text">分类</text>
+  <rect x="190" y="292" width="76" height="24" rx="7" class="white"/>
+  <text x="228" y="309" text-anchor="middle" class="chip yellow-text">金额</text>
+  <rect x="278" y="292" width="76" height="24" rx="7" class="white"/>
+  <text x="316" y="309" text-anchor="middle" class="chip yellow-text">备注</text>
+
+  <path d="M 434 270 L 492 270" class="line" marker-end="url(#arrow)"/>
+  <text x="463" y="253" text-anchor="middle" class="tiny">成本坍缩</text>
+
+  <rect x="504" y="212" width="246" height="116" rx="8" class="green"/>
+  <text x="627" y="242" text-anchor="middle" class="node-title green-text">After：一句话</text>
+  <rect x="530" y="263" width="88" height="28" rx="8" class="green-soft"/>
+  <text x="574" y="282" text-anchor="middle" class="chip green-text">午饭35</text>
+  <rect x="632" y="263" width="88" height="28" rx="8" class="green-soft"/>
+  <text x="676" y="282" text-anchor="middle" class="chip green-text">打车22</text>
+  <text x="627" y="311" text-anchor="middle" class="small green-text">口语输入，后续再自动结构化</text>
+
+  <rect x="42" y="386" width="752" height="170" rx="10" class="panel"/>
+  <text x="70" y="420" class="panel-title">饮食</text>
+
+  <rect x="150" y="412" width="272" height="116" rx="8" class="yellow-soft"/>
+  <text x="286" y="442" text-anchor="middle" class="node-title yellow-text">Before：精细核算</text>
+  <rect x="170" y="462" width="84" height="26" rx="7" class="white"/>
+  <text x="212" y="480" text-anchor="middle" class="chip yellow-text">查热量</text>
+  <rect x="266" y="462" width="84" height="26" rx="7" class="white"/>
+  <text x="308" y="480" text-anchor="middle" class="chip yellow-text">称重量</text>
+  <rect x="218" y="494" width="84" height="26" rx="7" class="white"/>
+  <text x="260" y="512" text-anchor="middle" class="chip yellow-text">算比例</text>
+
+  <path d="M 434 470 L 492 470" class="line" marker-end="url(#arrow)"/>
+  <text x="463" y="453" text-anchor="middle" class="tiny">成本坍缩</text>
+
+  <rect x="504" y="412" width="246" height="116" rx="8" class="green"/>
+  <text x="627" y="442" text-anchor="middle" class="node-title green-text">After：照片或一句话</text>
+  <rect x="536" y="463" width="72" height="28" rx="8" class="green-soft"/>
+  <text x="572" y="482" text-anchor="middle" class="chip green-text">拍照</text>
+  <rect x="622" y="463" width="96" height="28" rx="8" class="green-soft"/>
+  <text x="670" y="482" text-anchor="middle" class="chip green-text">牛肉面加鸡蛋</text>
+  <text x="627" y="512" text-anchor="middle" class="small green-text">先留下事实，再估算热量结构</text>
+
+  <rect x="822" y="252" width="162" height="240" rx="10" class="blue"/>
+  <text x="903" y="288" text-anchor="middle" class="panel-title blue-text">连续数据</text>
+  <path d="M 785 270 C 806 270, 805 302, 821 318" class="line" marker-end="url(#arrow)"/>
+  <path d="M 785 470 C 806 470, 805 438, 821 422" class="line" marker-end="url(#arrow)"/>
+  <rect x="846" y="315" width="114" height="32" rx="8" class="blue-soft"/>
+  <text x="903" y="336" text-anchor="middle" class="chip blue-text">每天都有信号</text>
+  <rect x="846" y="362" width="114" height="32" rx="8" class="blue-soft"/>
+  <text x="903" y="383" text-anchor="middle" class="chip blue-text">趋势可追踪</text>
+  <rect x="846" y="409" width="114" height="32" rx="8" class="blue-soft"/>
+  <text x="903" y="430" text-anchor="middle" class="chip blue-text">反馈可复盘</text>
+  <text x="903" y="465" text-anchor="middle" class="small blue-text">不是偶尔记一次</text>
+  <text x="903" y="484" text-anchor="middle" class="small blue-text">而是默认会留下</text>
+
+  <rect x="78" y="610" width="868" height="96" rx="10" class="purple-soft"/>
+  <text x="512" y="643" text-anchor="middle" class="footer purple-text">核心变化：连续性不再靠自律，而靠低摩擦入口。</text>
+  <line x1="190" y1="670" x2="834" y2="670" class="dash"/>
+  <rect x="202" y="656" width="148" height="28" rx="8" class="yellow"/>
+  <text x="276" y="675" text-anchor="middle" class="chip yellow-text">填表成本高</text>
+  <rect x="438" y="656" width="148" height="28" rx="8" class="green"/>
+  <text x="512" y="675" text-anchor="middle" class="chip green-text">表达成本低</text>
+  <rect x="674" y="656" width="148" height="28" rx="8" class="blue"/>
+  <text x="748" y="675" text-anchor="middle" class="chip blue-text">记录变连续</text>
+  <text x="512" y="696" text-anchor="middle" class="small purple-text">当入口接近日常说话和拍照，数据就不再被“懒得记”切断。</text>
+</svg>

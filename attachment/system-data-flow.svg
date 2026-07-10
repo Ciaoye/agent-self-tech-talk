@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
+  <title id="title">完整的数据流</title>
+  <desc id="desc">从原始数据源出发，经过预处理和标准化，分叉成 LLM Wiki 和「不同年龄的我」两条并行线，汇聚到觉察层，最终分发到各类产出</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .phase-label { font-size: 13px; font-weight: 760; fill: #596362; }
+      .card-title { font-size: 17px; font-weight: 760; }
+      .body { font-size: 13.5px; fill: #3f4e4c; }
+      .small { font-size: 12.5px; fill: #596362; }
+      .footer-text { font-size: 13px; fill: #596362; }
+      .neutral { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .green-text { fill: #006b61; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .line-blue { stroke: #4f8fd6; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .line-purple { stroke: #8b6fd6; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .line-green { stroke: #10a98c; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .guide { stroke: #d5d1c7; stroke-width: 1; stroke-dasharray: 6,6; fill: none; }
+      .divider { stroke: #d5d1c7; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/></marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#4f8fd6"/></marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#8b6fd6"/></marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#10a98c"/></marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">完整的数据流</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">采集 → 清洗 → 结构化 → 洞察 → 价值</text>
+
+  <!-- Phase labels -->
+  <text x="62" y="94" text-anchor="middle" class="phase-label">数据采集</text>
+  <text x="335" y="94" text-anchor="middle" class="phase-label">数据预处理</text>
+  <text x="562" y="94" text-anchor="middle" class="phase-label">知识构建</text>
+  <text x="780" y="94" text-anchor="middle" class="phase-label">觉察分析</text>
+  <text x="955" y="94" text-anchor="middle" class="phase-label">价值输出</text>
+
+  <!-- Phase dividers -->
+  <line x1="190" y1="104" x2="190" y2="710" class="guide"/>
+  <line x1="440" y1="104" x2="440" y2="710" class="guide"/>
+  <line x1="655" y1="104" x2="655" y2="710" class="guide"/>
+  <line x1="880" y1="104" x2="880" y2="710" class="guide"/>
+
+  <!-- ===== Layer 1: Data Sources ===== -->
+  <rect x="10" y="115" width="115" height="490" rx="8" class="neutral" stroke-dasharray="5,3"/>
+
+  <rect x="18" y="128" width="99" height="42" rx="6" class="white"/>
+  <text x="67" y="148" text-anchor="middle" class="body" font-weight="760">flomo</text>
+  <text x="67" y="163" text-anchor="middle" class="small">100万字</text>
+
+  <rect x="18" y="190" width="99" height="42" rx="6" class="white"/>
+  <text x="67" y="210" text-anchor="middle" class="body" font-weight="760">聊天记录</text>
+  <text x="67" y="225" text-anchor="middle" class="small">35万条</text>
+
+  <rect x="18" y="252" width="99" height="42" rx="6" class="white"/>
+  <text x="67" y="272" text-anchor="middle" class="body" font-weight="760">说说</text>
+  <text x="67" y="287" text-anchor="middle" class="small">1,360条</text>
+
+  <rect x="18" y="314" width="99" height="42" rx="6" class="white"/>
+  <text x="67" y="334" text-anchor="middle" class="body" font-weight="760">腾讯会议</text>
+  <text x="67" y="349" text-anchor="middle" class="small">转写</text>
+
+  <rect x="18" y="376" width="99" height="42" rx="6" class="white"/>
+  <text x="67" y="396" text-anchor="middle" class="body" font-weight="760">Google</text>
+  <text x="67" y="411" text-anchor="middle" class="small">活动记录</text>
+
+  <rect x="18" y="438" width="99" height="42" rx="6" class="white"/>
+  <text x="67" y="458" text-anchor="middle" class="body" font-weight="760">社交媒体</text>
+  <text x="67" y="473" text-anchor="middle" class="small">飞书等</text>
+
+  <text x="67" y="510" text-anchor="middle" class="small">6 个数据源</text>
+  <text x="67" y="528" text-anchor="middle" class="small">3,912 文件</text>
+
+  <!-- Arrows L1→L2 -->
+  <line x1="120" y1="149" x2="232" y2="210" class="line" marker-end="url(#arrow)"/>
+  <line x1="120" y1="211" x2="232" y2="250" class="line" marker-end="url(#arrow)"/>
+  <line x1="120" y1="273" x2="232" y2="290" class="line" marker-end="url(#arrow)"/>
+  <line x1="120" y1="335" x2="232" y2="330" class="line" marker-end="url(#arrow)"/>
+  <line x1="120" y1="397" x2="232" y2="370" class="line" marker-end="url(#arrow)"/>
+  <line x1="120" y1="459" x2="232" y2="410" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== Layer 2: Data Preprocessing ===== -->
+  <rect x="240" y="135" width="195" height="350" rx="8" class="blue"/>
+  <text x="337" y="160" text-anchor="middle" class="card-title blue-text">数据预处理</text>
+  <line x1="256" y1="174" x2="418" y2="174" class="divider"/>
+
+  <text x="337" y="200" text-anchor="middle" class="body blue-text">数据清洗</text>
+  <text x="337" y="220" text-anchor="middle" class="small">→ Markdown 标准化</text>
+
+  <line x1="270" y1="238" x2="404" y2="238" class="divider"/>
+
+  <text x="337" y="262" text-anchor="middle" class="body blue-text">3,912 文件</text>
+  <text x="337" y="282" text-anchor="middle" class="small">→ 12,999 条标准记录</text>
+
+  <line x1="270" y1="300" x2="404" y2="300" class="divider"/>
+
+  <text x="337" y="324" text-anchor="middle" class="body blue-text">上下文补充</text>
+  <text x="337" y="344" text-anchor="middle" class="body blue-text">去污染处理</text>
+
+  <rect x="260" y="362" width="155" height="32" rx="4" class="white"/>
+  <text x="337" y="383" text-anchor="middle" class="small blue-text">结构化 · 可检索 · 统一格式</text>
+
+  <text x="337" y="420" text-anchor="middle" class="small">分流 →</text>
+  <text x="337" y="438" text-anchor="middle" class="small">两条并行线</text>
+
+  <!-- Fork arrows -->
+  <path d="M 435,260 L 450,330 L 465,255" class="line-blue" marker-end="url(#arrow-blue)"/>
+  <path d="M 435,440 L 450,330 L 465,450" class="line-purple" marker-end="url(#arrow-purple)"/>
+
+  <!-- ===== Layer 3: LLM Wiki (top) ===== -->
+  <rect x="470" y="165" width="180" height="145" rx="8" class="blue"/>
+  <text x="560" y="190" text-anchor="middle" class="card-title blue-text">LLM Wiki</text>
+  <line x1="485" y1="204" x2="635" y2="204" class="divider"/>
+  <text x="560" y="228" text-anchor="middle" class="body blue-text">246 页</text>
+  <text x="560" y="248" text-anchor="middle" class="body blue-text">7,215 双链</text>
+  <text x="560" y="268" text-anchor="middle" class="body blue-text">知识网络</text>
+  <rect x="495" y="280" width="130" height="22" rx="4" class="white"/>
+  <text x="560" y="295" text-anchor="middle" class="small blue-text">语义知识图谱</text>
+
+  <!-- ===== Layer 3: 不同年龄的我 (bottom) ===== -->
+  <rect x="470" y="395" width="180" height="145" rx="8" class="purple"/>
+  <text x="560" y="420" text-anchor="middle" class="card-title purple-text">不同年龄的我</text>
+  <line x1="485" y1="434" x2="635" y2="434" class="divider"/>
+  <text x="560" y="458" text-anchor="middle" class="body purple-text">19 个年度档案</text>
+  <text x="560" y="478" text-anchor="middle" class="body purple-text">2008 – 2026</text>
+  <text x="560" y="498" text-anchor="middle" class="body purple-text">编年史</text>
+  <rect x="495" y="510" width="130" height="22" rx="4" class="white"/>
+  <text x="560" y="525" text-anchor="middle" class="small purple-text">时间线叙事</text>
+
+  <!-- Arrows L3→L4 -->
+  <line x1="655" y1="237" x2="680" y2="237" class="line-blue" marker-end="url(#arrow-blue)"/>
+  <line x1="655" y1="467" x2="680" y2="467" class="line-purple" marker-end="url(#arrow-purple)"/>
+
+  <!-- ===== Layer 4: 觉察层 ===== -->
+  <rect x="688" y="140" width="185" height="420" rx="8" class="purple"/>
+  <text x="780" y="165" text-anchor="middle" class="card-title purple-text">觉察层</text>
+  <line x1="704" y1="179" x2="858" y2="179" class="divider"/>
+
+  <text x="780" y="206" text-anchor="middle" class="body" font-weight="760" fill="#4b2e83">数字内观</text>
+  <rect x="710" y="218" width="140" height="42" rx="4" class="white"/>
+  <text x="780" y="236" text-anchor="middle" class="small purple-text">Myth Archive</text>
+  <text x="780" y="252" text-anchor="middle" class="small purple-text">Detector / Generator</text>
+
+  <line x1="720" y1="272" x2="840" y2="272" class="divider"/>
+
+  <rect x="710" y="282" width="140" height="28" rx="4" class="white"/>
+  <text x="780" y="301" text-anchor="middle" class="body purple-text">跨年分析报告</text>
+
+  <line x1="720" y1="322" x2="840" y2="322" class="divider"/>
+
+  <rect x="710" y="332" width="140" height="28" rx="4" class="white"/>
+  <text x="780" y="351" text-anchor="middle" class="body purple-text">情绪可视化</text>
+
+  <line x1="720" y1="372" x2="840" y2="372" class="divider"/>
+
+  <rect x="710" y="382" width="140" height="28" rx="4" class="white"/>
+  <text x="780" y="401" text-anchor="middle" class="small purple-text">自我认知与反思系统</text>
+
+  <line x1="720" y1="422" x2="840" y2="422" class="divider"/>
+
+  <text x="780" y="450" text-anchor="middle" class="small">模式发现层</text>
+  <text x="780" y="470" text-anchor="middle" class="small">人生母题识别</text>
+  <text x="780" y="490" text-anchor="middle" class="small">重复叙事检测</text>
+  <text x="780" y="510" text-anchor="middle" class="small">未来推演</text>
+
+  <line x1="780" y1="525" x2="780" y2="545" class="line-purple"/>
+  <polygon points="775,545 780,555 785,545" fill="#8b6fd6"/>
+
+  <!-- Arrows L4→L5 -->
+  <line x1="876" y1="260" x2="900" y2="260" class="line-blue" marker-end="url(#arrow-blue)"/>
+  <line x1="876" y1="340" x2="900" y2="340" class="line-green" marker-end="url(#arrow-green)"/>
+  <line x1="876" y1="420" x2="900" y2="420" class="line-green" marker-end="url(#arrow-green)"/>
+  <line x1="876" y1="500" x2="900" y2="500" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== Layer 5: Outputs ===== -->
+  <rect x="900" y="230" width="114" height="72" rx="8" class="blue"/>
+  <text x="957" y="256" text-anchor="middle" class="body" font-weight="760" fill="#1b4d7a">写作</text>
+  <line x1="912" y1="266" x2="1002" y2="266" class="divider"/>
+  <text x="957" y="284" text-anchor="middle" class="small blue-text">备菜→炒制→装盘</text>
+  <text x="957" y="298" text-anchor="middle" class="small blue-text">多平台分发</text>
+
+  <rect x="900" y="312" width="114" height="56" rx="8" class="green"/>
+  <text x="957" y="336" text-anchor="middle" class="body" font-weight="760" fill="#006b61">ciao Chatbot</text>
+  <text x="957" y="356" text-anchor="middle" class="small green-text">数字分身 · 俏也风格</text>
+
+  <rect x="900" y="380" width="114" height="56" rx="8" class="green"/>
+  <text x="957" y="404" text-anchor="middle" class="body" font-weight="760" fill="#006b61">俏也 OS</text>
+  <text x="957" y="424" text-anchor="middle" class="small green-text">桌面系统 · 184篇</text>
+
+  <rect x="900" y="448" width="114" height="72" rx="8" class="neutral"/>
+  <text x="957" y="472" text-anchor="middle" class="body" font-weight="760" fill="#18343a">分享会 &amp; 社区</text>
+  <text x="957" y="492" text-anchor="middle" class="small">知识输出</text>
+  <text x="957" y="508" text-anchor="middle" class="small">方法论复用</text>
+
+  <!-- ===== Bottom Summary ===== -->
+  <rect x="200" y="600" width="624" height="36" rx="6" class="neutral"/>
+  <text x="512" y="623" text-anchor="middle" class="body" font-weight="760">全流程自动化数据管道</text>
+
+  <text x="512" y="658" text-anchor="middle" class="footer-text">3,912 文件 → 12,999 条标准记录 → 246 页 LLM Wiki → 4 类产出</text>
+
+  <!-- Legend -->
+  <rect x="200" y="680" width="14" height="14" rx="2" class="blue"/>
+  <text x="220" y="692" class="small">知识结构化</text>
+  <rect x="340" y="680" width="14" height="14" rx="2" class="purple"/>
+  <text x="360" y="692" class="small">觉察与反思</text>
+  <rect x="480" y="680" width="14" height="14" rx="2" class="green"/>
+  <text x="500" y="692" class="small">交互与体验</text>
+  <rect x="620" y="680" width="14" height="14" rx="2" class="neutral"/>
+  <text x="640" y="692" class="small">原始 / 辅助</text>
+
+  <text x="512" y="730" text-anchor="middle" class="small">每个环节都会反哺前面的环节 — 写作中发现新洞察回写 wiki，内观中发现的模式成为创作素材</text>
+</svg>

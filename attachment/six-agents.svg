@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768">
+  <defs>
+    
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+    </style>
+  <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif; fill: #18343a; }
+      .col-header { font-size: 13px; fill: #74736c; text-anchor: middle; }
+      .label { font-size: 20px; fill: #18343a; font-weight: 700; text-anchor: middle; }
+      .label-neu { font-size: 20px; fill: #18343a; font-weight: 700; text-anchor: start; }
+      .label-blue { font-size: 20px; fill: #1b4d7a; font-weight: 700; text-anchor: start; }
+      .label-purple { font-size: 20px; fill: #4b2e83; font-weight: 700; text-anchor: start; }
+      .task-text { font-size: 13.5px; fill: #4b2e83; text-anchor: start; }
+    </style>
+    <marker id="arrow-right" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#74736c" />
+    </marker>
+  </defs>
+
+  <!-- Column headers -->
+  <text x="170" y="36" class="col-header">赖声川创作体系</text>
+  <text x="460" y="36" class="col-header">六类 Agent 映射</text>
+  <text x="802" y="36" class="col-header">核心任务</text>
+  <line x1="30" y1="48" x2="998" y2="48" stroke="#d5d1c7" stroke-width="1.4" />
+
+  <!-- Arrows between columns -->
+  <line x1="310" y1="36" x2="318" y2="36" stroke="#74736c" stroke-width="2" marker-end="url(#arrow-right)" />
+  <line x1="590" y1="36" x2="598" y2="36" stroke="#74736c" stroke-width="2" marker-end="url(#arrow-right)" />
+
+  <!-- Row 1 -->
+  <rect x="30" y="62" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.4" />
+  <rect x="320" y="62" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4" />
+  <rect x="610" y="62" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4" />
+  <text x="170" y="120" class="label">经验档案库</text>
+  <text x="460" y="120" class="label">积累 Agent</text>
+  <text x="622" y="112" class="task-text">把碎片整理成可检索的</text>
+  <text x="622" y="136" class="task-text">创作素材</text>
+
+  <!-- Row 2 -->
+  <rect x="30" y="177" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.4" />
+  <rect x="320" y="177" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4" />
+  <rect x="610" y="177" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4" />
+  <text x="170" y="235" class="label">如何看 / 去标签 / 三观</text>
+  <text x="460" y="235" class="label">视角 Agent</text>
+  <text x="622" y="227" class="task-text">换个角度看已看惯的</text>
+  <text x="622" y="251" class="task-text">东西</text>
+
+  <!-- Row 3 -->
+  <rect x="30" y="292" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.4" />
+  <rect x="320" y="292" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4" />
+  <rect x="610" y="292" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4" />
+  <text x="170" y="350" class="label">连结的秘密</text>
+  <text x="460" y="350" class="label">连结 Agent</text>
+  <text x="622" y="342" class="task-text">强行做"意外关联"</text>
+  <text x="622" y="366" class="task-text">创造新的连结</text>
+
+  <!-- Row 4 -->
+  <rect x="30" y="407" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.4" />
+  <rect x="320" y="407" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4" />
+  <rect x="610" y="407" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4" />
+  <text x="170" y="465" class="label">方法的机器 / 结构</text>
+  <text x="460" y="465" class="label">结构 Agent</text>
+  <text x="622" y="457" class="task-text">灵感和素材变成可执</text>
+  <text x="622" y="481" class="task-text">行的创作结构</text>
+
+  <!-- Row 5 -->
+  <rect x="30" y="522" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.4" />
+  <rect x="320" y="522" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4" />
+  <rect x="610" y="522" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4" />
+  <text x="170" y="580" class="label">测谎器 / 如是观</text>
+  <text x="460" y="580" class="label">测谎 Agent</text>
+  <text x="622" y="572" class="task-text">找出作品中不真诚的</text>
+  <text x="622" y="596" class="task-text">地方</text>
+
+  <!-- Row 6 -->
+  <rect x="30" y="637" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.4" />
+  <rect x="320" y="637" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4" />
+  <rect x="610" y="637" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4" />
+  <text x="170" y="695" class="label">个人仪式 / 闭关</text>
+  <text x="460" y="695" class="label">执行 Agent</text>
+  <text x="622" y="687" class="task-text">管理创作状态和心流</text>
+</svg>

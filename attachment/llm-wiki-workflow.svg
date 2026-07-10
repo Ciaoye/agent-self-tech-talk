@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768">
+  <defs>
+    
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+    </style>
+  <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#74736c"/>
+    </marker>
+  </defs>
+
+  <rect width="1024" height="768" fill="transparent"/>
+
+  <!-- ===== WORKFLOW 0: flomo同步 (info blue) ===== -->
+  <rect x="32" y="80" width="55" height="40" rx="20" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="2"/>
+  <text x="59" y="105" font-size="20" fill="#1b4d7a" text-anchor="middle" font-weight="600">0</text>
+
+  <rect x="114" y="78" width="132" height="44" rx="7" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4"/>
+  <text x="180" y="105" font-size="20" fill="#1b4d7a" text-anchor="middle">flomo 同步</text>
+
+  <line x1="87" y1="100" x2="108" y2="100" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="270" y="78" width="168" height="44" rx="7" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4"/>
+  <text x="354" y="105" font-size="17" fill="#1b4d7a" text-anchor="middle">拉取 flomo 新笔记</text>
+
+  <line x1="246" y1="100" x2="264" y2="100" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="462" y="78" width="150" height="44" rx="7" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.4"/>
+  <text x="537" y="105" font-size="17" fill="#1b4d7a" text-anchor="middle">inbox/短笔记</text>
+
+  <line x1="438" y1="100" x2="456" y2="100" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- WF0 label -->
+  <rect x="640" y="83" width="120" height="34" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="700" y="105" font-size="13.5" fill="#4f8fd6" text-anchor="middle">flomo MCP 拉取</text>
+
+  <!-- ===== SEPARATOR ===== -->
+  <line x1="32" y1="152" x2="992" y2="152" stroke="#d5d1c7" stroke-width="1" stroke-dasharray="4,6"/>
+
+  <!-- ===== WORKFLOW 1: 收录 (success green) ===== -->
+  <rect x="32" y="172" width="55" height="40" rx="20" fill="#ddf7ef" stroke="#10a98c" stroke-width="2"/>
+  <text x="59" y="197" font-size="20" fill="#006b61" text-anchor="middle" font-weight="600">1</text>
+
+  <rect x="114" y="170" width="72" height="44" rx="7" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="150" y="197" font-size="20" fill="#006b61" text-anchor="middle" font-weight="600">收录</text>
+
+  <line x1="87" y1="192" x2="108" y2="192" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="205" y="170" width="148" height="44" rx="7" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="279" y="197" font-size="17" fill="#006b61" text-anchor="middle">消化进 wiki</text>
+
+  <line x1="186" y1="192" x2="199" y2="192" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="372" y="170" width="112" height="44" rx="7" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="428" y="197" font-size="20" fill="#006b61" text-anchor="middle">建新页面</text>
+
+  <line x1="353" y1="192" x2="366" y2="192" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="503" y="170" width="142" height="44" rx="7" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="574" y="197" font-size="17" fill="#006b61" text-anchor="middle">更新已有页面</text>
+
+  <line x1="484" y1="192" x2="497" y2="192" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="664" y="170" width="110" height="44" rx="7" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="719" y="197" font-size="20" fill="#006b61" text-anchor="middle">更新 MOC</text>
+
+  <line x1="645" y1="192" x2="658" y2="192" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="793" y="170" width="108" height="44" rx="7" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="847" y="197" font-size="20" fill="#006b61" text-anchor="middle">更新 core/</text>
+
+  <line x1="774" y1="192" x2="787" y2="192" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="920" y="170" width="75" height="44" rx="7" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.4"/>
+  <text x="957" y="197" font-size="16" fill="#006b61" text-anchor="middle">更新 index</text>
+
+  <line x1="901" y1="192" x2="914" y2="192" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- WF1 annotation -->
+  <rect x="32" y="224" width="580" height="20" rx="4" fill="transparent"/>
+  <text x="42" y="239" font-size="13" fill="#596362">每篇源文件同时更新 10-15 个页面</text>
+
+  <!-- ===== SEPARATOR ===== -->
+  <line x1="32" y1="258" x2="992" y2="258" stroke="#d5d1c7" stroke-width="1" stroke-dasharray="4,6"/>
+
+  <!-- ===== WORKFLOW 2: 查询 (metadata purple) ===== -->
+  <rect x="32" y="278" width="55" height="40" rx="20" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="2"/>
+  <text x="59" y="303" font-size="20" fill="#4b2e83" text-anchor="middle" font-weight="600">2</text>
+
+  <rect x="114" y="276" width="72" height="44" rx="7" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4"/>
+  <text x="150" y="303" font-size="20" fill="#4b2e83" text-anchor="middle" font-weight="600">查询</text>
+
+  <line x1="87" y1="298" x2="108" y2="298" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="205" y="276" width="220" height="44" rx="7" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4"/>
+  <text x="315" y="303" font-size="17" fill="#4b2e83" text-anchor="middle">俏也问问题 / 找东西 / 探讨</text>
+
+  <line x1="186" y1="298" x2="199" y2="298" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="445" y="276" width="182" height="44" rx="7" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.4"/>
+  <text x="536" y="303" font-size="17" fill="#4b2e83" text-anchor="middle">好的回答回写 wiki</text>
+
+  <line x1="425" y1="298" x2="439" y2="298" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- WF2 annotation -->
+  <rect x="32" y="328" width="480" height="20" rx="4" fill="transparent"/>
+  <text x="42" y="343" font-size="13" fill="#596362">AI 回答有价值的内容回写为 wiki 页面</text>
+
+  <!-- ===== SEPARATOR ===== -->
+  <line x1="32" y1="362" x2="992" y2="362" stroke="#d5d1c7" stroke-width="1" stroke-dasharray="4,6"/>
+
+  <!-- ===== WORKFLOW 3: 检查 Lint (warning orange) ===== -->
+  <rect x="32" y="382" width="55" height="40" rx="20" fill="#fff1d9" stroke="#f1a23a" stroke-width="2"/>
+  <text x="59" y="407" font-size="20" fill="#7a3f00" text-anchor="middle" font-weight="600">3</text>
+
+  <rect x="114" y="380" width="132" height="44" rx="7" fill="#fff1d9" stroke="#f1a23a" stroke-width="1.4"/>
+  <text x="180" y="407" font-size="20" fill="#7a3f00" text-anchor="middle" font-weight="600">检查（Lint）</text>
+
+  <line x1="87" y1="402" x2="108" y2="402" stroke="#74736c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Parallel scan block -->
+  <rect x="270" y="380" width="370" height="240" rx="8" fill="#fff1d9" stroke="#f1a23a" stroke-width="1.4" stroke-dasharray="5,3"/>
+  <rect x="270" y="380" width="370" height="30" rx="8" fill="#f1a23a"/>
+  <rect x="270" y="398" width="370" height="12" rx="0" fill="#f1a23a"/>
+  <text x="455" y="400" font-size="15" fill="#fff" text-anchor="middle" font-weight="600">五个并行扫描</text>
+
+  <!-- Sub-item 1 -->
+  <rect x="285" y="420" width="340" height="36" rx="5" fill="#fff" stroke="#f1a23a" stroke-width="1"/>
+  <text x="455" y="443" font-size="15" fill="#7a3f00" text-anchor="middle">死链检查</text>
+
+  <!-- Sub-item 2 -->
+  <rect x="285" y="464" width="340" height="36" rx="5" fill="#fff" stroke="#f1a23a" stroke-width="1"/>
+  <text x="455" y="487" font-size="15" fill="#7a3f00" text-anchor="middle">待处理反馈</text>
+
+  <!-- Sub-item 3 -->
+  <rect x="285" y="508" width="340" height="36" rx="5" fill="#fff" stroke="#f1a23a" stroke-width="1"/>
+  <text x="455" y="531" font-size="15" fill="#7a3f00" text-anchor="middle">来源覆盖</text>
+
+  <!-- Sub-item 4 -->
+  <rect x="285" y="552" width="340" height="36" rx="5" fill="#fff" stroke="#f1a23a" stroke-width="1"/>
+  <text x="455" y="575" font-size="15" fill="#7a3f00" text-anchor="middle">双链覆盖</text>
+
+  <!-- Sub-item 5 -->
+  <rect x="285" y="596" width="340" height="36" rx="5" fill="#fff" stroke="#f1a23a" stroke-width="1"/>
+  <text x="455" y="619" font-size="14" fill="#7a3f00" text-anchor="middle">raw 长文章多杯倒水</text>
+
+  <!-- WF3 annotation -->
+  <rect x="32" y="438" width="230" height="20" rx="4" fill="transparent"/>
+  <text x="42" y="453" font-size="13" fill="#596362">每个扫描并行执行</text>
+
+</svg>

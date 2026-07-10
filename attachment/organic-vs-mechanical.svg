@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+    </style>
+  
+  </defs>
+
+  <rect width="1024" height="768" fill="transparent"/>
+
+  <!-- ===== 中间虚线分隔 ===== -->
+  <line x1="512" y1="70" x2="512" y2="690" stroke="#d5d1c7" stroke-width="2" stroke-dasharray="8,6"/>
+
+  <!-- ===== 左侧标题：没有 Agent 之前（人类） ===== -->
+  <rect x="110" y="45" width="292" height="44" rx="8" fill="#f1efe7" stroke="#d5d1c7" stroke-width="2"/>
+  <text x="256" y="74" text-anchor="middle" font-size="20" font-weight="760" fill="#18343a">没有 Agent 之前（人类）</text>
+
+  <!-- ===== 右侧标题：Agent 时代 ===== -->
+  <rect x="622" y="45" width="292" height="44" rx="8" fill="#ddf7ef" stroke="#10a98c" stroke-width="2"/>
+  <text x="768" y="74" text-anchor="middle" font-size="20" font-weight="760" fill="#006b61">Agent 时代</text>
+
+  <!-- ============================ -->
+  <!-- 左侧卡片（人类 - 中性色） -->
+  <!-- ============================ -->
+
+  <!-- 卡片 1：大数据库（神经网络） -->
+  <rect x="50" y="118" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="154" text-anchor="middle" font-size="20" font-weight="760" fill="#18343a">大数据库</text>
+  <text x="256" y="178" text-anchor="middle" font-size="14" fill="#596362">神经网络</text>
+
+  <!-- 卡片 2：模糊感知 · 非线性 -->
+  <rect x="50" y="214" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="250" text-anchor="middle" font-size="20" font-weight="760" fill="#18343a">模糊感知</text>
+  <text x="256" y="274" text-anchor="middle" font-size="14" fill="#596362">非线性</text>
+
+  <!-- 卡片 3：厌恶结构化整理 -->
+  <rect x="50" y="310" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="355" text-anchor="middle" font-size="20" font-weight="760" fill="#18343a">厌恶结构化整理</text>
+
+  <!-- 卡片 4：熵增状态 -->
+  <rect x="50" y="406" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="451" text-anchor="middle" font-size="20" font-weight="760" fill="#18343a">熵增状态</text>
+
+  <!-- 卡片 5：顿悟时刻 -->
+  <rect x="50" y="502" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="538" text-anchor="middle" font-size="20" font-weight="760" fill="#18343a">顿悟时刻</text>
+  <text x="256" y="562" text-anchor="middle" font-size="14" fill="#596362">神经元自发连接</text>
+
+  <!-- ============================ -->
+  <!-- 右侧卡片（AI - 绿色扩展） -->
+  <!-- ============================ -->
+
+  <!-- 卡片 1：低摩擦记录 -->
+  <rect x="562" y="118" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="163" text-anchor="middle" font-size="20" font-weight="760" fill="#006b61">低摩擦记录</text>
+
+  <!-- 卡片 2：结构化整理 -->
+  <rect x="562" y="214" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="259" text-anchor="middle" font-size="20" font-weight="760" fill="#006b61">结构化整理</text>
+
+  <!-- 卡片 3：维护双链 -->
+  <rect x="562" y="310" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="346" text-anchor="middle" font-size="20" font-weight="760" fill="#006b61">维护双链</text>
+  <text x="768" y="370" text-anchor="middle" font-size="14" fill="#006b61">200+ 页 / 7000+ 双链</text>
+
+  <!-- 卡片 4：控制电脑、读写文件 -->
+  <rect x="562" y="406" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="451" text-anchor="middle" font-size="20" font-weight="760" fill="#006b61">控制电脑、读写文件</text>
+
+  <!-- 卡片 5：写代码 -->
+  <rect x="562" y="502" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="547" text-anchor="middle" font-size="20" font-weight="760" fill="#006b61">写代码</text>
+
+  <!-- ===== 底部标注 ===== -->
+  <text x="256" y="618" text-anchor="middle" font-size="13" fill="#596362">有机 · 自然状态</text>
+  <text x="768" y="618" text-anchor="middle" font-size="13" fill="#10a98c">机械 · 扩展状态</text>
+</svg>

@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768" role="img" aria-labelledby="title desc">
+  <title id="title">ciao 一次对话实际运行流程</title>
+  <desc id="desc">用户提问 → 意图分类 → 人格加载 → 分层检索 → LLM 生成 → 记忆回写</desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .claim { font-size: 15px; fill: #596362; }
+      .panel-title { font-size: 20px; font-weight: 760; }
+      .card-title { font-size: 17px; font-weight: 760; }
+      .body { font-size: 13.5px; fill: #3f4e4c; }
+      .small { font-size: 12.5px; fill: #596362; }
+      .tiny { font-size: 11.5px; fill: #596362; }
+      .label { font-size: 12px; font-weight: 760; }
+      .footer { font-size: 18px; font-weight: 760; fill: #006b61; }
+      .green { fill: #ddf7ef; stroke: #10a98c; stroke-width: 1.4; }
+      .blue { fill: #e6f2ff; stroke: #4f8fd6; stroke-width: 1.4; }
+      .purple { fill: #f0e8ff; stroke: #8b6fd6; stroke-width: 1.4; }
+      .yellow { fill: #fff1d9; stroke: #f1a23a; stroke-width: 1.4; }
+      .panel { fill: #f1efe7; stroke: #d5d1c7; stroke-width: 1.4; }
+      .white { fill: #ffffff; stroke: #d5d1c7; stroke-width: 1.1; }
+      .green-text { fill: #006b61; }
+      .blue-text { fill: #1b4d7a; }
+      .purple-text { fill: #4b2e83; }
+      .yellow-text { fill: #7a3f00; }
+      .line { stroke: #74736c; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .dashed-line { stroke: #74736c; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; }
+      .divider { stroke: #d5d1c7; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#74736c"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#10a98c"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="512" y="38" text-anchor="middle" class="title">一次对话的实际运行流程</text>
+  <text x="512" y="62" text-anchor="middle" class="claim">用户提问 → 意图分类 → 人格加载 → 分层检索 → LLM 生成 → 记忆回写</text>
+
+  <!-- ===== TOP FLOW: User → Intent → URL ===== -->
+  <rect x="32" y="80" width="170" height="48" rx="8" class="green"/>
+  <text x="117" y="110" text-anchor="middle" class="card-title green-text">用户提问</text>
+
+  <line x1="204" y1="104" x2="244" y2="104" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="248" y="80" width="170" height="48" rx="8" class="blue"/>
+  <text x="333" y="103" text-anchor="middle" class="card-title blue-text">意图分类</text>
+  <text x="333" y="120" text-anchor="middle" class="tiny">classify_node</text>
+
+  <line x1="333" y1="130" x2="333" y2="152" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="248" y="156" width="170" height="36" rx="6" class="panel"/>
+  <text x="333" y="179" text-anchor="middle" class="small">URL 读取 · read_urls_node</text>
+
+  <!-- ===== PERSONALITY LAYER (right side) ===== -->
+  <rect x="500" y="80" width="492" height="150" rx="8" class="green"/>
+  <text x="520" y="106" class="panel-title green-text">人格层（Tier 0 · 常驻）</text>
+  <text x="520" y="126" class="small">system prompt 改.md — 单一事实源，每次启动加载</text>
+
+  <rect x="520" y="138" width="110" height="28" rx="5" class="white"/>
+  <text x="575" y="157" text-anchor="middle" class="body green-text">灵魂 · 身份</text>
+  <rect x="640" y="138" width="110" height="28" rx="5" class="white"/>
+  <text x="695" y="157" text-anchor="middle" class="body green-text">核心思维</text>
+  <rect x="760" y="138" width="110" height="28" rx="5" class="white"/>
+  <text x="815" y="157" text-anchor="middle" class="body green-text">声音 · 文风</text>
+  <rect x="880" y="138" width="100" height="28" rx="5" class="white"/>
+  <text x="930" y="157" text-anchor="middle" class="body green-text">边界 · 规则</text>
+
+  <rect x="520" y="174" width="160" height="28" rx="5" class="white"/>
+  <text x="600" y="193" text-anchor="middle" class="body green-text">对话策略 · 回答方式</text>
+  <rect x="690" y="174" width="140" height="28" rx="5" class="white"/>
+  <text x="760" y="193" text-anchor="middle" class="body green-text">世界观 (11篇)</text>
+
+  <text x="520" y="222" class="small">"混沌、可爱、流动" · 反默认系统 · 最小成本实验 · 无限游戏</text>
+
+  <!-- Dashed line: Intent → Personality -->
+  <line x1="420" y1="104" x2="496" y2="130" class="dashed-line"/>
+
+  <!-- ===== QUERY TYPE MAPPING ===== -->
+  <text x="32" y="214" class="label">查询类型 → 检索策略：</text>
+
+  <rect x="32" y="224" width="140" height="24" rx="4" class="panel"/>
+  <text x="102" y="241" text-anchor="middle" class="small">small_talk → 跳过</text>
+  <rect x="180" y="224" width="160" height="24" rx="4" class="panel"/>
+  <text x="260" y="241" text-anchor="middle" class="small">life_line → Tier 1+2+3</text>
+  <rect x="348" y="224" width="150" height="24" rx="4" class="panel"/>
+  <text x="423" y="241" text-anchor="middle" class="small">worldview → 1+2</text>
+
+  <line x1="333" y1="200" x2="333" y2="220" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ===== THREE RETRIEVAL TIERS ===== -->
+  <text x="32" y="276" class="label">分层检索</text>
+
+  <!-- Tier 1 -->
+  <rect x="32" y="286" width="310" height="210" rx="8" class="blue"/>
+  <text x="187" y="312" text-anchor="middle" class="card-title blue-text">Tier 1 · wiki + 世界观 + 对话</text>
+  <text x="187" y="330" text-anchor="middle" class="small">非闲聊时始终检索 | 每文件 ≤1200字</text>
+  <line x1="48" y1="342" x2="326" y2="342" class="divider"/>
+  <text x="48" y="362" class="body">wiki/ concepts · synthesis · insights · MOC</text>
+  <text x="48" y="382" class="body">worldview/ 11篇世界观消化稿</text>
+  <text x="48" y="402" class="body">conversations/ 对话姿态 · 问题地图</text>
+  <rect x="48" y="418" width="130" height="26" rx="5" class="white"/>
+  <text x="113" y="436" text-anchor="middle" class="small blue-text">life_line → +编年史</text>
+  <rect x="188" y="418" width="138" height="26" rx="5" class="white"/>
+  <text x="257" y="436" text-anchor="middle" class="small blue-text">user_support → +对话</text>
+  <text x="48" y="470" class="small">最多 5 个 wiki · 3 个 worldview 结果</text>
+
+  <!-- Tier 2 -->
+  <rect x="356" y="286" width="310" height="210" rx="8" class="green"/>
+  <text x="511" y="312" text-anchor="middle" class="card-title green-text">Tier 2 · 长文章 + 转录</text>
+  <text x="511" y="330" text-anchor="middle" class="small">上层不足时补充 | 每文件 ≤800字</text>
+  <line x1="372" y1="342" x2="650" y2="342" class="divider"/>
+  <text x="372" y="362" class="body">raw/长文章/ 39篇公开观点与核心叙事</text>
+  <text x="372" y="382" class="body">语音转文字/ 15篇回顾性自我叙事</text>
+  <text x="372" y="402" class="body">朋友圈精选 · 日常碎片示例</text>
+  <rect x="372" y="418" width="268" height="26" rx="5" class="white"/>
+  <text x="506" y="436" text-anchor="middle" class="small green-text">语气校准 · 示例匹配 · 说人话的证据</text>
+  <text x="372" y="470" class="small">最多 3 个结果</text>
+
+  <!-- Tier 3 -->
+  <rect x="680" y="286" width="312" height="210" rx="8" class="purple"/>
+  <text x="836" y="312" text-anchor="middle" class="card-title purple-text">Tier 3 · 编年史（按需）</text>
+  <text x="836" y="330" text-anchor="middle" class="small">仅在问具体年份时触发 | ≤900字</text>
+  <line x1="696" y1="342" x2="976" y2="342" class="divider"/>
+  <text x="696" y="362" class="body">不同年龄的我/ years/</text>
+  <text x="696" y="382" class="body">2008(12岁) - 2026(31岁) 共19篇</text>
+  <text x="696" y="402" class="body">每年万人字档案 · 情绪/信念/身份/轨迹</text>
+  <rect x="696" y="418" width="278" height="26" rx="5" class="white"/>
+  <text x="835" y="436" text-anchor="middle" class="small purple-text">触发词："具体""细节""某一年""年龄"</text>
+  <text x="696" y="470" class="small">最多 2 个结果</text>
+
+  <!-- ===== RETRIEVE NODE ===== -->
+  <line x1="511" y1="500" x2="511" y2="522" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="48" y="526" width="928" height="44" rx="8" class="green"/>
+  <text x="512" y="548" text-anchor="middle" class="card-title green-text">retrieve_node — 合并所有 Tier 结果</text>
+  <text x="512" y="565" text-anchor="middle" class="small">拼接 → 隐私过滤 → 截断至 7000字符 → 注入系统提示词</text>
+
+  <!-- ===== CHAT NODE ===== -->
+  <polygon points="512,574 502,586 522,586" fill="#10a98c"/>
+  <line x1="512" y1="572" x2="512" y2="586" class="line"/>
+
+  <rect x="200" y="590" width="544" height="52" rx="8" class="green" stroke-width="2"/>
+  <text x="472" y="613" text-anchor="middle" class="card-title green-text">chat_node — LLM 生成回复</text>
+  <text x="472" y="632" text-anchor="middle" class="small">Gemma 4 26B · temp=0.9 · 流式输出 → SSE → 前端实时渲染</text>
+
+  <line x1="744" y1="616" x2="790" y2="616" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="794" y="592" width="182" height="48" rx="8" class="purple"/>
+  <text x="885" y="613" text-anchor="middle" class="card-title purple-text">用户看到的回复</text>
+  <text x="885" y="630" text-anchor="middle" class="small">Web · 微信 · SMS</text>
+
+  <!-- ===== MEMORY ===== -->
+  <rect x="200" y="660" width="544" height="40" rx="8" class="panel" stroke-dasharray="5,3"/>
+  <text x="472" y="678" text-anchor="middle" class="card-title" fill="#596362">MemorySaver — LangGraph 检查点机制</text>
+  <text x="472" y="694" text-anchor="middle" class="small">同 thread_id 内的对话历史记忆（会话内连续）</text>
+
+  <rect x="794" y="660" width="182" height="40" rx="8" class="purple" stroke-dasharray="5,3"/>
+  <text x="885" y="678" text-anchor="middle" class="card-title purple-text">未来：跨会话记忆</text>
+  <text x="885" y="694" text-anchor="middle" class="small">Hermes · 用户隔离</text>
+
+  <!-- ===== FOOTER ===== -->
+  <rect x="32" y="716" width="960" height="34" rx="6" class="panel"/>
+  <text x="512" y="738" text-anchor="middle" class="small">LangGraph 状态图：classify → read_urls → retrieve → ai_response | 线性的、无工具调用的纯净管道</text>
+</svg>
