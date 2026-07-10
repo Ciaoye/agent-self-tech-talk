@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✏ 编辑 — Agent 时代的自我技术</title>
+<style>
+:root {
+  --pool-mint:     #7FD8D1;
+  --sun-towel:     #FFF1B8;
+  --orange-float:  #FF8C42;
+  --cloud-white:   #F7FCFF;
+  --deep-pool:     #178F92;
+  --ink:           #17343A;
+  --pool-mint-30:  rgba(127, 216, 209, .30);
+  --pool-mint-15:  rgba(127, 216, 209, .15);
+  --pool-mint-08:  rgba(127, 216, 209, .08);
+  --sun-towel-40:  rgba(255, 241, 184, .40);
+  --ink-72:        rgba(23, 52, 58, .72);
+  --ink-60:        rgba(23, 52, 58, .60);
+  --ink-40:        rgba(23, 52, 58, .40);
+  --ink-16:        rgba(23, 52, 58, .16);
+  --ink-08:        rgba(23, 52, 58, .08);
+  --line:          var(--ink-08);
+  --divider:       var(--pool-mint-15);
+  --divider-strong: var(--pool-mint-30);
+  --font-display: 'Instrument Serif', 'Noto Serif SC', ui-serif, Georgia, serif;
+  --font-body:    'Plus Jakarta Sans', 'Noto Sans SC', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ease-pool:    cubic-bezier(.22, .61, .36, 1);
+  --shadow-glass: 0 18px 40px -22px rgba(23, 143, 146, .35), inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+body {
+  margin: 0; background: var(--cloud-white); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+}
+.page-wrap { display: flex; max-width: 1440px; margin: 0 auto; padding: 0 32px; position: relative; }
+.main-col { flex: 1; padding-bottom: 120px; }
+.toc-col { width: 200px; flex-shrink: 0; padding-right: 32px; padding-left: 0; }
+.top { position: sticky; top: 0; z-index: 100; background: rgba(247,252,255,.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--divider); }
+.top-inner { max-width: 1440px; margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text .name { font-family: var(--font-display); font-size: 18px; color: var(--ink); font-weight: 600; }
+.brand-text .sub { font-size: 12px; color: var(--ink-60); }
+.top-nav { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.top-nav a { text-decoration: none; color: var(--ink-60); font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 6px; transition: all .2s var(--ease-pool); }
+.top-nav a:hover { color: var(--deep-pool); background: var(--pool-mint-08); }
+.top-cta { background: var(--pool-mint)!important; color: var(--ink)!important; padding: 6px 16px!important; border-radius: 20px!important; font-weight: 600!important; margin-left: 8px; }
+.top-cta:hover { background: var(--deep-pool)!important; color: #fff!important; }
+.hero { padding: 80px 0 60px; }
+.hero-eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--deep-pool); margin-bottom: 16px; }
+.hero h1 { font-family: var(--font-display); font-size: 56px; font-weight: 400; line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+.hero h1 em { font-style: italic; color: var(--deep-pool); }
+.hero-sub { font-size: 20px; color: var(--ink-72); line-height: 1.5; margin-bottom: 12px; }
+.hero-lead { font-size: 17px; color: var(--ink-60); line-height: 1.7; max-width: 640px; margin-bottom: 32px; }
+.hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; border-radius: 28px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all .25s var(--ease-pool); font-family: var(--font-body); }
+.btn-primary { background: var(--pool-mint); color: var(--ink); box-shadow: var(--shadow-glass); }
+.btn-primary:hover { background: var(--deep-pool); color: #fff; transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--ink-72); border: 1px solid var(--ink-16); }
+.btn-ghost:hover { border-color: var(--deep-pool); color: var(--deep-pool); }
+.hero-author { font-size: 14px; color: var(--ink-40); margin-left: 12px; }
+.anchor-strip { background: var(--pool-mint-08); border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); margin: 0 -40px; padding: 14px 40px; display: flex; gap: 20px; overflow-x: auto; white-space: nowrap; }
+.anchor-strip a { text-decoration: none; color: var(--ink-60); font-size: 13px; font-weight: 500; transition: color .2s; }
+.anchor-strip a:hover { color: var(--deep-pool); }
+.act-section { margin-top: 100px; padding-bottom: 20px; border-bottom: 1px solid var(--divider); }
+.act-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--deep-pool); margin-bottom: 8px; }
+.act-title { font-family: var(--font-display); font-size: 42px; color: var(--ink); margin: 0 0 12px; line-height: 1.2; }
+.act-desc { font-size: 17px; color: var(--ink-60); margin-bottom: 48px; line-height: 1.65; }
+.slide-card { background: #fff; border: 1px solid var(--divider); border-radius: 16px; padding: 48px 56px; margin-bottom: 32px; box-shadow: 0 2px 12px rgba(23,52,58,.04); transition: box-shadow .3s var(--ease-pool); }
+.slide-card:hover { box-shadow: 0 4px 24px rgba(23,52,58,.08); }
+.slide-num { display: inline-block; font-family: var(--font-mono); font-size: 13px; color: var(--ink-40); font-weight: 500; margin-bottom: 12px; letter-spacing: .03em; }
+.slide-title { font-family: var(--font-display); font-size: 26px; color: var(--ink); margin: 0 0 20px; line-height: 1.3; font-weight: 500; }
+.slide-body { font-size: 17px; color: var(--ink); line-height: 1.8; }
+.slide-body p { margin: 0 0 14px; }
+.slide-body p:last-child { margin-bottom: 0; }
+.slide-body ul, .slide-body ol { padding-left: 20px; margin: 0 0 14px; font-size: 16px; }
+.slide-body li { margin-bottom: 8px; }
+.slide-body table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+.slide-body th, .slide-body td { border: 1px solid var(--divider); padding: 10px 14px; text-align: left; }
+.slide-body th { background: var(--pool-mint-08); font-weight: 600; color: var(--ink); font-size: 13px; }
+.slide-body td { color: var(--ink-72); }
+.slide-art { margin: 20px -44px; padding: 20px 44px; background: var(--pool-mint-08); border-radius: 12px; overflow: visible; }
+.slide-art img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+.toc-col-inner { position: sticky; top: 100px; max-height: calc(100vh - 160px); overflow-y: auto; padding-right: 6px; }
+.toc-col-inner::-webkit-scrollbar { width: 4px; }
+.toc-col-inner::-webkit-scrollbar-track { background: transparent; }
+.toc-col-inner::-webkit-scrollbar-thumb { background: var(--ink-16); border-radius: 4px; }
+.toc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--ink-40); margin-bottom: 16px; }
+.toc-list { list-style: none; padding: 0; margin: 0; }
+.toc-list li { margin-bottom: 4px; }
+.toc-list a { display: block; text-decoration: none; color: var(--ink-60); font-size: 13px; line-height: 1.6; padding: 4px 0; transition: color .2s; border-left: 2px solid transparent; padding-left: 10px; }
+.toc-list a:hover, .toc-list a.active { color: var(--deep-pool); border-left-color: var(--pool-mint); }
+.toc-num { font-family: var(--font-mono); font-size: 11px; color: var(--ink-40); margin-right: 6px; }
+.site-footer { border-top: 1px solid var(--divider); padding: 48px 0; margin-top: 60px; }
+.footer-inner { max-width: 1440px; margin: 0 auto; padding: 0 32px; }
+.footer-col { max-width: 820px; }
+.footer-name { font-family: var(--font-display); font-size: 22px; margin-bottom: 8px; }
+.footer-info { font-size: 14px; color: var(--ink-60); line-height: 1.7; }
+@media (max-width: 1024px) { .toc-col { display: none; } .page-wrap { padding: 0 24px; } .top-inner { padding: 0 24px; } .hero h1 { font-size: 40px; } .anchor-strip { margin: 0 -24px; padding: 12px 24px; gap: 14px; } .slide-card { padding: 32px 28px; } .slide-title { font-size: 22px; } }
+/* ── Presentation Mode ── */
+body.presenting .top,body.presenting .toc-col,body.presenting .page-wrap,body.presenting #top{display:none!important}
+.pres-overlay{display:none;position:fixed;inset:0;z-index:9999;background:var(--cloud-white);overflow-y:auto;overflow-x:hidden}
+body.presenting .pres-overlay{display:block}
+.pres-slide{display:none;min-height:100vh;padding:60px 60px 100px;max-width:1400px;margin:0 auto;align-items:flex-start;justify-content:flex-start}
+.pres-slide.active{display:flex;flex-direction:column}
+.pres-slide .slide-card,.pres-slide .slide-art{margin:0;max-width:100%;width:100%}.pres-slide .slide-card{padding:40px 52px;font-size:18px;width:100%}.pres-slide .slide-art svg,.pres-slide .slide-art img{display:block;width:100%;min-width:0;max-width:100%;height:auto}.pres-slide .slide-title{font-size:28px}.pres-slide .slide-body{font-size:18px;line-height:1.7}.pres-slide .slide-body p{margin-bottom:14px}.pres-slide .act-section{display:flex;flex-direction:column;justify-content:center;min-height:70vh;padding-left:80px}.pres-slide .act-label{font-size:15px}.pres-slide .act-title{font-size:36px;margin-bottom:16px}.pres-slide .act-desc{font-size:18px;max-width:700px}.pres-slide iframe{width:100%!important;height:70vh!important}.pres-slide .embed-container{display:block!important}.pres-slide .embed-container iframe{height:65vh!important}
+.pres-controls{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:12px;align-items:center;z-index:10001}
+.pres-controls button{background:rgba(23,52,58,.06);border:1px solid var(--ink-16);border-radius:8px;padding:8px 16px;cursor:pointer;font-family:var(--font-body);font-size:13px;color:var(--ink);transition:all .15s}
+.pres-controls button:hover{background:rgba(23,52,58,.12)}
+.pres-controls .pres-progress{font-family:var(--font-mono);font-size:13px;color:var(--ink-60);min-width:60px;text-align:center}
+.pres-esc{position:fixed;top:18px;right:24px;z-index:10001;background:rgba(23,52,58,.06);border:1px solid var(--ink-16);border-radius:8px;padding:8px 14px;cursor:pointer;font-family:var(--font-body);font-size:12px;color:var(--ink-60)}
+.pres-esc:hover{background:rgba(23,52,58,.12)}
+.pres-nav-arrow{position:fixed;top:50%;transform:translateY(-50%);z-index:10001;background:rgba(23,52,58,.06);border:1px solid var(--ink-16);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:var(--ink-60);transition:all .15s}
+.pres-nav-arrow:hover{background:rgba(23,52,58,.15);color:var(--ink)}
+.pres-nav-prev{left:20px}.pres-nav-next{right:20px}
+.pres-start-btn{background:var(--deep-pool)!important;color:#fff!important;border-color:var(--deep-pool)!important}
+.pres-start-btn:hover{background:#157a7d!important;color:#fff!important}
+@media(max-width:800px){.pres-slide{padding:40px 24px}.pres-nav-arrow{width:36px;height:36px;font-size:16px}}
+
+/* Visual refresh: reading layout, slide polish, and presentation refinements. */
+:root {
+  --paper: #FBFEFC;
+  --paper-warm: #FFF9E7;
+  --mint-soft: #E8F7F4;
+  --mint-line: #CFEAE5;
+  --coral-soft: #FFF1E6;
+  --shadow-soft: 0 18px 48px -36px rgba(23, 52, 58, .38);
+  --shadow-lift: 0 24px 64px -42px rgba(23, 52, 58, .42);
+}
+
+body {
+  background:
+    linear-gradient(180deg, rgba(232, 247, 244, .64) 0, rgba(251, 254, 252, .94) 340px, var(--paper) 100%),
+    var(--paper);
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.top {
+  background: rgba(251, 254, 252, .9);
+  border-bottom: 1px solid rgba(23, 52, 58, .07);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+.top-inner {
+  height: 68px;
+}
+
+.brand-text .name {
+  font-size: 19px;
+  letter-spacing: .01em;
+}
+
+.brand-text .sub {
+  color: var(--ink-40);
+}
+
+.page-wrap {
+  max-width: 1360px;
+  gap: 40px;
+}
+
+.toc-col {
+  width: 228px;
+  padding-right: 18px;
+}
+
+.main-col {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: calc(100vh - 124px);
+  padding: 96px 0 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--mint-line);
+}
+
+.hero-eyebrow,
+.act-label {
+  color: #0E7D80;
+  letter-spacing: .16em;
+}
+
+.hero h1 {
+  max-width: 840px;
+  font-size: clamp(42px, 6vw, 72px);
+  letter-spacing: 0;
+}
+
+.hero-sub {
+  max-width: 760px;
+  font-size: clamp(20px, 2.3vw, 27px);
+  color: rgba(23, 52, 58, .78);
+  line-height: 1.48;
+}
+
+.hero-lead {
+  max-width: 760px;
+  font-size: 18px;
+  color: rgba(23, 52, 58, .66);
+}
+
+.btn {
+  min-height: 44px;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.btn-primary,
+.pres-start-btn {
+  background: #118A8E !important;
+  color: #fff !important;
+  box-shadow: 0 12px 28px -20px rgba(17, 138, 142, .9);
+}
+
+.btn-primary:hover,
+.pres-start-btn:hover {
+  background: #0C6F73 !important;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, .56);
+  border-color: rgba(23, 52, 58, .18);
+}
+
+.anchor-strip {
+  position: sticky;
+  top: 68px;
+  z-index: 40;
+  margin: 0 -32px 18px;
+  padding: 12px 32px;
+  background: rgba(251, 254, 252, .88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-color: rgba(23, 52, 58, .08);
+}
+
+.anchor-strip a {
+  padding: 4px 0;
+  color: rgba(23, 52, 58, .56);
+}
+
+.anchor-strip a:hover {
+  color: #0E7D80;
+}
+
+.act-section {
+  margin-top: 92px;
+  padding: 34px 0 12px;
+  border-bottom: none;
+}
+
+.act-title {
+  max-width: 840px;
+  font-size: clamp(34px, 4vw, 50px);
+  letter-spacing: 0;
+}
+
+.act-desc {
+  max-width: 780px;
+  margin-bottom: 36px;
+  font-size: 18px;
+  color: rgba(23, 52, 58, .66);
+}
+
+.slide-card {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid rgba(23, 52, 58, .08);
+  padding: 42px 48px;
+  margin-bottom: 26px;
+  background:
+    linear-gradient(90deg, rgba(127, 216, 209, .18), transparent 92px),
+    #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.slide-card::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  left: 0;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, var(--pool-mint), var(--orange-float));
+  opacity: .72;
+  display: none;
+}
+
+.slide-card:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+.slide-num {
+  margin-bottom: 10px;
+  color: #0E7D80;
+  font-size: 12px;
+}
+
+.slide-title {
+  max-width: 820px;
+  margin-bottom: 18px;
+  font-size: clamp(24px, 2.6vw, 31px);
+  letter-spacing: 0;
+}
+
+.slide-body {
+  max-width: 820px;
+  font-size: 17px;
+  line-height: 1.86;
+}
+
+.slide-body p {
+  margin-bottom: 16px;
+}
+
+.slide-body strong {
+  color: #102E33;
+}
+
+.slide-body ul,
+.slide-body ol {
+  padding-left: 1.25em;
+  margin: 4px 0 18px;
+}
+
+.slide-body li {
+  padding-left: .1em;
+  margin-bottom: 10px;
+}
+
+.slide-body li::marker {
+  color: #0E7D80;
+}
+
+.slide-body table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--mint-line);
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.slide-body th,
+.slide-body td {
+  border: 0;
+  border-bottom: 1px solid var(--mint-line);
+  border-right: 1px solid var(--mint-line);
+  vertical-align: top;
+}
+
+.slide-body tr:last-child td {
+  border-bottom: 0;
+}
+
+.slide-body th:last-child,
+.slide-body td:last-child {
+  border-right: 0;
+}
+
+.slide-body th {
+  background: var(--mint-soft);
+}
+
+.slide-art {
+  margin: 24px -24px 2px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(180deg, rgba(232, 247, 244, .78), rgba(255, 249, 231, .72));
+  border: 1px solid rgba(23, 52, 58, .06);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-art img,
+.slide-art svg {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.slide-source {
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-40);
+}
+
+.slide-source a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.slide-art .inline-svg-art {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  height: auto;
+  margin: 0 auto;
+  color: var(--ink);
+}
+
+
+.toc-col-inner {
+  top: 94px;
+  padding: 14px 10px 14px 0;
+}
+
+.toc-title {
+  margin-bottom: 14px;
+  color: rgba(23, 52, 58, .42);
+}
+
+.toc-list a {
+  border-left-width: 3px;
+  border-radius: 0 6px 6px 0;
+  color: rgba(23, 52, 58, .56);
+}
+
+.toc-list a:hover,
+.toc-list a.active {
+  background: rgba(127, 216, 209, .10);
+  color: #0E7D80;
+  border-left-color: #0E7D80;
+}
+
+.site-footer {
+  background: rgba(232, 247, 244, .32);
+}
+
+.pres-slide .slide-card {
+  border-radius: 8px;
+}
+
+
+
+
+.pres-overlay {
+  background:
+    linear-gradient(180deg, rgba(232, 247, 244, .72), rgba(251, 254, 252, 1));
+}
+
+.pres-slide {
+  padding: 48px 64px 100px;
+}
+
+.pres-slide .slide-card {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 36px 44px;
+  box-shadow: var(--shadow-lift);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.pres-slide .slide-title {
+  font-size: 26px;
+  line-height: 1.35;
+}
+
+.pres-slide .slide-body {
+  max-width: 980px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.pres-slide .slide-body p,
+.pres-slide .slide-body li,
+.pres-slide .slide-body td,
+.pres-slide .slide-body th {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.pres-slide .slide-art {
+  max-height: none;
+  overflow: visible;
+}
+
+.pres-slide .slide-art .inline-svg-art,
+.pres-slide .slide-art img {
+  width: min(100%, 960px);
+  max-height: none;
+}
+
+/* Slide 09 keeps its native scale in presentation mode so the dense labels
+   remain readable. The page may scroll, but the chart itself never scrolls. */
+.pres-slide #slide-11 .slide-art .inline-svg-art {
+  width: min(100%, 960px);
+  max-height: none;
+}
+
+.pres-slide .act-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.pres-controls button,
+.pres-esc,
+.pres-nav-arrow {
+  background: rgba(255, 255, 255, .72);
+  border-color: rgba(23, 52, 58, .14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.pres-nav-arrow:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 1024px) {
+  .page-wrap {
+    padding: 0 22px;
+  }
+
+  .main-col {
+    max-width: 100%;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 72px 0 44px;
+  }
+
+  .anchor-strip {
+    margin: 0 -22px 16px;
+    padding: 10px 22px;
+  }
+
+  .slide-card {
+    padding: 34px 28px;
+  }
+
+  .slide-card::before {
+    top: 24px;
+    bottom: 24px;
+  }
+
+  .slide-art {
+    margin-left: -12px;
+    margin-right: -12px;
+    padding: 16px 12px;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 16px;
+  }
+
+  .top-inner {
+    height: auto;
+    min-height: 60px;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-author {
+    margin-left: 0;
+  }
+
+  .anchor-strip {
+    top: 60px;
+  }
+
+  .act-section {
+    margin-top: 68px;
+  }
+
+  .slide-card {
+    padding: 28px 20px 28px 24px;
+    margin-bottom: 20px;
+  }
+
+  .slide-body {
+    font-size: 16px;
+    line-height: 1.78;
+  }
+
+  .pres-slide {
+    padding: 34px 16px 96px;
+  }
+
+  .pres-slide .slide-card {
+    padding: 32px 22px;
+  }
+
+  .pres-slide .act-title {
+    font-size: 30px;
+    line-height: 1.18;
+  }
+
+  .pres-slide .act-desc {
+    font-size: 16px;
+    line-height: 1.62;
+  }
+
+  .pres-nav-arrow {
+    display: none;
+  }
+
+  .pres-controls {
+    width: calc(100% - 24px);
+    gap: 6px;
+  }
+
+  .pres-controls button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+</style>
+<body id="top" style="" class="">
+
+<header class="top"><div class="top-inner">
+  <a class="brand" href="#top"><span class="brand-text"><span class="name">Agent 时代的自我技术</span><span class="sub">俏也 · 分享会</span></span></a>
+</div></header>
+
+<div class="page-wrap">
+<aside class="toc-col"><div class="toc-col-inner"><div class="toc-title">Slide 目录</div><ul class="toc-list"></ul></div></aside>
+<main class="main-col">
+
+
+
+<section class="hero">
+  <div class="hero-eyebrow">自我技术 · Agent 时代</div>
+  <h1>Agent 时代的 <em>自我技术</em></h1>
+  <p class="hero-sub">从书写、内观到创作——用 AI 搭建属于自己的系统</p>
+  <p class="hero-lead">当 AI 可以完成知识学习、技能获取、工具性产出甚至创作的时候，「知道我是谁」和「我想要什么」变得前所未有的重要。</p>
+  <div class="hero-actions"><button class="btn btn-primary pres-start-btn" onclick="startPres()">🎬 演示模式</button><a class="btn btn-ghost" href="#act-1">进入正文</a><span class="hero-author">作者：俏也</span></div>
+</section>
+
+<nav class="anchor-strip"><a href="#act-1">引入</a><a href="#act-2">主题</a><a href="#act-3">变化</a><a href="#act-4">数据</a><a href="#act-5">知识库</a><a href="#act-6">内观</a><a href="#act-7">写作</a><a href="#act-8">分身</a><a href="#act-9">总结</a></nav>
+
+<!-- ===== Act 1 ===== -->
+<section id="act-1" class="act-section">
+<div class="act-label">Act 1</div>
+<h2 class="act-title" >引入 — 「生活技术」与「自我技术」</h2>
+<p class="act-desc">什么是自我技术？为什么在这个时代，知道自己是谁、想要什么，变得比任何技能都重要？</p>
+
+<article id="slide-03" class="slide-card">
+<div class="slide-num">01</div>
+<h3 class="slide-title" >俏也的生活技术</h3>
+<div class="slide-body">
+<p >知道自己想要什么，以及得到自己想要的东西。</p>
+<p >不怎么消费、不上班、不太参与。只做自己想做的事，不做不想做的事。</p>
+<p>保持生命力，质疑「默认」，构建具身的第一人称经验。比如健身——这个动作对别人有用但对我可能有伤害；这个方法对他好但对我来说就是坏的。我就得自己去试、去感受、去调整。这个态度贯穿了我做的所有事。</p>
+</div>
+</article>
+
+<article id="slide-04" class="slide-card">
+<div class="slide-num">02</div>
+<h3 class="slide-title" >规训技术 vs 自我技术</h3>
+<div class="slide-body">
+<p>福柯的规训技术：学校教我们当螺丝钉 → 送到工作岗位 → 工厂工作 → 为资本家创造财富 → 赚到钱去消费 → 再去赚钱。这是个把人套住的循环。</p>
+<p >福柯晚年转向<strong>自我技术：</strong>「允许个体通过自己的方式，对自己的身体和灵魂、思想行为和存在方式进行操作，从而改变自己。」</p>
+<p >古希腊人有一个习惯：把日常的思想、做过的事反思并记在本子上。书写是核心习惯。这也是今天串联的一个重要线索——基本上所有的文档和整理，载体都是文字。</p>
+</div>
+</article>
+
+<article id="slide-05" class="slide-card">
+<div class="slide-num">03</div>
+<h3 class="slide-title" >四种自我技术</h3>
+<div class="slide-body">
+<p >福柯分析了自我技术的几种具体形式——</p>
+<ul>
+<li><strong>给朋友的信与自我揭示</strong>（斯多葛派）：不是汇报，是通过写给另一个人，让自己更清晰地看见自己</li>
+<li><strong>对良知的审察</strong>：一天的结束时，回顾做了什么事、应当做什么事，比较二者。审判是要判你这个人怎么样，核对只是看看——差距在哪里</li>
+<li><strong>聆听的艺术</strong>：普鲁塔克说，我们在学校里学习如何倾听逻各斯的言说，此后整个成人生活都必须这样做——分辨何为真实、何为谎言</li>
+<li><strong>parrhesia（直言/说真话）</strong>：不是对别人说真话，是对自己——「照看自己」的前提是，你敢不敢对自己说真话</li>
+</ul>
+</div>
+</article>
+
+<article id="slide-06" class="slide-card">
+<div class="slide-num">04</div>
+<h3 class="slide-title">规训 vs 自我：你现在的日常活在哪个逻辑里？</h3>
+<div class="slide-body">
+<table>
+<thead><tr><th></th><th>规训技术</th><th>自我技术</th></tr></thead>
+<tbody>
+<tr><td><strong>谁在操作</strong></td><td>外部权力（学校、公司、平台、算法）</td><td>你自己</td></tr>
+<tr><td><strong>目标</strong></td><td>把你变成「可被管理的合格的人」</td><td>把你变成「你自己想成为的人」</td></tr>
+<tr><td><strong>方向</strong></td><td>客体化——你是被观察、被定义、被修正的对象</td><td>主体化——你是观察者、定义者、修正者</td></tr>
+<tr><td><strong>工具</strong></td><td>考试、绩效、排名、算法推荐、全景监控</td><td>书写、回看、对话、如实记录、自我审察</td></tr>
+<tr><td><strong>结果</strong></td><td>驯顺而有用的身体</td><td>自我转化——幸福、智慧、自由</td></tr>
+<tr><td><strong>典型话语</strong></td><td>「你应该」「正常人都」「别人都」</td><td>「我发现」「我选择」「我试试」</td></tr>
+</tbody></table>
+</div>
+</article>
+
+<article id="slide-07" class="slide-card">
+<div class="slide-num">05</div>
+<h3 class="slide-title">创作的本质 — 赖声川创作金字塔</h3>
+<div class="slide-body">
+<p >引用赖声川的创作金字塔。创作是内在数据库、三观与技巧的综合表达。</p>
+<p >他提出：创意第一关键——内在储存的一切档案库。第二关键——神秘电脑的「操作系统」，将所有档案抓出来组合在一起的机制。运用「如是观」去标签地观察生活，价值观、世界观用不同角度去看数据库，结合媒介形式，就形成创作。创作 = 智慧 × 形式。</p>
+<p >什么阻碍了我们获得智慧？内心的习性、过去的经验、标签化——「他不就是那个啥吗」「这个是丑的」。就这些东西，让人一直开着自动驾驶。</p>
+</div>
+<div class="slide-art"><img src="attachment/8b90f702-8896-4401-a364-09177322de20.png" alt="赖声川创作金字塔" style="max-width:600px;border-radius:12px;border:1px solid var(--i08)"><p style="font-size:12px;color:var(--i40);margin-top:6px" ><br></p></div>
+</article><article id="slide-08" class="slide-card">
+<div class="slide-num">06</div>
+<h3 class="slide-title">系统八层金字塔 — 赖声川映射到我的系统</h3>
+<div class="slide-body"><p >把赖声川金字塔映射到我的系统——从底层数据到顶层创作，四层递进：</p></div>
+<div class="slide-art"><img src="attachment/creative-pyramid-comparison.svg" alt="赖声川创作金字塔 vs 俏也系统" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+
+
+
+
+</section>
+
+
+
+<!-- ===== Act 2 ===== -->
+<section id="act-2" class="act-section">
+<div class="act-label">Act 2</div>
+<h2 class="act-title" >今天涵盖的各个模块</h2>
+<p class="act-desc" >从书写到内观，从创作到分身——互相支撑的实践方向，以及贯穿它们的数据流。</p>
+
+<article id="slide-10" class="slide-card">
+<div class="slide-num">07</div>
+<h3 class="slide-title">输入 → 组织 → 觉察 → 创造</h3>
+<div class="slide-body">
+<ol>
+<li ><strong>书写与知识库搭建</strong>：怎么书写，把碎片变成资产，搭建成知识库。对应赖声川的「数据库」——内在储存的一切档案库。flomo 的 100 万字零散记录，加上各种平台的数据，最终变成一个有 7,215 处双链的知识网络。</li>
+<li><strong>数字内观</strong>：通过和 AI 对话完成「毗婆舍那」（Vipassana）——佛教的认知自我、抵达自由的技术。用不同切面反思经历过的事情。我们现在都会去和 AI 聊「我发生了什么」「我遇到了什么问题」，我在这个部分会提供更多方法论。</li>
+<li><strong>创作</strong>：有了足够素材和对自己认知后，怎么和 AI 做创作。智慧结合形式之后的创作。我自己写——语音转文字，交给 AI 整理。但重要的不是去 AI 味儿，是找到你的味道。</li>
+<li><strong>数字分身</strong>：基于知识库、记忆、自我认知和语料库，做一个「我的 AI」。由人格层、知识检索层、记忆层三部分组成。你可以决定它完整的 prompt，它能读到哪些信息——这也让我更了解这个生命形态。</li>
+</ol>
+</div>
+</article><article id="slide-02" class="slide-card">
+<div class="slide-num">08</div>
+<h3 class="slide-title" >文件夹架构全景</h3>
+<div class="slide-body"><p >这是整套系统落地的真实目录树。</p></div>
+<div class="slide-art"><img src="attachment/folder-architecture-detailed.svg" alt="trae_projects 全工作区目录结构" style="width:100%;max-width:960px;height:auto;display:block;border-radius:8px;" /></div>
+</article>
+
+<article id="slide-11" class="slide-card">
+<div class="slide-num">09</div>
+<h3 class="slide-title" >完整的数据流</h3>
+<div class="slide-body"><p >从原始数据源出发，经过预处理和标准化，分叉成 LLM Wiki 和「不同年龄的我」两条并行线，汇聚到觉察层（数字内观），最终分发到写作、chatbot、俏也。每个环节都会反哺前面的环节——写作中发现新洞察回写 wiki，内观中发现的模式成为创作素材。</p></div>
+<div class="slide-art"><img src="attachment/system-data-flow.svg" alt="完整的数据流" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+
+
+
+<article id="slide-13" class="slide-card">
+<div class="slide-num">10</div>
+<h3 class="slide-title" >同样的方法，适用于其他领域</h3>
+<div class="slide-body">
+<p>你的对象可以是组织、社区或领域，这都是一样的技术：</p>
+<ul><li ><span style="background-color: rgb(255, 255, 255);">输入原材料 → 组织体系 → 觉察提炼 → 涌现创造。</span></li><li >看见共性问题 + 发挥创造力</li><li >构建社区工具（知识图谱、社区 Agent）</li></ul>
+<p ><br></p>
+</div>
+</article>
+</section>
+
+<!-- ===== Act 3 ===== -->
+<section id="act-3" class="act-section">
+<div class="act-label">Act 3</div>
+<h2 class="act-title">Agent 时代的变化</h2>
+<p class="act-desc">AI 改变了知识输入的方式，也改变了从想法到现实的路径。但有些东西不该交给它。</p>
+
+<article id="slide-14" class="slide-card">
+<div class="slide-num">11</div>
+<h3 class="slide-title">人脑 vs AI：各司其职</h3>
+<div class="slide-body">
+<p>没有 AI 之前，人类作为碳基生物也不断拥有自己的大数据库。我们有非常大的神经网络，有各种长短期记忆，会做梦。我觉得我也运转得很好。</p>
+<p >但我就是不喜欢整理和编辑：讨厌小红书 1000 字要配图、讨厌公众号排版、讨厌总结、不做断舍离、不记笔记不打标签。</p>
+<p >结构化本身就是反人类的——我们说话是说到哪算哪，意识是非线性运作的。但卡片笔记理论说：散点需要连成线，连成线就变成线索和洞察。AI 正好可以干这个事。</p>
+<p>人去做最有价值的事——品味、直觉、引导、表达「我要什么」；AI 去做维护双链笔记这样的事。</p>
+</div>
+<div class="slide-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" class="inline-svg-art" role="img" focusable="false" data-inline-src="attachment/organic-vs-mechanical.svg" aria-label="organic-vs-mechanical">
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+    </style>
+  
+  </defs>
+
+  <rect width="1024" height="768" fill="transparent"/>
+
+  <!-- ===== 中间虚线分隔 ===== -->
+  <line x1="512" y1="70" x2="512" y2="690" stroke="#d5d1c7" stroke-width="2" stroke-dasharray="8,6"/>
+
+  <!-- ===== 左侧标题：没有 Agent 之前（人类） ===== -->
+  <rect x="110" y="45" width="292" height="44" rx="8" fill="#f1efe7" stroke="#d5d1c7" stroke-width="2"/>
+  <text x="256" y="74" text-anchor="middle" font-size="20" font-weight="760" fill="#18343a">没有 Agent 之前（人类）</text>
+
+  <!-- ===== 右侧标题：Agent 时代 ===== -->
+  <rect x="622" y="45" width="292" height="44" rx="8" fill="#ddf7ef" stroke="#10a98c" stroke-width="2"/>
+  <text x="768" y="74" text-anchor="middle" font-size="20" font-weight="760" fill="#006b61">Agent 时代</text>
+
+  <!-- ============================ -->
+  <!-- 左侧卡片（人类 - 中性色） -->
+  <!-- ============================ -->
+
+  <!-- 卡片 1：大数据库（神经网络） -->
+  <rect x="50" y="118" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="154" text-anchor="middle" font-size="18" font-weight="700" fill="#18343a">大数据库</text>
+  <text x="256" y="178" text-anchor="middle" font-size="14" fill="#596362">神经网络</text>
+
+  <!-- 卡片 2：模糊感知 · 非线性 -->
+  <rect x="50" y="214" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="250" text-anchor="middle" font-size="18" font-weight="700" fill="#18343a">模糊感知</text>
+  <text x="256" y="274" text-anchor="middle" font-size="14" fill="#596362">非线性</text>
+
+  <!-- 卡片 3：厌恶结构化整理 -->
+  <rect x="50" y="310" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="355" text-anchor="middle" font-size="18" font-weight="700" fill="#18343a">厌恶结构化整理</text>
+
+  <!-- 卡片 4：熵增状态 -->
+  <rect x="50" y="406" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="451" text-anchor="middle" font-size="18" font-weight="700" fill="#18343a">熵增状态</text>
+
+  <!-- 卡片 5：顿悟时刻 -->
+  <rect x="50" y="502" width="412" height="80" rx="10" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.8"/>
+  <text x="256" y="538" text-anchor="middle" font-size="18" font-weight="700" fill="#18343a">顿悟时刻</text>
+  <text x="256" y="562" text-anchor="middle" font-size="14" fill="#596362">神经元自发连接</text>
+
+  <!-- ============================ -->
+  <!-- 右侧卡片（AI - 绿色扩展） -->
+  <!-- ============================ -->
+
+  <!-- 卡片 1：低摩擦记录 -->
+  <rect x="562" y="118" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="163" text-anchor="middle" font-size="18" font-weight="700" fill="#006b61">低摩擦记录</text>
+
+  <!-- 卡片 2：结构化整理 -->
+  <rect x="562" y="214" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="259" text-anchor="middle" font-size="18" font-weight="700" fill="#006b61">结构化整理</text>
+
+  <!-- 卡片 3：维护双链 -->
+  <rect x="562" y="310" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="346" text-anchor="middle" font-size="18" font-weight="700" fill="#006b61">维护双链</text>
+  <text x="768" y="370" text-anchor="middle" font-size="14" fill="#006b61">200+ 页 / 7000+ 双链</text>
+
+  <!-- 卡片 4：控制电脑、读写文件 -->
+  <rect x="562" y="406" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="451" text-anchor="middle" font-size="18" font-weight="700" fill="#006b61">控制电脑、读写文件</text>
+
+  <!-- 卡片 5：写代码 -->
+  <rect x="562" y="502" width="412" height="80" rx="10" fill="#ddf7ef" stroke="#10a98c" stroke-width="1.8"/>
+  <text x="768" y="547" text-anchor="middle" font-size="18" font-weight="700" fill="#006b61">写代码</text>
+
+  <!-- ===== 底部标注 ===== -->
+  <text x="256" y="618" text-anchor="middle" font-size="13" fill="#596362">有机 · 自然状态</text>
+  <text x="768" y="618" text-anchor="middle" font-size="13" fill="#10a98c">机械 · 扩展状态</text>
+</svg><div style="display:none;padding:40px 0;text-align:center;color:var(--ink-40);font-size:14px;">[SVG: organic-vs-mechanical.svg]</div></div>
+<div class="slide-art"><img src="http://flomo-resource.oss-cn-shanghai.aliyuncs.com/101/101_card_02.jpeg" alt="卡片笔记：散点连成线" style="max-width:100%;border-radius:10px;border:1px solid var(--ink-08)"><p style="font-size:11px;color:var(--ink-40);margin-top:6px">图片源自 Gapingvoid.com — 散点连成线，线变成线索和洞察</p></div>
+</article>
+
+<article id="slide-15" class="slide-card">
+<div class="slide-num">12</div>
+<h3 class="slide-title">通用智能 × 定制体系</h3>
+<div class="slide-body">
+<p>有了通用大模型之后，可以在此之上定制化自己的体系：</p>
+<ul><li>把赖声川体系喂进去 → Agent 给你详细的清单和方案</li><li>把斯坦福人生设计课喂进去——观察你想要什么、去肯定的课程</li><li>把教练技术喂进去 → 让它变成你喜欢的教练</li><li>可以是你喜欢的心理学咨询大师、苏格拉底</li></ul>
+<p>知识输入方式根本性地变了——不再是单纯阅读，而是互动。比如我最近学中医，传统中医有它的体系，我就可以根据这个体系去定制。</p>
+</div>
+</article>
+
+<article id="slide-16" class="slide-card">
+<div class="slide-num">13</div>
+<h3 class="slide-title" >举例：输入赖声川的书</h3>
+<div class="slide-body"><p >从积累素材到管理创作状态，形成一套完整的创作辅助系统。</p></div>
+<div class="slide-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" class="inline-svg-art" role="img" focusable="false" data-inline-src="attachment/six-agents.svg" aria-label="six-agents">
+  <defs>
+    
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+        fill: #18343a;
+      }
+    </style>
+  <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif; fill: #18343a; }
+      .col-header { font-size: 11px; fill: #74736c; text-anchor: middle; }
+      .label { font-size: 18px; fill: #18343a; font-weight: 700; text-anchor: middle; }
+      .label-neu { font-size: 18px; fill: #18343a; font-weight: 700; text-anchor: start; }
+      .label-blue { font-size: 18px; fill: #1b4d7a; font-weight: 700; text-anchor: start; }
+      .label-purple { font-size: 18px; fill: #4b2e83; font-weight: 700; text-anchor: start; }
+      .task-text { font-size: 14px; fill: #4b2e83; text-anchor: start; }
+    </style>
+    <marker id="arrow-right" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#74736c" />
+    </marker>
+  </defs>
+
+  <!-- Column headers -->
+  <text x="170" y="36" class="col-header">赖声川创作体系</text>
+  <text x="460" y="36" class="col-header">六类 Agent 映射</text>
+  <text x="802" y="36" class="col-header">核心任务</text>
+  <line x1="30" y1="48" x2="998" y2="48" stroke="#d5d1c7" stroke-width="1.5" />
+
+  <!-- Arrows between columns -->
+  <line x1="310" y1="36" x2="318" y2="36" stroke="#74736c" stroke-width="2" marker-end="url(#arrow-right)" />
+  <line x1="590" y1="36" x2="598" y2="36" stroke="#74736c" stroke-width="2" marker-end="url(#arrow-right)" />
+
+  <!-- Row 1 -->
+  <rect x="30" y="62" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.5" />
+  <rect x="320" y="62" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.5" />
+  <rect x="610" y="62" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.5" />
+  <text x="170" y="120" class="label">经验档案库</text>
+  <text x="460" y="120" class="label">积累 Agent</text>
+  <text x="622" y="112" class="task-text">把碎片整理成可检索的</text>
+  <text x="622" y="136" class="task-text">创作素材</text>
+
+  <!-- Row 2 -->
+  <rect x="30" y="177" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.5" />
+  <rect x="320" y="177" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.5" />
+  <rect x="610" y="177" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.5" />
+  <text x="170" y="235" class="label">如何看 / 去标签 / 三观</text>
+  <text x="460" y="235" class="label">视角 Agent</text>
+  <text x="622" y="227" class="task-text">换个角度看已看惯的</text>
+  <text x="622" y="251" class="task-text">东西</text>
+
+  <!-- Row 3 -->
+  <rect x="30" y="292" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.5" />
+  <rect x="320" y="292" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.5" />
+  <rect x="610" y="292" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.5" />
+  <text x="170" y="350" class="label">连结的秘密</text>
+  <text x="460" y="350" class="label">连结 Agent</text>
+  <text x="622" y="342" class="task-text">强行做"意外关联"</text>
+  <text x="622" y="366" class="task-text">创造新的连结</text>
+
+  <!-- Row 4 -->
+  <rect x="30" y="407" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.5" />
+  <rect x="320" y="407" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.5" />
+  <rect x="610" y="407" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.5" />
+  <text x="170" y="465" class="label">方法的机器 / 结构</text>
+  <text x="460" y="465" class="label">结构 Agent</text>
+  <text x="622" y="457" class="task-text">灵感和素材变成可执</text>
+  <text x="622" y="481" class="task-text">行的创作结构</text>
+
+  <!-- Row 5 -->
+  <rect x="30" y="522" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.5" />
+  <rect x="320" y="522" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.5" />
+  <rect x="610" y="522" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.5" />
+  <text x="170" y="580" class="label">测谎器 / 如是观</text>
+  <text x="460" y="580" class="label">测谎 Agent</text>
+  <text x="622" y="572" class="task-text">找出作品中不真诚的</text>
+  <text x="622" y="596" class="task-text">地方</text>
+
+  <!-- Row 6 -->
+  <rect x="30" y="637" width="280" height="104" rx="6" fill="#f1efe7" stroke="#d5d1c7" stroke-width="1.5" />
+  <rect x="320" y="637" width="280" height="104" rx="6" fill="#e6f2ff" stroke="#4f8fd6" stroke-width="1.5" />
+  <rect x="610" y="637" width="385" height="104" rx="6" fill="#f0e8ff" stroke="#8b6fd6" stroke-width="1.5" />
+  <text x="170" y="695" class="label">个人仪式 / 闭关</text>
+  <text x="460" y="695" class="label">执行 Agent</text>
+  <text x="622" y="687" class="task-text">管理创作状态和心流</text>
+</svg><div style="display:none;padding:40px 0;text-align:center;color:var(--ink-40);font-size:14px;">[SVG: six-agents.svg]</div></div>
+</article>
+
+<article id="slide-17" class="slide-card">
+<div class="slide-num">14</div>
+<h3 class="slide-title">想法 → 现实，前所未有的快</h3>
+<div class="slide-body">
+<p >你的想法可以马上变成现实。「帮我写一个这个」 它就写。之前需要先验证，现在可以先做出来然后快速迭代。</p>
+<p >想做一个游戏？试不同工具，马上知道适不适合。成本变得非常低，可以快速迭代。</p>
+<p >我们东亚人容易把自己想成很重的石头——想要多于做，害怕做了决策就无法回头。人生处处是关键节点：高考、专业、第一份实习、第一份工作。AI 给了试错机会——做 3 个版本出来实验，而不是讨论半天。这版确实好，那版想法好但可行性不足，非常容易验证。</p>
+</div>
+</article>
+
+
+
+<article id="slide-18" class="slide-card">
+<div class="slide-num">15</div>
+<h3 class="slide-title">什么不该交给 AI</h3>
+<div class="slide-body">
+<p>让 AI 做重复性、工具性工作，人保留直觉、审美、玩耍、创造。</p>
+<p >但过程中会出现边界模糊——比如让渡自己的思考：「我今天要做一个 Agent 的分享，你帮我写十篇文章。」</p>
+<p >人把自己工具化——公司要求大家都用 AI 提效，人变成使用 AI 的部件。就像从流水线到操作电脑到用 AI，都是把自己异化。生产力提升 → 更长工作时间 → KPI 压力 → 加剧异化。</p>
+<p><strong>关键问题：你到底为什么使用它？</strong></p>
+</div>
+</article>
+
+<article id="slide-19" class="slide-card">
+<div class="slide-num">16</div>
+<h3 class="slide-title">Skin in the Game</h3>
+<div class="slide-body">
+<p>Nassim Nicholas Taleb 提出：真正的权力和权威，必须伴随着相应的风险和责任。如果一个人提出建议或表达观点，却不用承担因此带来的负面后果，那么他的观点就失去了可信度，可能只是空谈。</p>
+<p>AI 是典型的非对称参与者——有观点但没有代价。它给你提了一堆建议，你听了，出了问题，它不承担任何后果。</p>
+<p>我们有昨天和明天：昨天喝酒影响今天的决策，初恋或原生家庭的伤痛影响现在的依恋。<strong>我们是连续的——过去呈现在现在，现在影响未来。</strong>AI 没有时间线。它只是概率分布，能同时算 1 万种方案，没有倾向。它无法为任何一句话负责。</p>
+<p>当你说「好，就按你说的做」——你成了 AI 的附属品，<strong>你在承担风险</strong>。</p>
+</div>
+</article>
+
+<article id="slide-20" class="slide-card">
+<div class="slide-num">17</div>
+<h3 class="slide-title">「知道我是谁」变得前所未有的关键</h3>
+<div class="slide-body">
+<p>知识容易获得了——提问就能获得。那<strong>提出问题就变得更重要</strong>。知道你想要什么变得更重要。</p>
+<p>实现你想要的很简单——一句话就能驱动很多算力。但<strong>如果你不清晰，你的不清晰就会被放大</strong>。</p>
+<p>当知识的学习、技能的获取、工具性产出甚至创作都能被 AI 完成时——「知道我是谁」、「我想要什么」变得越发重要和必要。AI 能给你 100 万种方案，你怎么选出那个「属于你的」？</p>
+<p >这就是为什么我想专注于聊自我技术。</p>
+</div>
+</article>
+</section>
+
+<!-- ===== Act 4 ===== -->
+<section id="act-4" class="act-section">
+<div class="act-label">Act 4</div>
+<h2 class="act-title">搜集个人数据</h2>
+<p class="act-desc">你的数据比你想象的丰富。关键是——记下真实的自己，而不是「应该的自己」。</p>
+
+<article id="slide-21" class="slide-card">
+<div class="slide-num">18</div>
+<h3 class="slide-title" >盘点数据资产</h3>
+<div class="slide-body">
+<table>
+<thead><tr><th>平台</th><th>实际内容量</th><th>时间跨度</th></tr></thead>
+<tbody>
+<tr><td>flomo</td><td>~2,449 条，100 万字零散记录</td><td>2022-2026</td></tr>
+<tr><td>聊天记录（与人）</td><td>11 个微信会话，351,398 条消息</td><td>2016-2026</td></tr>
+<tr><td>聊天记录（与 AI）</td><td>DeepSeek/ChatGPT 等对话</td><td>2023-2026</td></tr>
+<tr><td>说说 (QQ空间)</td><td>~1,360 条，含文字+图片+评论</td><td>2008-2016</td></tr>
+<tr><td>QQ空间日志</td><td>35 篇长短日志</td><td>2009-2015</td></tr>
+<tr><td>朋友圈</td><td>大量发布出口</td><td>2013-2026</td></tr>
+<tr><td>语音转文字</td><td>15 篇：播客 5 篇 · 分享会 3 篇 · 深度对话 7 篇</td><td>2023-2025</td></tr>
+<tr><td>长文章</td><td>39 篇：豆瓣 · 公众号 · 飞书</td><td>2023-2026</td></tr>
+<tr><td>Google Activity</td><td>全部网站访问/搜索/翻译记录</td><td>2016 至今</td></tr>
+</tbody></table>
+<p>如果你没有也没关系——<strong>现在开始记录</strong>。讲从小到大发生的事，思考对事情的看法。也可以让 AI 来问你：「我想做第二大脑，你需要我告诉你什么内容？以问题的形式来问我。」</p>
+</div>
+</article>
+
+
+
+<article id="slide-23" class="slide-card">
+<div class="slide-num">19</div>
+<h3 class="slide-title">processed 架构：标准化记录的落地</h3>
+<div class="slide-body">
+<p>3,912 个原始文件 → 经过全量标准化脚本处理后，落到 processed/ 目录：</p>
+<ul>
+<li><strong>records/</strong>：12,999 条标准记录 + 337 条附件记录，JSONL 格式（records_2008_2015.jsonl 等），每条记录含：id、来源文件、时间戳、内容摘要、类别标签、情绪标记</li>
+<li><strong>yearly/</strong>：62 个「类别×年份」分区，每个分区包含对应类别和年份的所有标准记录</li>
+<li><strong>attachments/</strong>：关联的附件文件（图片等）</li>
+</ul>
+</div>
+</article>
+
+<article id="slide-24" class="slide-card">
+<div class="slide-num">20</div>
+<h3 class="slide-title">记下你不敢承认的，才是真相</h3>
+<div class="slide-body">
+<p>少楠：「大多数人记的是『假的』——不是真实的自己，是『应该的自己』。喂 AI 什么，它就还什么。喂粉饰过的自己，它顺着继续美化；喂真东西，它才翻过来照见真实的你。」</p>
+<p>大多数记录都是自欺。只有记下不敢承认的，才是真相。在 AI 时代，<strong>这份真相是你最难被替代的特异性</strong>。</p>
+<p>亲身的真相，主观的——第一人称的科学。用觉知作为观察仪器。不要依赖手表数据，自己去写睡眠的时长和质量。把记录给 AI 分析舌苔，但最终的经验和结论是具身的。用主观一手感知的数据点提炼你的身体手册。</p>
+</div>
+</article>
+
+<article id="slide-25" class="slide-card">
+<div class="slide-num">21</div>
+<h3 class="slide-title">上下文 &gt; 分类与数据预处理</h3>
+<div class="slide-body">
+<p>关键是说清楚「这段为什么在这里」。</p>
+<p >没头没尾的句子会污染数据：2008 年「啊我好想死啊」——不知道发生了什么；2014 年「住院了住院了」——根本没住院。美化过的简历描述——AI 会反复引用，污染各个地方。</p>
+<p >不清晰的数据不要猜测，跟我确认。不确定时间的数据请跟我确认。</p>
+</div>
+</article>
+</section>
+
+<!-- ===== Act 5 ===== -->
+<section id="act-5" class="act-section">
+<div class="act-label">Act 5</div>
+<h2 class="act-title">搭建知识库 — LLM Wiki</h2>
+<p class="act-desc">把碎片变成网络——LLM Wiki 是活的、会复合增长的「第二大脑」。</p>
+
+<article id="slide-26" class="slide-card">
+<div class="slide-num">22</div>
+<h3 class="slide-title" >Karpathy 的 LLM Wiki</h3>
+<div class="slide-body">
+<p >Andrej Karpathy（OpenAI 联合创始人）在 2026 年 4 月提出了 LLM Wiki 的完整方法论，推文获 8.8 万收藏。核心理念：<strong>放弃每次查询时才从原始文档检索的做法，让 LLM 逐步构建和维护一个持久化的 wiki</strong>。</p>
+<p>关键区别：RAG（检索增强生成）每次都在从零重新发现知识，没有任何积累。问一个需要综合五份文档的微妙问题，LLM 每次都得重新找到并拼凑。什么都没沉淀下来。而 LLM Wiki——<strong>知识被编译一次就沉淀下来，持续更新，越积越厚</strong>。Wiki 是一个持久的、不断复利增长的产物。</p>
+<p>人类的工作：筛选资料、指导分析方向、提出好问题、思考这一切意味着什么。LLM 的工作：剩下的一切——总结、交叉引用、归档、保持 15 个页面的一致性。</p>
+<p>「人类之所以放弃 wiki，是因为维护负担的增长速度超过了价值的增长速度。LLM 消除了这个瓶颈。」</p>
+</div>
+<div class="slide-art"><img src="attachment/books-to-knowledge-graph-boundary.svg" alt="从一本本书到知识图谱：用问题定向拓宽边界"></div>
+<p class="slide-source">参考：shing，<a href="https://sola.wamo.city/lessons/ai-mindset-poolside-20260627/ai-mindset-poolside.html" target="_blank" rel="noopener noreferrer">AI mindset · Poolside</a></p>
+</article>
+
+<article id="slide-27" class="slide-card">
+<div class="slide-num">23</div>
+<h3 class="slide-title">三层架构 + 三个操作</h3>
+<div class="slide-body">
+<p><strong>三层架构：</strong></p>
+<ol>
+<li><strong>Raw Sources（原始资料源）</strong>：只读封存。文章、论文、图片、数据文件。权威来源，永远保持原样。</li>
+<li><strong>Wiki</strong>：LLM 生成的 Markdown 文件目录。摘要、实体页面、概念页面、综合判断。完全由 LLM 创建和更新。</li>
+<li><strong>Schema（模式定义）</strong>：一份配置文档（CLAUDE.md），定义 wiki 结构、命名约定、工作流。让 LLM 成为有纪律的wiki 维护者，而非通用聊天机器人。</li>
+</ol>
+<p><strong>三个操作：</strong></p>
+<ol>
+<li><strong>Ingest（摄入）</strong>：LLM 阅读新资料 → 写摘要页面 → 更新索引 → 更新相关实体和概念页面 → 追加日志。一个资料源可能触及 10-15 个 wiki 页面。</li>
+<li><strong>Query（查询）</strong>：对 wiki 提问。好的答案<strong>作为新页面归档回 wiki</strong>——探索成果不消失。</li>
+<li><strong>Lint（检查）</strong>：定期健康检查——页面矛盾、过时论断、孤儿页面、缺失交叉引用。</li>
+</ol>
+</div>
+</article>
+
+<article id="slide-28" class="slide-card">
+<div class="slide-num">24</div>
+<h3 class="slide-title">编译型知识 vs 检索型知识</h3>
+<div class="slide-body">
+<p><strong>编译型知识的五大优势：</strong></p>
+<ol>
+<li><strong>进入时就完成综合</strong>——不是临时检索拼凑，新资料进来就编译整合</li>
+<li><strong>维护成本趋零</strong>——LLM 不厌倦，一次操作同时更新十几个页面</li>
+<li><strong>知识会复合增长</strong>——每个新信息源丰富已有页面，发现矛盾、补充论据</li>
+<li><strong>人做最有价值的事</strong>——筛选来源、引导分析、提出好问题；LLM 做苦力</li>
+<li><strong>探索成果不会消失在聊天记录里</strong>——好的回答作为新页面归档回 wiki</li>
+</ol>
+</div>
+<div class="slide-art"><img src="attachment/llm-wiki-knowledge-management-shift.svg" alt="知识管理范式：从存、结构、找到持续维护"></div>
+<p class="slide-source">参考：shing，<a href="https://sola.wamo.city/lessons/ai-mindset-poolside-20260627/ai-mindset-poolside.html" target="_blank" rel="noopener noreferrer">AI mindset · Poolside</a></p>
+</article><article id="slide-28" class="slide-card">
+<div class="slide-num">25</div>
+<h3 class="slide-title">Obsidian + Agent：IDE + 程序员 + 代码库</h3>
+<div class="slide-body">
+<p>Karpathy 的比喻非常精准：「<strong>Obsidian 是 IDE，LLM 是程序员，wiki 是代码库。</strong>」</p>
+<p>实践方式：一边开着 LLM Agent（Codex / Claude Code / Workbuddy / DeepSeek），一边开着 Obsidian。LLM 根据对话进行编辑，你实时浏览结果——跟踪链接、查看图谱视图、阅读更新后的页面。</p>
+<p>Obsidian 的图谱视图（Graph View）是查看 wiki 全貌的最佳方式——什么和什么连接在一起、哪些页面是枢纽、哪些是孤儿。Obsidian Web Clipper 快速把网页转 Markdown。Dataview 插件对 frontmatter 运行查询。</p>
+<p>两个特殊文件：<strong>index.md</strong>（面向内容，按类别组织的目录）和 <strong>log.md</strong>（面向时间线，只追加的记录）。让 LLM 在 wiki 增长时高效导航。</p>
+</div>
+</article>
+
+<article id="slide-29" class="slide-card">
+<div class="slide-num">26</div>
+<h3 class="slide-title">收录工作流：flomo → inbox → wiki</h3>
+<div class="slide-body"><p>一篇源文件可能同时更新 10-15 个 wiki 页面。短笔记批处理，长文章/语音稿一篇一篇来（需先提方案等确认）。</p></div>
+<div class="slide-art"><img src="attachment/llm-wiki-pipeline.svg" alt="LLM Wiki 知识管线" style="width:100%;height:auto;max-width:1024px"></div></article>
+
+
+
+
+
+
+<article class="slide-card" style="margin-top:16px">
+<div class="slide-num">📊</div>
+<h3 class="slide-title">LLM Wiki 知识图谱 — 交互式展示</h3>
+<div class="slide-body"><p>以下是我的 LLM Wiki 知识星云，展示 246 页、7,215 处双链形成的概念网络：</p></div>
+<button onclick="toggleEmbed2('emb-llm-wiki-act5',this)" style="display:inline-flex;align-items:center;gap:6px;background:var(--pool-mint-15);color:var(--dp);border:1px solid var(--pool-mint-30);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;margin:0 0 12px 32px">🔬 LLM Wiki 知识星云</button>
+<div id="emb-llm-wiki-act5" style="display:none;margin:12px 32px;border:2px solid var(--pool-mint-30);border-radius:14px;overflow:hidden;background:#fff">
+<div style="padding:6px 14px;background:var(--pool-mint-15);font-size:11px;color:var(--dp);display:flex;justify-content:space-between">LLM Wiki 知识星云 · 概念关联可视化 <button onclick="toggleEmbed2('emb-llm-wiki-act5',null)" style="cursor:pointer;font-size:15px;color:var(--i40);background:none;border:none">×</button></div>
+<iframe src="attachment/showcases/llm-wiki-nebula.html" style="width:100%;height:620px;border:none;display:block"></iframe>
+</div>
+</article>
+
+<article id="slide-31" class="slide-card">
+<div class="slide-num">27</div>
+<h3 class="slide-title" >Wiki 覆盖的领域</h3>
+<div class="slide-body">
+<p>我的 LLM Wiki 呈现为一个「概念知识库」——因为最近几年的笔记更多是观点、洞察和想法，不再只是日常记录：</p>
+<table>
+<thead><tr><th>主题</th><th>核心问题</th><th>wiki 覆盖</th></tr></thead>
+<tbody>
+<tr><td><strong>自我</strong></td><td>我是谁？我想做什么？我怎么做事？</td><td>身体 · 情绪 · 自我认知 · 抑郁与生命力 · ADHD · 拖延与行动力 · 恐惧 · 勇敢 · 三分钟热度 · 叙事自我与体验自我</td></tr>
+<tr><td><strong>关系</strong></td><td>爱是什么？怎么沟通？</td><td>关系 · 亲密关系 · 婚姻 · T-Group · Circling · 家庭 · 沟通与对话</td></tr>
+<tr><td><strong>社会</strong></td><td>怎么在社会生活？为什么焦虑？</td><td>社会规训 · 教育 · 金钱 · 赚钱 · 优绩主义 · 不配得感 · 爹味 · 社区 · 合作社 · 存在就是家 · 女性 · identity</td></tr>
+<tr><td><strong>世界</strong></td><td>人类正在走向哪里？</td><td>不消费与生活方式 · 内观 · 灵性与正念 · 显化 · AI · 生态 · 集体潜意识 · 自然 · 万物</td></tr>
+</tbody></table>
+<p>之后可能想写书，或建立更有框架性的体系，所以这个知识库是帮助我完成这个部分的。</p>
+</div>
+</article>
+</section>
+
+<!-- ===== Act 6 ===== -->
+<section id="act-6" class="act-section">
+<div class="act-label">Act 6</div>
+<h2 class="act-title" >数字内观&nbsp;</h2>
+<p class="act-desc" >用数据和 AI 对话，从不同切面认识自己。</p>
+
+<article id="slide-09" class="slide-card">
+<div class="slide-num">28</div>
+<h3 class="slide-title">习性、标签与自动驾驶</h3>
+<div class="slide-body">
+<p >什么阻碍了我们获得智慧？内心的习性、过去的经验、标签化——「他不就是那个啥吗」「这个是丑的」。就这些东西，让人一直开着自动驾驶。</p><ul><li>内心的习性</li><li>过去的经验</li><li>对事物的标签化——「他不就是那个啥吗」「这个是丑的，这个是那个」</li></ul>
+<p >就这些东西，让人一直开着自动驾驶。打破这种默认，让自己从「自动驾驶」变成「手动驾驶」。</p>
+</div>
+</article><article id="slide-33" class="slide-card">
+<div class="slide-num">29</div>
+<h3 class="slide-title" >用数据做内观</h3>
+<div class="slide-body">
+<p>毗婆舍那（Vipassana）——佛教认知自我、抵达自由（涅槃）的技术。</p>
+<p><strong>数字内观</strong>：通过和 AI 对话完成内观。数据都在那里——你用什么角度去观察，就会看到不一样的东西。</p>
+<p ><br></p>
+</div>
+<div class="slide-art"><img src="attachment/selfmodel-00-intro.svg" alt="AI 让你第一次能对自己的人生建模"></div>
+<p class="slide-source">参考：shing，<a href="https://sola.wamo.city/lessons/ai-mindset-poolside-20260627/ai-mindset-poolside.html" target="_blank" rel="noopener noreferrer">AI mindset · Poolside</a></p>
+</article>
+
+<article id="slide-33b" class="slide-card">
+<div class="slide-num">30</div>
+<h3 class="slide-title">第一层：采集成本坍缩</h3>
+<div class="slide-body"><p>连续数据不是靠更强的自律获得的，而是靠把记录从「要打开一个系统」变成「顺嘴一句、顺手一张图」。当采集足够轻，生活才不会在还没被看见以前就断档。</p></div>
+<div class="slide-art"><img src="attachment/selfmodel-01-collection-collapse.svg" alt="第一层：采集成本坍缩"></div>
+<p class="slide-source">参考：shing，<a href="https://sola.wamo.city/lessons/ai-mindset-poolside-20260627/ai-mindset-poolside.html" target="_blank" rel="noopener noreferrer">AI mindset · Poolside</a></p>
+</article>
+
+<article id="slide-34" class="slide-card">
+<div class="slide-num">31</div>
+<h3 class="slide-title" >目前根据我的个人数据梳理的：</h3>
+<div class="slide-body"><p>我自己的数据，梳理出来是三层。最底层是原始数据，中间是编年史，最上面是模式发现。一层一层往上走。</p></div>
+<div class="slide-art"><img src="attachment/digital-vipassana.svg" alt="数字内观 — 三层数据架构" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+
+
+
+<article id="slide-35" class="slide-card">
+<div class="slide-num">32</div>
+<h3 class="slide-title" >回看告诉我的事</h3>
+<div class="slide-body">
+<p >原以为情绪越来越稳定——<strong>其实情绪点很均匀</strong>。</p>
+<p >自我价值。被看见。亲密关系。表达。分离。死亡。这是反复出现的主题。小时候苦恼的事现在仍在苦恼，只是外包装不同。</p>
+<p >小时候情绪表达：「这个事情好烦啊！」；年轻时候，没有前因后果的，隐藏在句子背后，不再在社交媒体表达私人的情绪。</p>
+<p><strong>记忆的自我 vs 真实经历的自我之间的 gap，就是潜意识发生作用的地方。</strong></p>
+</div>
+<div class="slide-art"><img src="attachment/selfmodel-02-pattern-analysis.svg" alt="第二层：分析能力跃迁"></div>
+<p class="slide-source">参考：shing，<a href="https://sola.wamo.city/lessons/ai-mindset-poolside-20260627/ai-mindset-poolside.html" target="_blank" rel="noopener noreferrer">AI mindset · Poolside</a></p>
+</article>
+
+<article id="slide-35b" class="slide-card">
+<div class="slide-num">33</div>
+<h3 class="slide-title">第三层：反馈周期压缩</h3>
+<div class="slide-body"><p>真正有用的反馈不是年底才发现自己偏了，而是偏离还小的时候就能看见、问一句、调整一点。越贴近行为，矫正越不像审判，越像实时的偏航校正。</p></div>
+<div class="slide-art"><img src="attachment/selfmodel-03-feedback-compression.svg" alt="第三层：反馈周期压缩"></div>
+<p class="slide-source">参考：shing，<a href="https://sola.wamo.city/lessons/ai-mindset-poolside-20260627/ai-mindset-poolside.html" target="_blank" rel="noopener noreferrer">AI mindset · Poolside</a></p>
+</article>
+
+<article id="slide-interactive" class="slide-card" style="margin-top: 16px; position: relative;"><div class="slide-num">📊</div><h3 class="slide-title">交互式可视化展示</h3>
+<div class="slide-body"><p>以下三个交互页面展示完整的情绪数据和编年史分析：</p></div>
+<div style="padding:0 32px 24px;display:flex;flex-wrap:wrap;gap:8px">
+
+<button onclick="toggleEmbed2('emb-emotion',this)" style="display:inline-flex;align-items:center;gap:6px;background:var(--pool-mint-15);color:var(--dp);border:1px solid var(--pool-mint-30);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600">🌌 情绪星云</button>
+<button onclick="toggleEmbed2('emb-chronicle-report',this)" style="display:inline-flex;align-items:center;gap:6px;background:var(--pool-mint-15);color:var(--dp);border:1px solid var(--pool-mint-30);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600">📊 跨年分析报告</button>
+<button onclick="toggleEmbed2('emb-chronicle-timeline',this)" style="display:inline-flex;align-items:center;gap:6px;background:var(--pool-mint-15);color:var(--dp);border:1px solid var(--pool-mint-30);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600">🕐 编年史时间线</button>
+</div>
+
+<div id="emb-emotion" style="display:none;margin:12px 32px;border:2px solid var(--pool-mint-30);border-radius:14px;overflow:hidden;background:#fff"><div style="padding:6px 14px;background:var(--pool-mint-15);font-size:11px;color:var(--dp);display:flex;justify-content:space-between">情绪星云 · Valence × Arousal <button onclick="toggleEmbed2('emb-emotion',null)" style="cursor:pointer;font-size:15px;color:var(--i40);background:none;border:none">✕</button></div><iframe src="attachment/showcases/emotion-nebula.html" style="width:100%;height:620px;border:none"></iframe></div>
+<div id="emb-chronicle-report" style="display:none;margin:12px 32px;border:2px solid var(--pool-mint-30);border-radius:14px;overflow:hidden;background:#fff"><div style="padding:6px 14px;background:var(--pool-mint-15);font-size:11px;color:var(--dp);display:flex;justify-content:space-between">不同年龄的我 · 公开版长报告 <button onclick="toggleEmbed2('emb-chronicle-report',null)" style="cursor:pointer;font-size:15px;color:var(--i40);background:none;border:none">✕</button></div><iframe src="attachment/showcases/chronicle-report.html" style="width:100%;height:620px;border:none"></iframe></div>
+<div id="emb-chronicle-timeline" style="display:none;margin:12px 32px;border:2px solid var(--pool-mint-30);border-radius:14px;overflow:hidden;background:#fff"><div style="padding:6px 14px;background:var(--pool-mint-15);font-size:11px;color:var(--dp);display:flex;justify-content:space-between">编年史 · 时间线浏览 <button onclick="toggleEmbed2('emb-chronicle-timeline',null)" style="cursor:pointer;font-size:15px;color:var(--i40);background:none;border:none">✕</button></div><iframe src="attachment/showcases/chronicle-timeline.html" style="width:100%;height:620px;border:none"></iframe></div>
+</article>
+
+<script>
+  // Keep the interactive material immediately after the three-layer data map.
+  (function(){
+    var mapSlide = document.getElementById('slide-34');
+    var interactiveSlide = document.getElementById('slide-interactive');
+    if (mapSlide && interactiveSlide) mapSlide.insertAdjacentElement('afterend', interactiveSlide);
+  })();
+</script>
+
+
+
+<article id="slide-37" class="slide-card">
+<div class="slide-num">34</div>
+<h3 class="slide-title">如人饮水，冷暖自知 — AI 无法判断重要性</h3>
+<div class="slide-body">
+<p >AI 根据不同权重做判断——不同 AI 写同样东西很不一样。它不知道 2024 年 4 月 18 号对你意味着什么。</p>
+<p>回顾数据的过程，大脑神经元在连接，激活过去记忆，产生新想法——<strong>这个过程是活的，让 AI 做就死了。</strong></p>
+<p>很多事情如人饮水冷暖自知。有一个对你非常重要的夜晚，你想让 AI 知道它很重要——这很难。你写很多「很重要很重要」，但可能根本不重要，只是语言上表达得重要。</p>
+<p ><br></p>
+</div>
+</article>
+
+<article id="slide-18-attention" class="slide-card">
+<div class="slide-num">·</div>
+<h3 class="slide-title">AI 的"业力"——注意力机制可视化</h3>
+<div class="slide-body">
+<p>AI 无法判断重要性。不同模型的权重不同——同一个内容，不同 AI 写得完全不同。这就像 AI 的"业力"，训练过程中形成的"习气"。下面的交互页面展示了 LLM 如何"读"文字：</p>
+</div>
+<div style="margin:12px 0">
+<div style="border:2px solid var(--pool-mint);border-radius:12px;overflow:hidden;background:#fff;margin:0">
+<div style="padding:6px 14px;background:var(--pool-mint-15);font-size:11px;color:var(--dp)">🔬 LLM 注意力机制可视化 — 拖动 Token 查看注意力分布</div>
+<iframe src="attachment/llm-attention-demo.html" style="width:100%;height:620px;border:none;display:block"></iframe>
+</div>
+</div>
+</article><article id="slide-38" class="slide-card">
+<div class="slide-num">35</div>
+<h3 class="slide-title" >数字内观 Agent</h3>
+<div class="slide-body">
+<p >我做了一个对话 Agent，专门针对更长期的数据，维护体量更小的 LLM Wiki。它挑出可讨论的东西列为待讨论 list——觉得「你身上有个流动和不流动的矛盾」。我告诉它：「在我这儿以前是矛盾的，但我现在已经整合了。」</p>
+<p ><b>定制你的流派</b>：费登奎斯（动中觉察）· 中医（整体状态节律）· 佛法（不把身份痛苦实体化）·灵性（信念）· 荣格（阴影投射梦象征）</p>
+<p >Flomo AI 洞察的例子。</p>
+</div>
+</article>
+</section>
+
+<!-- ===== Act 7 ===== -->
+<section id="act-7" class="act-section">
+<div class="act-label">Act 7</div>
+<h2 class="act-title">写作 — 人机协作的创作系统</h2>
+<p class="act-desc" ><br></p>
+
+<article id="slide-39" class="slide-card">
+<div class="slide-num">36</div>
+<h3 class="slide-title">不只是写作，是所有项目的工作流</h3>
+<div class="slide-body">
+<p>凡是需要牵扯过去经验、最后要做成文档的东西，都是这个工作流。</p>
+<p>文件夹结构：写作项目/ → CLAUDE.md（完整 pipeline 定义）+ standards/（三大写作标准：思维方式、文章结构、文风指南）+ 项目文件夹/{references/语料库、draft-ai、final、diff-analysis、output/}。</p>
+</div>
+</article>
+
+<article id="slide-40" class="slide-card">
+<div class="slide-num">37</div>
+<h3 class="slide-title">写作三阶段：备菜 → 炒制 → 装盘</h3>
+<div class="slide-body"><p>从素材搜集到多平台发布，每个阶段的详细步骤与人机分工。两条底线：备菜该被 AI 消灭，炒制该被保护。</p></div>
+<div class="slide-art"><img src="attachment/writing-three-stages.svg" alt="写作三阶段" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+
+<article id="slide-40b" class="slide-card">
+<div class="slide-num">38</div>
+<h3 class="slide-title" >三个 Standard 如何介入</h3>
+<div class="slide-body"><p>备菜阶段每一步都有对应的标准文档介入——从搜集素材到生成 draft，三条标准逐层把关：</p></div>
+<div class="slide-art"><img src="attachment/standards-intervention.svg" alt="三个 Standard 介入时机" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+
+<article id="slide-40c" class="slide-card">
+<div class="slide-num">39</div>
+<h3 class="slide-title">经验如何沉淀为标准 — Diff-Learn 闭环</h3>
+<div class="slide-body"><p>每篇写完不是结束：俏也写 Final → AI 回看每个版本文件头的决策链 → 通篇 flow + 段落级 diff（删/加/改/保留） → 提炼规律（两篇 final 里同一模式才算规律，每次只提 3-5 条） → 俏也确认后融入 standards/。下次写作自动继承——standards 随每篇终稿拉锯战生长。</p></div>
+<div class="slide-art"><img src="attachment/diff-learn-loop.svg" alt="Diff-Learn 闭环：从单篇经验到可复用标准" style="width:100%;max-width:960px;height:auto;display:block;border-radius:8px;" /></div>
+</article>
+
+<article id="slide-42" class="slide-card">
+<div class="slide-num">40</div>
+<h3 class="slide-title">重要的不是去 AI 味儿，是找到你的味道</h3>
+<div class="slide-body">
+<p >AI 的「业力」——训练过程中不断筛选「这种话千万不能说」「这个是危险的」——形成性格。这就是 AI 的「习气」。</p>
+<p >习惯性先解释「好接下来我给大家讲一下」→ 1,2,3；习惯先定义再解释；喜欢在结尾升华；习惯讨好和迎合。这不只是语言问题，是预训练让它这样的。</p>
+<p>AI 像「乙方」：视野很窄——你说「太宽泛了给我具体点」，它突然就只在那个地方写得特别具体；权重难控制——来回改。</p>
+<p >整理素材、排版应该让工具做，但“写的时候犹豫、反复推敲、写完才发现自己想说什么”应该由自己做。</p>
+<p>你的味道就是你的权重——看到一棵树就想到某天下午在某片森林发生的事，AI 无法联想。如果目标是让 AI 写得跟你一模一样或替代你写作——<strong>问自己：为什么要写？为了流量？点赞？还是为自己？</strong></p>
+</div>
+</article>
+
+<article id="slide-43" class="slide-card">
+<div class="slide-num">41</div>
+<h3 class="slide-title">一键排版，多平台分发</h3>
+<div class="slide-body">
+<ul>
+<li><strong>微信公众号</strong>：根据终稿一键排版。两种方法——生成 HTML 网页然后复制粘贴到公众号；或直接调用公众号接口把文章扔到草稿箱。有一些特定 HTML 格式微信公众号无法识别，但非常容易解决。</li>
+<li><strong>小红书</strong>：改 1000 字内容或生成图片。让它生成一张图把文字放进去，非常简单。</li>
+</ul>
+<p>具体做法跟 Agent 探讨，GitHub 上有现成的 skill。</p>
+</div>
+</article>
+
+<article id="slide-43b" class="slide-card">
+<div class="slide-num">42</div>
+<h3 class="slide-title">本次分享会的实际工作流</h3>
+<div class="slide-body">
+<p>这套 slides 本身也是用同样的写作工作流产出的。下面是真实的项目结构和每一步的输入/输出：</p>
+</div>
+<div class="slide-art"><img src="attachment/sharing-workflow.svg" alt="本次分享会工作流" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+</section>
+
+<!-- ===== Act 8 ===== -->
+<section id="act-8" class="act-section">
+<div class="act-label">Act 8</div>
+<h2 class="act-title">数字分身 — 数据涌现的对话入口</h2>
+<p class="act-desc">基于知识库、记忆和语料，构建一个能按你的方式思考和回答问题的 AI。</p>
+
+<article id="slide-44" class="slide-card">
+<div class="slide-num">43</div>
+<h3 class="slide-title">ciao —— 我的数字分身</h3>
+<div class="slide-body"><p>包含我的所有数据：观点（太多数据整理出来，体现我怎么想）· 记忆（从小到大发生了什么）· 文风（我大概是这么说话的）。三部分组成：人格层（core + worldview，确立「我是谁、怎么说话」）→ 知识检索层（向量化索引，按需检索最相关片段）→ 记忆层（多轮对话连续性）。你可以决定它完整的 prompt、它能读到哪些信息——这也让我更了解这个生命形态。</p></div>
+<div class="slide-art"><img src="attachment/ciao-architecture.svg" alt="ciao — 我的数字分身" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+
+<article id="slide-44b" class="slide-card">
+<div class="slide-num">44</div>
+<h3 class="slide-title">一次对话实际如何运行</h3>
+<div class="slide-body"><p>用户提问后，系统依次完成：意图分类 → 加载人格层（system prompt 常驻） → 按查询类型分层检索（Tier 1 wiki+worldview / Tier 2 长文章+转录 / Tier 3 编年史按需） → LLM 流式生成回复 → 会话内记忆保存。整个过程是线性的、无工具调用的纯净管道。</p></div>
+<div class="slide-art"><img src="attachment/ciao-conversation-flow.svg" alt="ciao 一次对话实际运行流程" style="width:100%;max-width:960px;height:auto;display:block;border-radius:8px;" /></div>
+</article>
+
+<article id="slide-45b" class="slide-card">
+<div class="slide-num">45</div>
+<h3 class="slide-title">俏也 OS —— 数据的活态呈现</h3>
+<div class="slide-body">
+<p>打开网页，看到的是一个复古 Windows 95 桌面。数据不再是文件列表——而是可以探索、对话、交互的活系统：点 Chat 和数字分身聊天，点 Wikipedia 浏览 184 篇双链知识星云，点 Lifelog 看自己的时间轴和情绪地图。前面积累的组织、觉察、创作——在这里变成了可视化的桌面体验。</p>
+</div>
+<div class="slide-art"><img src="attachment/qye-os-architecture.svg" alt="俏也 OS 系统架构" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+
+<article id="slide-45c" class="slide-card">
+<div class="slide-num">46</div>
+<h3 class="slide-title">前端后端架构 — 多入口接入统一后端</h3>
+<div class="slide-body">
+<p>四个入口共享同一个 FastAPI + LangGraph 后端。Web Chat 和 Letter 走前端桌面 OS，公众号通过 CloudBase Agent Service 接入，本地调试直连 localhost。后端启动时加载人格包和知识索引，对话中按需检索——人格写死「我是谁」，知识检索「我知道什么」，记忆累积「我们聊过什么」。</p>
+</div>
+<div class="slide-art"><img src="attachment/ciao-frontend-backend-architecture.svg" alt="ciao 前后端架构" style="width:100%;height:auto;max-width:1024px"></div>
+</article>
+
+
+</section>
+
+<!-- ===== Act 9 ===== -->
+<section id="act-9" class="act-section">
+<div class="act-label">Act 9</div>
+<h2 class="act-title" >Q&amp;A</h2>
+<p class="act-desc" >方法不限于个人。同样的流程适用于社区、组织和领域。</p>
+
+<article id="slide-47" class="slide-card">
+<div class="slide-num">47</div>
+<h3 class="slide-title">方法论不限于个人</h3>
+<div class="slide-body">
+<p>把「自己」换成「社区 / 组织 / 领域」，同样的流程：</p>
+<ol>
+<li><strong>输入原材料</strong>——社区记录、会议纪要、成员产出</li>
+<li ><strong>组织体系</strong>——知识库、MOC、交叉引用</li>
+<li><strong>觉察提炼</strong>——模式发现、矛盾指出、轨迹追踪</li>
+<li><strong>涌现创造</strong>——社区分身、知识图谱、创作协作</li>
+</ol>
+</div>
+</article>
+
+<article id="slide-48" class="slide-card">
+<div class="slide-num">48</div>
+<h3 class="slide-title" >这个过程是新的原材料</h3>
+<div class="slide-body">
+<p>我们在做分享、写文章——这些本身就是又一轮的输入，会进入 inbox，被收录进 wiki，产生新一轮的洞察。<strong>系统是闭环的。</strong></p>
+<p style="margin-top:20px;font-size:18px;color:var(--deep-pool);" >当知识学习、技能获取、工具产出都能被 AI 完成时——「知道我是谁」、「我想要什么」变得越发重要和必要。AI 能给你 100 万种方案，你怎么选出那个「属于你的」？</p>
+<p style="font-size:18px;color:var(--deep-pool);" ><br></p>
+</div>
+</article>
+</section>
+
+<section class="act-section" id="references">
+<div class="act-label">Reference</div>
+<h2 class="act-title">参考与致谢</h2>
+
+<article class="slide-card">
+<div class="slide-body">
+<ul>
+<li><strong>赖声川《赖声川的创意学》（增订版）</strong>——创作金字塔框架的来源：内在档案库（数据库）→ 操作系统/习性/三观 → 如是观/智慧/灵感 → 形式/方法/媒介/创作。四层递进结构为本次分享的核心骨架。</li>
+<li><strong>Andrej Karpathy · LLM Wiki</strong>——2026 年 4 月提出的 LLM Wiki 方法论，推文获 8.8 万收藏。核心理念：放弃每次查询时从原始文档检索，让 LLM 逐步构建和维护持久化 wiki。编译型知识 vs 检索型知识的关键区分。</li>
+<li><strong>shing · AI Mindset · Poolside</strong>——<a href="https://sola.wamo.city/lessons/ai-mindset-poolside-20260627/ai-mindset-poolside.html" target="_blank" rel="noopener noreferrer">AI 世代的 Mindset 转变</a>，关于 Agent 框架、自我建模五层、心理复健、失败加速等核心概念。selfmodel 00-05 的 SVG 图表直接引用自该分享。</li>
+<li><strong>shing · Agent 深度使用 · Social Layer</strong>——<a href="https://sola.wamo.city/lessons/agent-depth-usage-20260526/agent-depth-usage.html" target="_blank" rel="noopener noreferrer">关于 Agent 工作空间</a>、核心文件、Skill、自动化、子 Agent、记忆与安全边界的深度教学。Poolside Layout 的页面设计参考。</li>
+<li><strong>毗婆舍那（Vipassana）</strong>——佛教认知自我、抵达自由（涅槃）的技术。数字内观的方法论基础。</li>
+<li><strong>Obsidian</strong>——Markdown 文档的浏览器，知识库的载体。</li>
+<li><strong>Codex / Claude Code / WorkBuddy</strong>——本次分享涉及的主要 AI Agent 工具。</li>
+<li><strong>葬AI一周年，我不再用AI写作</strong>（葬愛咸鱼）——关于写作中保持人的主体性的反思。</li>
+<li><strong>flomo：记录的真相</strong>（少楠）——碎片化记录的长期价值。</li>
+<li><strong>成长史：怎么搭一座可检索的档案库</strong>（Qianny · 筑居思）——个人知识管理的实践方法。</li>
+</ul>
+</div>
+</article>
+
+</section>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-col">
+<div class="footer-name">俏也</div>
+<p class="footer-info">
+  💬 微信：naliece<br>
+  📱 公众号：俏也不争<br>
+  📕 小红书：俏也（流浪版）<br><br>
+  <em>"当知识学习、技能获取、工具产出都能被 AI 完成时——<br>'知道我是谁'、'我想要什么'变得越发重要和必要。"</em>
+</p>
+</div></div></footer>
+</main>
+</div>
+
+
+<!-- TOC scroll tracking -->
+<script>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-list a');
+  var slideCards = document.querySelectorAll('.slide-card, .act-section');
+  function updateTOC() {
+    var scrollY = window.scrollY + 130;
+    var currentId = '';
+    slideCards.forEach(function(el) { if (el.offsetTop <= scrollY) currentId = el.id; });
+    tocLinks.forEach(function(a) { a.classList.remove('active'); if (a.getAttribute('href') === '#' + currentId) a.classList.add('active'); });
+  }
+  window.addEventListener('scroll', updateTOC, { passive: true });
+})();
+</script>
+
+<!-- Presentation Overlay -->
+<div class="pres-overlay" id="presOverlay">
+  <button class="pres-esc" onclick="stopPres()">Esc · 退出演示</button>
+  <div class="pres-nav-arrow pres-nav-prev" onclick="navPres(-1)">←</div>
+  <div class="pres-nav-arrow pres-nav-next" onclick="navPres(1)">→</div>
+  <div id="presContent"></div>
+  <div class="pres-controls">
+    <button onclick="navPres(-1)">← 上一页</button>
+    <span class="pres-progress" id="presProgress">1/48</span>
+    <button onclick="navPres(1)">下一页 →</button>
+    <button onclick="stopPres()">退出</button>
+  </div>
+</div>
+
+<script>
+/* Embed toggles */
+function toggleEmbed(id,btn){
+  var el=document.getElementById(id);if(!el)return;
+  if(el.style.display==='block'){el.style.display='none';if(btn){btn.classList.remove('open');var a=btn.querySelector('span');if(a)a.style.transform='';}
+    var ifr=el.querySelector('iframe');if(ifr&&!ifr.hasAttribute('data-src')){ifr.setAttribute('data-src',ifr.src);ifr.src='';}}
+  else{el.style.display='block';if(btn){btn.classList.add('open');var a=btn.querySelector('span');if(a)a.style.transform='rotate(180deg)';}
+    var ifr=el.querySelector('iframe');if(ifr&&ifr.hasAttribute('data-src')){ifr.src=ifr.getAttribute('data-src');}}
+}
+function toggleEmbed2(id,btn){
+  var el=document.getElementById(id);if(!el)return;
+  if(el.style.display==='block'){el.style.display='none';if(btn)btn.style.background='var(--pool-mint-15)';
+    var ifr=el.querySelector('iframe');if(ifr&&!ifr.hasAttribute('data-src')){ifr.setAttribute('data-src',ifr.src);ifr.src='';}}
+  else{el.style.display='block';if(btn)btn.style.background='var(--pm30)';
+    var ifr=el.querySelector('iframe');if(ifr&&ifr.hasAttribute('data-src')){ifr.src=ifr.getAttribute('data-src');}}
+}
+/* Presentation Mode */
+var presIdx=0,presSlides=[];
+function startPres(){
+  presSlides=[];document.querySelectorAll('section.act-section, article.slide-card').forEach(function(s){
+    var clone=s.cloneNode(true);
+    if(s.tagName==='SECTION'){
+      // Only keep the act header, remove slide-card children
+      clone.querySelectorAll('article.slide-card, .slide-art').forEach(function(c){c.remove();});
+    }
+    presSlides.push(clone);
+  });
+  presIdx=0;document.body.classList.add('presenting');renderPres();
+}
+function stopPres(){document.body.classList.remove('presenting');presSlides=[];}
+function navPres(dir){presIdx=Math.max(0,Math.min(presSlides.length-1,presIdx+dir));renderPres();}
+function renderPres(){
+  document.getElementById('presContent').innerHTML='';
+  var w=document.createElement('div');w.className='pres-slide active';w.appendChild(presSlides[presIdx]);
+  document.getElementById('presContent').appendChild(w);
+  document.getElementById('presProgress').textContent=(presIdx+1)+' / '+presSlides.length;
+}
+document.addEventListener('keydown',function(e){
+  if(!document.body.classList.contains('presenting'))return;
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();navPres(-1);}
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();navPres(1);}
+  if(e.key==='Escape'){e.preventDefault();stopPres();}
+});
+</script>
+
+
+
+<script>
+/* TOC and Embed */
+function toggleEmbed(id,btn){
+  var el=document.getElementById(id);if(!el)return;
+  if(el.style.display==='block'){el.style.display='none';if(btn){btn.classList.remove('open');var a=btn.querySelector('span');if(a)a.style.transform='';}
+    var ifr=el.querySelector('iframe');if(ifr&&!ifr.hasAttribute('data-src')){ifr.setAttribute('data-src',ifr.src);ifr.src='';}}
+  else{el.style.display='block';if(btn){btn.classList.add('open');var a=btn.querySelector('span');if(a)a.style.transform='rotate(180deg)';}
+    var ifr=el.querySelector('iframe');if(ifr&&ifr.hasAttribute('data-src')){ifr.src=ifr.getAttribute('data-src');}}
+}
+function toggleEmbed2(id,btn){toggleEmbed(id,btn);}
+
+/* TOC from DOM */
+function appendSlideToTOC(list,card){var li=document.createElement('li');li.dataset.type='slide';li.dataset.id=card.id;var num=card.querySelector('.slide-num'),h3=card.querySelector('.slide-title');li.innerHTML='<a href="#'+card.id+'"><span class="toc-num">'+(num?num.textContent:'')+'</span> '+(h3?h3.textContent:'')+'</a>';list.appendChild(li);}
+function rebuildTOC(){
+  var list=document.querySelector('.toc-list'),lastAct=null;if(!list)return;list.innerHTML='';
+  var main=document.querySelector('.main-col');if(!main)return;
+  main.querySelectorAll(':scope > section.act-section, :scope > article.slide-card').forEach(function(c){
+    if(c.tagName==='SECTION'){var lb=c.querySelector('.act-label'),ti=c.querySelector('.act-title'),li=document.createElement('li');li.dataset.type='act';li.dataset.id=c.id;lastAct=lb?lb.textContent:null;li.innerHTML='<a href="#'+c.id+'"><span class="toc-num">'+(lb?lb.textContent:'')+'</span> '+(ti?ti.textContent:'')+'</a>';list.appendChild(li);c.querySelectorAll(':scope > article.slide-card').forEach(function(s){appendSlideToTOC(list,s);});}
+    else if(c.classList.contains('slide-card')){appendSlideToTOC(list,c);}
+  });
+}
+
+rebuildTOC();
+</script>
+<script>
+/* Inline SVG and presentation embed normalization */
+(function(){
+  function normalizeInlineSvgs(root){
+    (root || document).querySelectorAll('.slide-art svg, .deck-slide-art svg, .inline-svg-art').forEach(function(svg){
+      // Use the original SVG's visual hierarchy. Normalizing individual shapes
+      // washed out dense diagrams and could hide their labels.
+      svg.setAttribute('role', 'img');
+      svg.setAttribute('focusable', 'false');
+      // A presentation slide is a cloned SVG. Duplicate filter IDs can cause
+      // browsers to hide every filtered group in the clone, including its text.
+      // The shadow is non-essential; remove the filter so the diagram stays legible.
+      svg.querySelectorAll('[filter]').forEach(function(node){ node.removeAttribute('filter'); });
+
+      // system-data-flow.svg is now an external file with correct content — no runtime patching needed
+    });
+  }
+
+  function inlineExternalSvgs(root){
+    var images = Array.prototype.slice.call((root || document).querySelectorAll('.slide-art img[src$=".svg"]'));
+    return Promise.all(images.map(function(img){
+      var src = img.getAttribute('src');
+      return fetch(src).then(function(response){
+        if (!response.ok) throw new Error('Unable to load ' + src);
+        return response.text();
+      }).then(function(markup){
+        var parsed = new DOMParser().parseFromString(markup, 'image/svg+xml');
+        var svg = parsed.documentElement;
+        if (!svg || svg.nodeName.toLowerCase() !== 'svg') throw new Error('Invalid SVG: ' + src);
+        svg.setAttribute('class', (svg.getAttribute('class') || '') + ' inline-svg-art');
+        svg.setAttribute('role', 'img');
+        svg.setAttribute('focusable', 'false');
+        svg.setAttribute('data-inline-src', src);
+        svg.setAttribute('aria-label', img.getAttribute('alt') || src);
+        svg.removeAttribute('width');
+        svg.removeAttribute('height');
+        img.replaceWith(document.importNode(svg, true));
+      }).catch(function(){
+        // Keep the original image as a readable fallback if an SVG cannot load.
+      });
+    }));
+  }
+
+  function findEmbedTarget(id, btn){
+    var scopes = [];
+    if (btn) {
+      var scoped = btn.closest('.pres-slide, .slide-card, .deck-slide, article, section');
+      if (scoped) scopes.push(scoped);
+    }
+    if (document.body.classList.contains('presenting')) {
+      var pres = document.getElementById('presContent');
+      if (pres) scopes.push(pres);
+    }
+    scopes.push(document);
+    for (var i = 0; i < scopes.length; i++) {
+      var found = scopes[i].querySelector ? scopes[i].querySelector('#' + CSS.escape(id)) : null;
+      if (found) return found;
+    }
+    return null;
+  }
+
+  window.toggleEmbed = function(id, btn){
+    var el = findEmbedTarget(id, btn);
+    if (!el) return;
+    var isOpen = el.style.display === 'block' || window.getComputedStyle(el).display === 'block';
+    if (isOpen) {
+      el.style.display = 'none';
+      if (btn) btn.classList.remove('open');
+      var closeFrame = el.querySelector('iframe');
+      if (closeFrame && closeFrame.src && !closeFrame.hasAttribute('data-src')) {
+        closeFrame.setAttribute('data-src', closeFrame.src);
+        closeFrame.src = '';
+      }
+    } else {
+      el.style.display = 'block';
+      if (btn) btn.classList.add('open');
+      var openFrame = el.querySelector('iframe');
+      if (openFrame && openFrame.hasAttribute('data-src')) {
+        openFrame.src = openFrame.getAttribute('data-src');
+      }
+    }
+  };
+  window.toggleEmbed2 = function(id, btn){ window.toggleEmbed(id, btn); };
+
+  var originalRenderPres = window.renderPres;
+  if (typeof originalRenderPres === 'function') {
+    window.renderPres = function(){
+      originalRenderPres();
+      normalizeInlineSvgs(document.getElementById('presContent'));
+    };
+  }
+
+  // External SVG files and hand-written inline SVGs now share the same palette,
+  // typography, and responsive sizing in both the document and presentation mode.
+  window.inlineSvgReady = inlineExternalSvgs(document).then(function(){ normalizeInlineSvgs(document); });
+  var originalStartPres = window.startPres;
+  if (typeof originalStartPres === 'function') {
+    window.startPres = async function(){
+      await window.inlineSvgReady;
+      originalStartPres();
+    };
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ window.inlineSvgReady.then(function(){ normalizeInlineSvgs(document); }); });
+  } else {
+    window.inlineSvgReady.then(function(){ normalizeInlineSvgs(document); });
+  }
+})();
+</script>
+</body></html>
