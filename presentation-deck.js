@@ -444,6 +444,7 @@ window.startPres = async function () {
       Array.from(clone.children).forEach(node => {
         if (!node.matches('.act-label, .act-title, .act-desc')) node.remove();
       });
+      if (source.id === 'act-1') clone.querySelector('.act-title').textContent = '生活技术与自我技术';
       presSlides.push(clone);
       return;
     }
@@ -490,7 +491,19 @@ window.startPres = async function () {
   renderPres();
 };
 const articleRenderPres = window.renderPres;
+function fitPresentationTitle() {
+  const title = document.querySelector('.pres-slide .act-title, .pres-slide .slide-title');
+  if (!title) return;
+  title.style.fontSize = '';
+  if (window.innerWidth < 600) return;
+  const size = parseFloat(getComputedStyle(title).fontSize);
+  if (title.scrollWidth > title.clientWidth) {
+    title.style.fontSize = (size * title.clientWidth / title.scrollWidth - 1) + 'px';
+  }
+}
 window.renderPres = function () {
   articleRenderPres();
+  fitPresentationTitle();
   document.querySelector('.pres-overlay').scrollTop = 0;
 };
+window.addEventListener('resize', fitPresentationTitle);

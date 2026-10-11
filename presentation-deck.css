@@ -18,6 +18,9 @@
 .pres-slide .slide-art svg,.pres-slide .slide-art img,.pres-slide .slide-art .inline-svg-art,.pres-slide #slide-11 .slide-art .inline-svg-art { display:block; width:100%; min-width:0; max-width:none; height:auto!important; max-height:none; object-fit:contain; }
 .pres-slide iframe,.pres-slide .embed-container iframe { width:100%!important; height:75dvh!important; min-height:520px; }
 .pres-slide .embed-container { width:100%; }
+@media(min-width:600px) {
+ .pres-slide .slide-title,.pres-slide .act-title { white-space:nowrap; text-wrap:nowrap; }
+}
 .pres-controls { background:rgba(251,254,252,.94); border-radius:12px; padding:8px 12px; }
 @media(max-width:800px) {
  .pres-slide { padding:56px 8vw 120px; }
