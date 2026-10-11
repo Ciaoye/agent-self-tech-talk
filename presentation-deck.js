@@ -69,6 +69,8 @@ window.startPres = async function () {
     if (source.tagName === 'SECTION') {
       clone.querySelectorAll('article.slide-card, .slide-art').forEach(node => node.remove());
       clone.querySelector('.act-desc')?.remove();
+      const chapterTitles = {'act-1':'生活技术与自我技术','act-2':'输入 → 组织 → 觉察 → 创造','act-5':'搭建知识库','act-7':'人机协作的创作系统','act-8':'数字分身'};
+      if (chapterTitles[source.id]) clone.querySelector('.act-title').textContent = chapterTitles[source.id];
       presSlides.push(clone);
       return;
     }
