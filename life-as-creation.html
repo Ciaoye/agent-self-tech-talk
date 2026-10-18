@@ -371,10 +371,10 @@ body.speaker-docked .player{grid-column:1/-1;grid-row:2}
 /* 并列的两个联系入口：个人微信沿用原卡片裁切，公众号使用完整方形二维码。 */
 #slide.redesigned .opening-lower{grid-template-columns:minmax(0,1fr) auto;gap:36px}
 .contact-pair{display:flex;gap:26px;align-items:center}
-#slide.redesigned .contact-pair .contact-inline{display:grid;grid-template-columns:116px auto;gap:14px;align-items:center;text-align:left;justify-content:start}
-#slide.redesigned .contact-pair .qr-window{width:116px;height:116px}
-#slide.redesigned .contact-pair .official-qr{border:0;padding:0;background:#fff;display:block;width:116px;height:116px;cursor:zoom-in}
-#slide.redesigned .contact-pair .official-qr img{position:static;display:block;width:116px!important;height:116px!important;object-fit:contain;max-height:none}
+#slide.redesigned .contact-pair .contact-inline{display:grid;grid-template-columns:140px auto;gap:14px;align-items:center;text-align:left;justify-content:start}
+#slide.redesigned .contact-pair .qr-window{width:140px;height:140px}
+#slide.redesigned .contact-pair .official-qr{border:0;padding:0;background:#fff;display:block;width:140px;height:140px;cursor:zoom-in}
+#slide.redesigned .contact-pair .official-qr img{position:static;display:block;width:140px!important;height:140px!important;object-fit:contain;max-height:none}
 #slide.redesigned .contact-pair .contact-inline strong{font:600 17px/1.6 var(--sans);color:var(--type-ink)}
 #slide.redesigned .contact-pair .contact-inline p{font:400 14px/1.7 var(--sans);margin:3px 0;color:var(--type-secondary)}
 #slide.redesigned .contact-pair .contact-inline small,#slide.redesigned .contact-pair .contact-inline a{font:400 12px/1.7 var(--sans)}
@@ -385,6 +385,9 @@ body.speaker-docked .player{grid-column:1/-1;grid-row:2}
 .public-reading-link{padding:17px 0;margin:12px 0 24px;border-top:1px solid var(--rule);display:flex;gap:20px;align-items:baseline;flex-wrap:wrap}
 #slide.redesigned .public-reading-link span{font:500 12px/1.7 var(--sans);color:var(--type-muted);letter-spacing:.05em}
 #slide.redesigned .public-reading-link a{font:500 17px/1.8 var(--sans)}
+/* 屏幕缩放只放大放映内容；目录、讲稿和看图窗口保持独立布局。 */
+#slide.redesigned:is([data-slide-id="topic-2"],[data-slide-id="topic-13"],[data-slide-id="create-friction"],[data-slide-id="topic-15"],[data-slide-id="topic-18"],[data-slide-id="topic-29"],[data-slide-id="community-summary"]) .composition{min-height:var(--stage-height)}
+@media(min-width:1600px){.player{min-height:64px;padding:9px 24px;gap:13px}.player button{font-size:16px;padding:9px 16px}#counter{font-size:15px}}
 @media(max-width:1100px){#slide.redesigned .opening-lower{grid-template-columns:1fr}#slide.redesigned .question-grid{grid-template-columns:1fr}#slide.redesigned .question-grid .contact-pair{justify-content:start}}
 @media(max-width:700px){#slide.redesigned .role-section-title{font-size:22px!important}#slide.redesigned .role-item-title{font-size:19px!important}#slide.redesigned :is(.topic-body,.bio-introduction,.cluster-unit) p,#slide.redesigned :is(.quiet-points,.source-prose)>li{font-size:18px}#slide.redesigned :is(.context-note,.map-detail,.reference-secondary,.reference-footnote,.graph-reading-guide li,.exhibit-notes p){font-size:17px!important}#slide.redesigned :is(.page-description,.page-intro,.reference-lede,.bio-intro,.bibliography-intro){font-size:19px!important}#slide.redesigned .contact-pair{gap:24px;flex-wrap:wrap}#slide.redesigned .contact-pair .contact-inline{grid-template-columns:100px auto}#slide.redesigned .contact-pair .qr-window,#slide.redesigned .contact-pair .official-qr,#slide.redesigned .contact-pair .official-qr img{width:100px!important;height:100px!important}#slide.redesigned .question-grid .contact-pair{gap:30px}#slide.redesigned .question-grid .contact-inline{grid-template-columns:1fr}#slide.redesigned .question-grid .qr-window,#slide.redesigned .question-grid .official-qr,#slide.redesigned .question-grid .official-qr img{width:128px!important;height:128px!important}}
 </style></head>
@@ -409,12 +412,13 @@ function fit(){
  document.body.dataset.viewport=state.viewport;
  slide.style.width='';slide.style.height='';slide.style.minHeight='';slide.style.transform='none';
  if(state.viewport==='auto'){
-  const base=area.clientWidth,target=area.clientHeight;
+  const scale=Math.max(1,Math.min(area.clientWidth/1440,area.clientHeight/700));
+  const base=area.clientWidth/scale,target=area.clientHeight/scale;
   slide.style.setProperty('--stage-height',target+'px');slide.style.width=base+'px';slide.style.height='auto';
   const natural=Math.ceil(slide.scrollHeight),long=natural>target+4;
   document.body.dataset.reading=long?'long':'page';
-  slide.style.height=(long?natural:target)+'px';slide.style.transform='none';
-  frame.style.width=base+'px';frame.style.height=(long?natural:target)+'px';
+  slide.style.height=(long?natural:target)+'px';slide.style.transform='scale('+scale+')';
+  frame.style.width=area.clientWidth+'px';frame.style.height=Math.ceil((long?natural:target)*scale)+'px';
  }else if(state.viewport==='scroll'){
   document.body.dataset.reading='long';frame.style.width='';frame.style.height='';
  }else{
